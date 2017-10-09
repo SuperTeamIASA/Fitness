@@ -1,0 +1,153 @@
+﻿<Page x:Class="FitnessCentreApp.View.ClientOperationFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="890"
+      Title="ClientOperationFrame">
+    <Page.DataContext>
+        <local:ClientOperationFrameViewModel></local:ClientOperationFrameViewModel>
+    </Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            
+        </Style>
+        <Style x:Key="TextBindStyle" TargetType="TextBlock">
+            
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            
+        </Style>
+        <Style x:Key="TextInfoStyle" TargetType="TextBlock">
+            
+        </Style>
+        <Style x:Key="TextBindInfoStyle" TargetType="TextBlock">
+            
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="700*"></ColumnDefinition>
+            <ColumnDefinition Width="290*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="119*" ></RowDefinition>
+                <RowDefinition Height="238*"></RowDefinition>
+                <RowDefinition Height="342*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Найти клиента" HorizontalAlignment="Center" FontSize="30" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Имя" Margin="10" />
+                    <TextBox Margin="10 0 10 0" Height="20" Width="100" BorderBrush="Black" BorderThickness="1"/>
+                    <TextBlock  Text="Фамилия" Margin="10" />
+                    <TextBox Margin="10 0 10 0" Height="20" Width="100" BorderBrush="Black" BorderThickness="1" />
+                </StackPanel>
+                <ComboBox HorizontalAlignment="Center"  Width="120" Margin="0 10 0 0">
+                </ComboBox>
+            </StackPanel>
+            <StackPanel  Grid.Row="1" >
+                <TextBlock Text="Абонимент"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Текущий абонимент"  Style="{StaticResource TextStyle}"/>
+                    <TextBlock Style="{StaticResource TextBindStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Осталось дней" Style="{StaticResource TextStyle}" />
+                    <TextBlock Style="{StaticResource TextBindStyle}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Осталось груповых занятий" Style="{StaticResource TextStyle}" />
+                    <TextBlock Style="{StaticResource TextBindStyle}"/>
+                </StackPanel>
+
+                <TextBlock Text="Купить дополнительные груповые занятия:" Style="{StaticResource TextStyle}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Количевство занятий:" Style="{StaticResource TextStyle}" />
+                    <TextBox Style="{StaticResource TextBoxStyle}"/>
+                </StackPanel>
+                <TextBlock Text="Купить абонимент на следующий месяц" Style="{StaticResource TextStyle}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Выберите абонимент" Style="{StaticResource TextStyle}"/>
+                    <CheckBox />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Всего к оплате:" Style="{StaticResource TextStyle}"/>
+                    <TextBlock />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ButtonStyle}" Content="Оплатить" />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel  Grid.Row="2"  >
+                <TextBlock Text="Индивидуальные"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Выберите тип занятия" Style="{StaticResource TextStyle}"/>
+                    <CheckBox />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Выберите тренера" Style="{StaticResource TextStyle}" />
+                    <CheckBox />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Дата" Style="{StaticResource TextStyle}"/>
+                    <DatePicker />
+                    <TextBlock Text="Время"/>
+                    <CheckBox/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
+                    <TextBlock Text="Всего к оплате:" Style="{StaticResource TextStyle}"/>
+                    <TextBlock />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ButtonStyle}" Content="Оплатить" />
+
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock Text="Информация о клиенте" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" FontSize="20"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Имя" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource TextBindInfoStyle}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Фамилия" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource TextBindInfoStyle}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Гендер" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource TextBindInfoStyle}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Email" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource  TextBindInfoStyle}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Phone" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource TextBindInfoStyle}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Город" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource TextBindInfoStyle}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Адрес" Style="{StaticResource TextInfoStyle}"></TextBlock>
+                <TextBlock Style="{StaticResource TextBindInfoStyle}"/>
+            </StackPanel>
+            <Expander Header="Дополнительная информация" >
+                <TextBlock />
+            </Expander>
+            <Image/>
+
+        </StackPanel>
+
+    </Grid>
+</Page>

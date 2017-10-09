@@ -1,0 +1,27 @@
+﻿<Page x:Class="FitnessCentreApp.View.Controls_Director"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FitnessCentreApp.View"
+      xmlns:q="clr-namespace:FitnessCentreApp.ViewModel"
+      mc:Ignorable="d" 
+      d:DesignHeight="421" d:DesignWidth="265"
+      Title="Controls_Director"  ShowsNavigationUI="False">
+    <Page.DataContext>
+        <q:Controls_DirectorViewModel></q:Controls_DirectorViewModel>
+    </Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="20 5"></Setter>
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="55"></Setter>
+        </Style>
+    </Page.Resources>
+    <StackPanel>
+        <Button  Content="Администратор" Command="{Binding AdminModeCommand}"  Style="{StaticResource ButtonStyle}"/>
+        <Button Content="Управление персоналом"  Command="{Binding EmployySetsCommand}" Style="{StaticResource ButtonStyle}"/>
+        <Button  Content="Управление должностями" Command="{Binding PostSetsCommand}" Style="{StaticResource ButtonStyle}" />
+        <Button Content="Бугалтерия" Command="{Binding AccountingCommand}" Style="{StaticResource ButtonStyle}"/>
+    </StackPanel>
+</Page>

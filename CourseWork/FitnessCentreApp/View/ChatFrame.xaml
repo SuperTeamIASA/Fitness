@@ -1,0 +1,67 @@
+﻿<Page x:Class="FitnessCentreApp.View.ChatFrame"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+      mc:Ignorable="d" 
+       d:DesignHeight="700" d:DesignWidth="890"
+      Title="ChatFrame">
+    <Page.DataContext>
+        <local:ChatFrameViewModel></local:ChatFrameViewModel>
+    </Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="MessegeStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"></Setter>
+        </Style>
+        <Style x:Key="MessageAuthor" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="15"></Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="295*"/>
+            <ColumnDefinition Width="594*"/>
+        </Grid.ColumnDefinitions>
+
+        <ListBox Grid.Column="0" Margin="50 100 35 120" ItemsSource="{Binding Path= ChatUsers}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Height="80" Orientation="Horizontal">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Text="{Binding Path=Name}" />
+                            <TextBlock Text="{Binding Path=Surname}" />
+                        </StackPanel>
+                        <Image Source="C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Resources\mess.png" Visibility="{Binding HaveNewMessage}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1" Margin="50">
+            <ListBox Height="400" Margin="40 40 95 0" ItemsSource="{Binding Path=MessagesWithUser,UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border>
+                        <StackPanel Orientation="Horizontal"  HorizontalAlignment="{Binding Path=alignment}">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Path=CurrentUserName}" Style="{StaticResource MessageAuthor}"/>
+                                    <TextBlock Text="{Binding Path=MessageText}" Style="{StaticResource MessegeStyle}"/>
+                                </StackPanel>
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Path=Data}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <StackPanel Orientation="Horizontal" Margin="40 0 0 0 ">
+                <TextBox Height="60" BorderBrush="Black" BorderThickness="3" Width="250" TextWrapping="Wrap"   Text="{Binding Path=Message,UpdateSourceTrigger=PropertyChanged}"/>
+                <StackPanel Orientation="Vertical" Margin="10 10">
+                    <Button Content="Очистить" Width="100" Height="25" Margin="0 0 0 5" Command="{Binding ClearCommand}"/>
+                    <Button Content="Отправить" Height="25" Command="{Binding SendCommand}"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>
