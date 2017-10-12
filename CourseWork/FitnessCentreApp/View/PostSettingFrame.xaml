@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
-      xmlns:res="clr-namespace:FitnessCentreApp"
       mc:Ignorable="d" 
        d:DesignHeight="700" d:DesignWidth="890"
       Title="PostSettingFrame">
@@ -22,13 +21,13 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <TextBlock Text="{x:Static res:Strings.Posts}" HorizontalAlignment="Center" FontSize="30" Margin="0 30"/>
+            <TextBlock Text="Должность" HorizontalAlignment="Center" FontSize="30" Margin="0 30"/>
             <ListBox  Margin="100 0 100 0" MinHeight="400">
                 <ListBox.ItemTemplate>
                     <DataTemplate >
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Style="{StaticResource TextStle}" />
+                                <TextBlock Style="{StaticResource TextStle}"/>
                                 <TextBlock />
                             </StackPanel>
                         </StackPanel>

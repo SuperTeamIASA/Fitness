@@ -13,6 +13,3 @@ C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Applicati
 C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\obj\Debug\Server Application.exe
 C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\obj\Debug\Server Application.pdb
 C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\bin\Debug\Server Application.exe.config
-C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\obj\Debug\Server Application.exe
-C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\obj\Debug\Server Application.pdb
