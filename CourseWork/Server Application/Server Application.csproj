@@ -36,10 +36,20 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,17 +69,74 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Aboniments.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AbonimentsWithClient.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChatUsers.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\ClientConnection.cs" />
     <Compile Include="Model\ClientService.cs" />
     <Compile Include="Model\ConnectionForFitness.cs" />
+    <Compile Include="Model\CustomerInfo.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Customers.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Employee.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FitnessDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FitnessDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FitnessDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\FitnessDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FitnessDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GroupLessons.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\IClientContract.cs" />
     <Compile Include="Model\IManagerContract.cs" />
+    <Compile Include="Model\IndividualLesson.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LessonsType.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ManagerService.cs" />
     <Compile Include="Model\MessageClass.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\New.cs" />
+    <Compile Include="Model\Posts.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SportHalls.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagrams_Result.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagrams.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrainerInfo.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
@@ -104,6 +171,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Model\FitnessDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FitnessDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\FitnessDB.edmx.diagram">
+      <DependentUpon>FitnessDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +196,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Model\q.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\FitnessDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FitnessDB.Context.cs</LastGenOutput>
+      <DependentUpon>FitnessDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\FitnessDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FitnessDB.edmx</DependentUpon>
+      <LastGenOutput>FitnessDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -27,34 +27,19 @@ namespace FitnessCentreApp.Model
         public string City { get; set; }
         [DataMember]
         public string Adress { get; set; }
-        [DataMember]
-        public byte[] imagebytearray { get; set; }
-        public string Image1
-        {
-            get
-            {
+       //public string Image1
+       // {
+       //     get
+       //     {
 
-                System.IO.MemoryStream memoryStream1 = new System.IO.MemoryStream();
-                foreach (byte b1 in imagebytearray) memoryStream1.WriteByte(b1);
-                Image image1 = Image.FromStream(memoryStream1);
-                image1.Save("Images\\" + ID+ ".png", System.Drawing.Imaging.ImageFormat.Png);
+       //         System.IO.MemoryStream memoryStream1 = new System.IO.MemoryStream();
+       //         foreach (byte b1 in imagebytearray) memoryStream1.WriteByte(b1);
+       //         Image image1 = Image.FromStream(memoryStream1);
+       //         image1.Save("Images\\" + ID+ ".png", System.Drawing.Imaging.ImageFormat.Png);
                 
-                return "Images\\" + ID + ".png";
-            }
-            //set
-            //{
-            //    if (value == null)
-            //        Image1 = String.Empty;
-            //    Image image = Image.FromFile(value);
-
-            //    System.IO.MemoryStream memoryStream = new System.IO.MemoryStream();
-            //    image.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
-            //    imagebytearray = memoryStream.ToArray();
-            //}
-
-
-
-        }
+       //         return "Images\\" + ID + ".png";
+       //     }
+       //        }
         public Aboniment AbonimentInfo { get; set; }
 
     }

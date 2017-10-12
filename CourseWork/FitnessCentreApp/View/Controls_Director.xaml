@@ -22,6 +22,7 @@
         <Button  Content="Администратор" Command="{Binding AdminModeCommand}"  Style="{StaticResource ButtonStyle}"/>
         <Button Content="Управление персоналом"  Command="{Binding EmployySetsCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button  Content="Управление должностями" Command="{Binding PostSetsCommand}" Style="{StaticResource ButtonStyle}" />
+        <Button Content="Управление абониментами" Command="{Binding AbonimetsCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button Content="Бугалтерия" Command="{Binding AccountingCommand}" Style="{StaticResource ButtonStyle}"/>
     </StackPanel>
 </Page>

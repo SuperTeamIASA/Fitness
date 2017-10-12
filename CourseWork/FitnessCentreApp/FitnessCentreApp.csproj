@@ -74,6 +74,7 @@
     <Compile Include="Model\MessageClass.cs" />
     <Compile Include="Model\New.cs" />
     <Compile Include="Model\OperationManager.cs" />
+    <Compile Include="ViewModel\AbonimentChangeViewModel.cs" />
     <Compile Include="ViewModel\AddNewClientFrameViewModel.cs" />
     <Compile Include="ViewModel\ChatFrameViewModel.cs" />
     <Compile Include="ViewModel\ClientOperationFrameViewModel.cs" />
@@ -88,6 +89,9 @@
     <Compile Include="ViewModel\PostSettingFrameViewModel.cs" />
     <Compile Include="ViewModel\ScheduleViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\AbonimentsChanges.xaml.cs">
+      <DependentUpon>AbonimentsChanges.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddNewClientFrame.xaml.cs">
       <DependentUpon>AddNewClientFrame.xaml</DependentUpon>
     </Compile>
@@ -143,6 +147,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AbonimentsChanges.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddNewClientFrame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

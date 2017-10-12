@@ -19,21 +19,20 @@
         </Style>
     </Page.Resources>
     <StackPanel>
-<<<<<<< HEAD
+<!--
         <Button  Content="{x:Static res:Strings.director}" Command="{Binding  DirectorModeCommand}"  Style="{StaticResource ButtonStyle}"/>
         <Button  Content="{x:Static res:Strings.addnewclient}" Command="{Binding AddNewClientCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button  Content="{x:Static res:Strings.operationwithclients}" Command="{Binding OperationClientCommand}" Style="{StaticResource ButtonStyle}" />
         <Button Content="{x:Static res:Strings.addNew}" Command="{Binding NewsCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button Content="{x:Static res:Strings.schedule}" Command="{Binding ScheduleCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button Content="{x:Static res:Strings.chat}" Command="{Binding ChatCommand}" Style="{StaticResource ButtonStyle}"/>
-=======
+-->
         <Button Name="DirectorMode" Content="Директор" Command="{Binding  DirectorModeCommand}"  Style="{StaticResource ButtonStyle}"/>
         <Button Content="Добавить нового клиента" Command="{Binding AddNewClientCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button  Content="Операции с клиентами" Command="{Binding OperationClientCommand}" Style="{StaticResource ButtonStyle}" />
         <Button Content="Довавить новость" Command="{Binding NewsCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button Content="Расписание" Command="{Binding ScheduleCommand}" Style="{StaticResource ButtonStyle}"/>
         <Button Content="Чат" Command="{Binding ChatCommand}" Style="{StaticResource ButtonStyle}"/>
->>>>>>> parent of 5cca175... changes
     </StackPanel>
     
 </Page>

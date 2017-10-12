@@ -11,6 +11,7 @@ namespace Server_Application.Model
     {
         public void AddNew(New news)
         {
+           
             throw new NotImplementedException();
         }
 

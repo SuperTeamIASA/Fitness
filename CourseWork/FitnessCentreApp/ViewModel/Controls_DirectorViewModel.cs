@@ -14,6 +14,7 @@ namespace FitnessCentreApp.ViewModel
         RelayCommand _EmployeeSets;
         RelayCommand _PostSets;
         RelayCommand _Accounting;
+        RelayCommand _AbonimetsCommand;
     public     ICommand AdminModeCommand
         {
             get
@@ -50,6 +51,26 @@ namespace FitnessCentreApp.ViewModel
                 return _Accounting;
             }
         }
+        public ICommand AbonimetsCommand
+        {
+            get
+            {
+                if (_AbonimetsCommand == null)
+                    _AbonimetsCommand = new RelayCommand(Executeabons, CanAbons);
+                return _AbonimetsCommand;
+            }
+        }
+
+        private bool CanAbons(object obj)
+        {
+            return true;
+        }
+
+        private void Executeabons(object obj)
+        {
+            (App.Current.MainWindow.DataContext as MainWindowViewModel).MainFrame = new AbonimentsChanges();
+        }
+
         void ExecuteAdminMode(object o)
         {
             (App.Current.MainWindow.DataContext as MainWindowViewModel).Controls  = new Controls_Admin();

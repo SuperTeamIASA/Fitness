@@ -4,29 +4,17 @@
 winexe
 C#
 .cs
-<<<<<<< HEAD
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\
-=======
-C:\Users\vladk\Documents\Visual Studio 2015\Projects\CourseWork\FitnessCentreApp\obj\Debug\
->>>>>>> parent of 5cca175... changes
 FitnessCentreApp
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\App.xaml
-15-1911182319
+16252789949
 
-481598045861
+49-160898100
 18-475370205
-=======
-C:\Users\vladk\Documents\Visual Studio 2015\Projects\CourseWork\FitnessCentreApp\App.xaml
-15-1911182319
+MainWindow.xaml;View\AbonimentsChanges.xaml;View\AddNewClientFrame.xaml;View\ChatFrame.xaml;View\ClientOperationFrame.xaml;View\Controls_Admin.xaml;View\Controls_Director.xaml;View\DefaultAdminFrame.xaml;View\DefaultDirectorFrame.xaml;View\EmployeeSettingFrame.xaml;View\IncomeCashFrame.xaml;View\LoginWindow.xaml;View\NewCreator.xaml;View\NewsFrame.xaml;View\PostSettingFrame.xaml;View\Schedule.xaml;
 
-47208451073
-18-1238715246
->>>>>>> parent of 5cca175... changes
-MainWindow.xaml;View\AddNewClientFrame.xaml;View\ChatFrame.xaml;View\ClientOperationFrame.xaml;View\Controls_Admin.xaml;View\Controls_Director.xaml;View\DefaultAdminFrame.xaml;View\DefaultDirectorFrame.xaml;View\EmployeeSettingFrame.xaml;View\IncomeCashFrame.xaml;View\LoginWindow.xaml;View\NewCreator.xaml;View\NewsFrame.xaml;View\PostSettingFrame.xaml;View\Schedule.xaml;
-
-True
+False
 

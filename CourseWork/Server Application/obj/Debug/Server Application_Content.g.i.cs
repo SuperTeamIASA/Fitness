@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/fitnessdb.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model/fitnessdb.tt")]
 
 
