@@ -115,6 +115,33 @@ namespace FitnessCentreApp {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Вставить картинку.
+        /// </summary>
+        internal static string attachimage {
+            get {
+                return ResourceManager.GetString("attachimage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Аунтификация.
+        /// </summary>
+        internal static string auntification {
+            get {
+                return ResourceManager.GetString("auntification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Отмена.
+        /// </summary>
+        internal static string cancel {
+            get {
+                return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Чат.
         /// </summary>
         internal static string chat {
@@ -124,11 +151,38 @@ namespace FitnessCentreApp {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Подтвердить.
+        /// </summary>
+        internal static string confirm {
+            get {
+                return ResourceManager.GetString("confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Удалить.
+        /// </summary>
+        internal static string delete_new {
+            get {
+                return ResourceManager.GetString("delete_new", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Директор.
         /// </summary>
         internal static string director {
             get {
                 return ResourceManager.GetString("director", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Добавть новость.
+        /// </summary>
+        internal static string doChanges {
+            get {
+                return ResourceManager.GetString("doChanges", resourceCulture);
             }
         }
         
@@ -151,6 +205,15 @@ namespace FitnessCentreApp {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Введите пароль директора.
+        /// </summary>
+        internal static string enterdirectorpassword {
+            get {
+                return ResourceManager.GetString("enterdirectorpassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Бугалтерия.
         /// </summary>
         internal static string incomecash {
@@ -165,6 +228,15 @@ namespace FitnessCentreApp {
         internal static string lastname {
             get {
                 return ResourceManager.GetString("lastname", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Основной текст.
+        /// </summary>
+        internal static string maintext {
+            get {
+                return ResourceManager.GetString("maintext", resourceCulture);
             }
         }
         
@@ -228,6 +300,15 @@ namespace FitnessCentreApp {
         internal static string send {
             get {
                 return ResourceManager.GetString("send", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Заголовок.
+        /// </summary>
+        internal static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
             }
         }
     }

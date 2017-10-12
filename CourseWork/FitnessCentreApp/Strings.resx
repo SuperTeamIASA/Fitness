@@ -174,4 +174,31 @@
   <data name="_clear" xml:space="preserve">
     <value>Очистить</value>
   </data>
+  <data name="attachimage" xml:space="preserve">
+    <value>Вставить картинку</value>
+  </data>
+  <data name="auntification" xml:space="preserve">
+    <value>Аунтификация</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="delete_new" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="doChanges" xml:space="preserve">
+    <value>Добавть новость</value>
+  </data>
+  <data name="enterdirectorpassword" xml:space="preserve">
+    <value>Введите пароль директора</value>
+  </data>
+  <data name="maintext" xml:space="preserve">
+    <value>Основной текст</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
 </root>
