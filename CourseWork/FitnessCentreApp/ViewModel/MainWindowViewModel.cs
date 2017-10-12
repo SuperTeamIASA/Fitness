@@ -12,8 +12,8 @@ namespace FitnessCentreApp.ViewModel
 {
     class MainWindowViewModel : ViewModelBase
     {
-        private static Page _controls;
-        private static Page _mainFrame;
+        private static Page _controls = null;
+        private static Page _mainFrame = null;
       public  Page Controls
             {
             get
