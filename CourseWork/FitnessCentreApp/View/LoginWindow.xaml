@@ -4,16 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
-        xmlns:res="clr-namespace:FitnessCentreApp"
         mc:Ignorable="d"
-     Name="loginWin" Title="{x:Static res:Strings.auntification}" Height="150" Width="300" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterOwner"  WindowStyle="ToolWindow">
+     Name="loginWin" Title="Аунтификация" Height="150" Width="300" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterOwner"  WindowStyle="ToolWindow">
     <Window.DataContext>
         <local:LoginWindowViewModel></local:LoginWindowViewModel>
     </Window.DataContext>
     <StackPanel Margin="10">
-        <TextBlock Name="Text1" Text="{x:Static res:Strings.enterdirectorpassword}" HorizontalAlignment="Center" Foreground="{Binding ElementName=Password,Path=BorderBrush,Mode=TwoWay}"/>
+        <TextBlock Name="Text1" Text="Введите пароль директора" HorizontalAlignment="Center" Foreground="{Binding ElementName=Password,Path=BorderBrush,Mode=TwoWay}"/>
         <PasswordBox Name="Password" Margin="40 10 40 0 " MaxLength="16" BorderBrush="Black"></PasswordBox>
-        <Button Content="{x:Static res:Strings.confirm}" VerticalAlignment="Center" Command="{Binding LoginCommand}" Margin="0 8 " CommandParameter="{Binding ElementName=loginWin}"  HorizontalAlignment="Center"/>
-        <Button Name="Cancel" Content="{x:Static res:Strings.cancel}" HorizontalAlignment="Center" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=loginWin}"  VerticalAlignment="Center" />
+        <Button Content="Подтвердить" VerticalAlignment="Center" Command="{Binding LoginCommand}" Margin="0 8 " CommandParameter="{Binding ElementName=loginWin}"  HorizontalAlignment="Center"/>
+        <Button Name="Cancel" Content="Отмена" HorizontalAlignment="Center" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=loginWin}"  VerticalAlignment="Center" />
     </StackPanel>
 </Window>

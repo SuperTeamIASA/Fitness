@@ -4,18 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
-        xmlns:res="clr-namespace:FitnessCentreApp"
         mc:Ignorable="d"
         Title="Создать новость" Height="300" Width="450">
     <StackPanel Margin="20">
-        <TextBlock  Text="{x:Static res:Strings.title}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 5 5 5" FontSize="13"/>
+        <TextBlock  Text="Заголовок" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 5 5 5" FontSize="13"/>
         <TextBox x:Name="Titleblock" TextAlignment="Left" HorizontalAlignment="Left" Height="20" Margin="10 0 0 0" Width="150" Text="{Binding Path=CurrentNew.Title,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" BorderBrush="Black"  BorderThickness="1" TabIndex="1"/>
-        <TextBlock  Text="{x:Static res:Strings.maintext}" HorizontalAlignment="Left" Margin="10 5 5 5" FontSize="13" />
+        <TextBlock  Text="Основной текст" HorizontalAlignment="Left" Margin="10 5 5 5" FontSize="13" />
       <!--  <RichTextBox Margin="10" Height="70" BorderThickness="1" BorderBrush="Black"  ></RichTextBox>-->
         <TextBox x:Name="TextBlock" Margin="10" Height="70" BorderThickness="1" BorderBrush="Black" FontSize="16" Text="{Binding Path=CurrentNew.NewText,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" TabIndex="2"/>
         <StackPanel Orientation="Horizontal">
-            <Button Content="{x:Static res:Strings.attachimage}" VerticalAlignment="Stretch" Command="{Binding AttachPhotoCommand}" HorizontalAlignment="Left" Margin="20 0 0 0 " Height="30" TabIndex="3"  />
-            <Button Content="{x:Static res:Strings.addNew}" HorizontalAlignment="Right" Margin="150 10 10 10" Height="30" Command="{Binding AddNewCommand}" TabIndex="4"/>
+            <Button Content="Вставить картинку" VerticalAlignment="Stretch" Command="{Binding AttachPhotoCommand}" HorizontalAlignment="Left" Margin="20 0 0 0 " Height="30" TabIndex="3"  />
+            <Button Content="Добавить новость" HorizontalAlignment="Right" Margin="150 10 10 10" Height="30" Command="{Binding AddNewCommand}" TabIndex="4"/>
 
         </StackPanel>
       

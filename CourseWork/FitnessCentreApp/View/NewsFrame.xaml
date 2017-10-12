@@ -4,7 +4,6 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
-      xmlns:res="clr-namespace:FitnessCentreApp"
       mc:Ignorable="d" 
        d:DesignHeight="700" d:DesignWidth="890"
       Title="NewsFrame">
@@ -24,9 +23,9 @@
             <ColumnDefinition Width="561*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" >
-            <Button Content="{x:Static res:Strings.addNew}" Style="{StaticResource ButtonStyle}" Command="{Binding AddNewCommand}"/>
-            <Button Content="{x:Static res:Strings.doChanges}" Style="{StaticResource ButtonStyle}" Command="{Binding NewSettingCommand}"/>
-            <Button Content="{x:Static res:Strings.delete_new}" Style="{StaticResource ButtonStyle}" Command="{Binding DeleteCommand}"/>
+            <Button Content="Добавить новость" Style="{StaticResource ButtonStyle}" Command="{Binding AddNewCommand}"/>
+            <Button Content="Редактировать" Style="{StaticResource ButtonStyle}" Command="{Binding NewSettingCommand}"/>
+            <Button Content="Удалить" Style="{StaticResource ButtonStyle}" Command="{Binding DeleteCommand}"/>
         </StackPanel>
         <ListBox Grid.Column="1" Margin="30" ItemsSource="{Binding Path=NEWS}" SelectedIndex="{Binding Path=SelectedListItem}">
             <ListBox.ItemTemplate>
