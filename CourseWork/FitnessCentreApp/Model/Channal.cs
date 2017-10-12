@@ -25,7 +25,9 @@ namespace FitnessCentreApp.Model
             factory = new ChannelFactory<IManagerContract>(binding, endpoint);
             channal = factory.CreateChannel();
            var f =  channal.getsession();
-            FileStream fs = new FileStream(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Model\session.xml", FileMode.Create);
+
+            
+            FileStream fs = new FileStream(System.IO.Path.GetDirectoryName(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName) + "/session.xml", FileMode.Create);
             fs.Write(f,0,f.Length);
             
         }

@@ -9,6 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using FitnessCentreApp;
 using FitnessCentreApp.View;
 using FitnessCentreApp.ViewModel;
 using System;
@@ -42,7 +43,7 @@ namespace FitnessCentreApp.View {
     public partial class Controls_Admin : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
         
         
-        #line 22 "..\..\..\View\Controls_Admin.xaml"
+        #line 23 "..\..\..\View\Controls_Admin.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button DirectorMode;
         

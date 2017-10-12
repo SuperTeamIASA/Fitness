@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
       mc:Ignorable="d" 
-      xmlns:res="clr-namespace:FitnessCentreApp.Properties"
+      xmlns:res="clr-namespace:FitnessCentreApp"
       d:DesignHeight="700" d:DesignWidth="890"
       Title="AddNewClientFrame">
     <Page.DataContext>
@@ -38,31 +38,31 @@
             <ColumnDefinition Width="49*"></ColumnDefinition>
             <ColumnDefinition Width="20*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="1" Grid.Row="0" Text="Добавить нового клиента" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="40"></TextBlock>
+        <TextBlock Grid.Column="1" Grid.Row="0" Text="{x:Static res:Strings.addnewclient}" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="40"></TextBlock>
         <StackPanel Grid.Column="1" Grid.Row="1" >
             <WrapPanel Orientation="Vertical" Margin="30" >
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Имя" Style="{StaticResource TextStyle}"></TextBlock>
+                    <TextBlock Text="{x:Static res:Strings.name}" Style="{StaticResource TextStyle}"></TextBlock>
                     <TextBox  Style="{StaticResource BoxStyle}" Text="{Binding Path=CurrentClient.Name,UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Фамилия" Style="{StaticResource TextStyle}"></TextBlock>
+                    <TextBlock Text="{x:Static res:Strings.lastname}" Style="{StaticResource TextStyle}"></TextBlock>
                     <TextBox  Style="{StaticResource BoxStyle}" Text="{Binding Path=CurrentClient.Surname,UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Email" Style="{StaticResource TextStyle}"></TextBlock>
+                    <TextBlock Text="{x:Static res:Strings.email}" Style="{StaticResource TextStyle}"></TextBlock>
                     <TextBox  Style="{StaticResource BoxStyle}" Text="{Binding Path=CurrentClient.Email,UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Телефон" Style="{StaticResource TextStyle}" ></TextBlock>
+                    <TextBlock Text="{x:Static res:Strings.phone}" Style="{StaticResource TextStyle}" ></TextBlock>
                     <TextBox Style="{StaticResource BoxStyle}" Text="{Binding Path=CurrentClient.Phone,UpdateSourceTrigger=PropertyChanged}" />
                 </StackPanel>
                 
                 
             </WrapPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button HorizontalAlignment="Center" Command="{Binding DeleteRowCommand}" Height="40" Width="100" Margin="20" Content="Сброс"/>
-                <Button HorizontalAlignment="Center" Height="40" Command="{Binding AddClientCommand}" Width="100" Margin="20" Content="Добавть"/>
+                <Button HorizontalAlignment="Center" Command="{Binding DeleteRowCommand}" Height="40" Width="100" Margin="20" Content="{x:Static res:Strings._break}"/>
+                <Button HorizontalAlignment="Center" Height="40" Command="{Binding AddClientCommand}" Width="100" Margin="20" Content="{x:Static res:Strings.add}"/>
             </StackPanel>
             <TextBlock Text="{Binding Path=Result,Mode=TwoWay}" HorizontalAlignment="Center" Foreground="Green" Width="200" Height="30" FontSize="25"/>
         </StackPanel>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Xml.Linq;
 
 namespace Server_Application.Model
 {
@@ -44,11 +45,14 @@ namespace Server_Application.Model
 
         public byte[] getsession()
         {
+            
             FileStream fs = new FileStream(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\Model\q.xml", FileMode.Open);
             byte[] array = new byte[10000];
             fs.Read(array, 0, 10000);
             fs.Close();
+            
             return array;
+
         }
 
         public void SendMessade(ChatUser user, MessageClass message)
