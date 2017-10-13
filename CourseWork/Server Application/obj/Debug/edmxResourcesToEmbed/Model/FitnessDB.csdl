@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FitnessCenterDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Aboniments">
+    <Key>
+      <PropertyRef Name="abonimentId" />
+    </Key>
+    <Property Name="abonimentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="abonimentDescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="abonimentDuration" Type="Int32" Nullable="false" />
+    <Property Name="poolacsess" Type="Int32" Nullable="false" />
+    <Property Name="abonimentCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="abonimentSale" Type="Double" />
+    <Property Name="groupCount" Type="Int32" />
+    <NavigationProperty Name="AbonimentsWithClient" Relationship="Self.FK__Aboniment__aboni__339FAB6E" FromRole="Aboniments" ToRole="AbonimentsWithClient" />
+  </EntityType>
+  <EntityType Name="AbonimentsWithClient">
+    <Key>
+      <PropertyRef Name="abonimentClientId" />
+    </Key>
+    <Property Name="abonimentClientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="abonimentId" Type="Int32" />
+    <Property Name="selldate" Type="DateTime" Precision="0" />
+    <Property Name="externgroup" Type="Int32" />
+    <NavigationProperty Name="Aboniments" Relationship="Self.FK__Aboniment__aboni__339FAB6E" FromRole="AbonimentsWithClient" ToRole="Aboniments" />
+    <NavigationProperty Name="CustomerInfo" Relationship="Self.FK__CustomerI__aboni__3B40CD36" FromRole="AbonimentsWithClient" ToRole="CustomerInfo" />
+  </EntityType>
+  <EntityType Name="CustomerInfo">
+    <Key>
+      <PropertyRef Name="customerInfoId" />
+    </Key>
+    <Property Name="customerInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerId" Type="Int32" />
+    <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="sex" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="adress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="bdate" Type="DateTime" Precision="0" />
+    <Property Name="Phone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="userimage" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="detailinfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="abonimentClientId" Type="Int32" />
+    <NavigationProperty Name="AbonimentsWithClient" Relationship="Self.FK__CustomerI__aboni__3B40CD36" FromRole="CustomerInfo" ToRole="AbonimentsWithClient" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK__CustomerI__custo__395884C4" FromRole="CustomerInfo" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastname" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="CustomerInfo" Relationship="Self.FK__CustomerI__custo__395884C4" FromRole="Customers" ToRole="CustomerInfo" />
+    <NavigationProperty Name="IndividualLesson" Relationship="Self.FK__Individua__clien__56E8E7AB" FromRole="Customers" ToRole="IndividualLesson" />
+    <NavigationProperty Name="GroupLessons" Relationship="Self.CustomerGroup" FromRole="Customers" ToRole="GroupLessons" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employeeId" />
+    </Key>
+    <Property Name="employeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emplastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="empEmail" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="empBdate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="empPhone" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+    <Property Name="postid" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK__Employee__postid__43D61337" FromRole="Employee" ToRole="Posts" />
+    <NavigationProperty Name="TrainerInfo" Relationship="Self.FK__TrainerIn__empid__47A6A41B" FromRole="Employee" ToRole="TrainerInfo" />
+  </EntityType>
+  <EntityType Name="GroupLessons">
+    <Key>
+      <PropertyRef Name="grouplessonId" />
+    </Key>
+    <Property Name="grouplessonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lessontypeId" Type="Int32" Nullable="false" />
+    <Property Name="lessondate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="lessontime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="trainerId" Type="Int32" />
+    <Property Name="SportHallid" Type="Int32" />
+    <NavigationProperty Name="LessonsType" Relationship="Self.FK__GroupLess__lesso__4C6B5938" FromRole="GroupLessons" ToRole="LessonsType" />
+    <NavigationProperty Name="SportHalls" Relationship="Self.FK__GroupLess__Sport__4E53A1AA" FromRole="GroupLessons" ToRole="SportHalls" />
+    <NavigationProperty Name="TrainerInfo" Relationship="Self.FK__GroupLess__train__4D5F7D71" FromRole="GroupLessons" ToRole="TrainerInfo" />
+    <NavigationProperty Name="Customers" Relationship="Self.CustomerGroup" FromRole="GroupLessons" ToRole="Customers" />
+  </EntityType>
+  <EntityType Name="IndividualLesson">
+    <Key>
+      <PropertyRef Name="IndividualLesson1" />
+    </Key>
+    <Property Name="IndividualLesson1" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lessontypeId" Type="Int32" Nullable="false" />
+    <Property Name="trainerId" Type="Int32" Nullable="false" />
+    <Property Name="clientid" Type="Int32" Nullable="false" />
+    <Property Name="lessondate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="lessontime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="SportHallid" Type="Int32" />
+    <NavigationProperty Name="Customers" Relationship="Self.FK__Individua__clien__56E8E7AB" FromRole="IndividualLesson" ToRole="Customers" />
+    <NavigationProperty Name="LessonsType" Relationship="Self.FK__Individua__lesso__55009F39" FromRole="IndividualLesson" ToRole="LessonsType" />
+    <NavigationProperty Name="SportHalls" Relationship="Self.FK__Individua__Sport__57DD0BE4" FromRole="IndividualLesson" ToRole="SportHalls" />
+    <NavigationProperty Name="TrainerInfo" Relationship="Self.FK__Individua__train__55F4C372" FromRole="IndividualLesson" ToRole="TrainerInfo" />
+  </EntityType>
+  <EntityType Name="LessonsType">
+    <Key>
+      <PropertyRef Name="lessonId" />
+    </Key>
+    <Property Name="lessonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="lessonname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lessonDescription" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lessonDurarion" Type="Int32" Nullable="false" />
+    <Property Name="grouplessoncost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="individuallessoncost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="GroupLessons" Relationship="Self.FK__GroupLess__lesso__4C6B5938" FromRole="LessonsType" ToRole="GroupLessons" />
+    <NavigationProperty Name="IndividualLesson" Relationship="Self.FK__Individua__lesso__55009F39" FromRole="LessonsType" ToRole="IndividualLesson" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="postId" />
+    </Key>
+    <Property Name="postId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="postName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="postDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="postsalary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Employee__postid__43D61337" FromRole="Posts" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="SportHalls">
+    <Key>
+      <PropertyRef Name="hallID" />
+    </Key>
+    <Property Name="hallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hallAmount" Type="Int32" Nullable="false" />
+    <Property Name="hallDescription" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="GroupLessons" Relationship="Self.FK__GroupLess__Sport__4E53A1AA" FromRole="SportHalls" ToRole="GroupLessons" />
+    <NavigationProperty Name="IndividualLesson" Relationship="Self.FK__Individua__Sport__57DD0BE4" FromRole="SportHalls" ToRole="IndividualLesson" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TrainerInfo">
+    <Key>
+      <PropertyRef Name="trainerId" />
+    </Key>
+    <Property Name="trainerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="trainerabout" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="photo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__TrainerIn__empid__47A6A41B" FromRole="TrainerInfo" ToRole="Employee" />
+    <NavigationProperty Name="GroupLessons" Relationship="Self.FK__GroupLess__train__4D5F7D71" FromRole="TrainerInfo" ToRole="GroupLessons" />
+    <NavigationProperty Name="IndividualLesson" Relationship="Self.FK__Individua__train__55F4C372" FromRole="TrainerInfo" ToRole="IndividualLesson" />
+  </EntityType>
+  <Association Name="FK__Aboniment__aboni__339FAB6E">
+    <End Role="Aboniments" Type="Self.Aboniments" Multiplicity="0..1" />
+    <End Role="AbonimentsWithClient" Type="Self.AbonimentsWithClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aboniments">
+        <PropertyRef Name="abonimentId" />
+      </Principal>
+      <Dependent Role="AbonimentsWithClient">
+        <PropertyRef Name="abonimentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerI__aboni__3B40CD36">
+    <End Role="AbonimentsWithClient" Type="Self.AbonimentsWithClient" Multiplicity="0..1" />
+    <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AbonimentsWithClient">
+        <PropertyRef Name="abonimentClientId" />
+      </Principal>
+      <Dependent Role="CustomerInfo">
+        <PropertyRef Name="abonimentClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerI__custo__395884C4">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="CustomerInfo">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__clien__56E8E7AB">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__postid__43D61337">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="postId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="postid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TrainerIn__empid__47A6A41B">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="employeeId" />
+      </Principal>
+      <Dependent Role="TrainerInfo">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__lesso__4C6B5938">
+    <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonsType">
+        <PropertyRef Name="lessonId" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="lessontypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__Sport__4E53A1AA">
+    <End Role="SportHalls" Type="Self.SportHalls" Multiplicity="0..1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportHalls">
+        <PropertyRef Name="hallID" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="SportHallid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__train__4D5F7D71">
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="0..1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainerInfo">
+        <PropertyRef Name="trainerId" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="trainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__lesso__55009F39">
+    <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonsType">
+        <PropertyRef Name="lessonId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="lessontypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__Sport__57DD0BE4">
+    <End Role="SportHalls" Type="Self.SportHalls" Multiplicity="0..1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportHalls">
+        <PropertyRef Name="hallID" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="SportHallid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__train__55F4C372">
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainerInfo">
+        <PropertyRef Name="trainerId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="trainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CustomerGroup">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="FitnessCenterDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Aboniments" EntityType="Self.Aboniments" />
+    <EntitySet Name="AbonimentsWithClient" EntityType="Self.AbonimentsWithClient" />
+    <EntitySet Name="CustomerInfo" EntityType="Self.CustomerInfo" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="GroupLessons" EntityType="Self.GroupLessons" />
+    <EntitySet Name="IndividualLesson" EntityType="Self.IndividualLesson" />
+    <EntitySet Name="LessonsType" EntityType="Self.LessonsType" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" />
+    <EntitySet Name="SportHalls" EntityType="Self.SportHalls" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TrainerInfo" EntityType="Self.TrainerInfo" />
+    <AssociationSet Name="FK__Aboniment__aboni__339FAB6E" Association="Self.FK__Aboniment__aboni__339FAB6E">
+      <End Role="Aboniments" EntitySet="Aboniments" />
+      <End Role="AbonimentsWithClient" EntitySet="AbonimentsWithClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerI__aboni__3B40CD36" Association="Self.FK__CustomerI__aboni__3B40CD36">
+      <End Role="AbonimentsWithClient" EntitySet="AbonimentsWithClient" />
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerI__custo__395884C4" Association="Self.FK__CustomerI__custo__395884C4">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__clien__56E8E7AB" Association="Self.FK__Individua__clien__56E8E7AB">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__postid__43D61337" Association="Self.FK__Employee__postid__43D61337">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TrainerIn__empid__47A6A41B" Association="Self.FK__TrainerIn__empid__47A6A41B">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__lesso__4C6B5938" Association="Self.FK__GroupLess__lesso__4C6B5938">
+      <End Role="LessonsType" EntitySet="LessonsType" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__Sport__4E53A1AA" Association="Self.FK__GroupLess__Sport__4E53A1AA">
+      <End Role="SportHalls" EntitySet="SportHalls" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__train__4D5F7D71" Association="Self.FK__GroupLess__train__4D5F7D71">
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__lesso__55009F39" Association="Self.FK__Individua__lesso__55009F39">
+      <End Role="LessonsType" EntitySet="LessonsType" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__Sport__57DD0BE4" Association="Self.FK__Individua__Sport__57DD0BE4">
+      <End Role="SportHalls" EntitySet="SportHalls" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__train__55F4C372" Association="Self.FK__Individua__train__55F4C372">
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="CustomerGroup" Association="Self.CustomerGroup">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

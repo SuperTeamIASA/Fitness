@@ -11,11 +11,11 @@
         <local:PostSettingFrameViewModel></local:PostSettingFrameViewModel>
     </Page.DataContext>
     <Page.Resources>
-        <Style x:Key="TextStle">
-            
+        <Style x:Key="TextStle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"></Setter>
         </Style>
     </Page.Resources>
-    <Grid >
+    <Grid Background="White" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -35,21 +35,21 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Column="1">
+        <StackPanel Grid.Column="1" Margin="0 100 0 0">
             <TextBlock HorizontalAlignment="Center"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Зарплата"/>
-                <TextBox IsEnabled="{Binding ElementName=CanChanged,Path=IsChecked}" />
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Зарплата" Style="{StaticResource TextStle}" />
+                <TextBox MinWidth="100" IsEnabled="{Binding ElementName=CanChanged,Path=IsChecked}" Margin="10 0 0 0"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Количевство сотрудников"/>
-                <TextBlock  /> <!--Сделать вспывавающую подсказку-->
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Количевство сотрудников" Style="{StaticResource TextStle}"/>
+                <TextBlock  Margin="10 0 0 0"/> <!--Сделать вспывавающую подсказку-->
             </StackPanel>
-            <TextBlock Text="Доп информация"/>
-            <TextBox IsEnabled="{Binding ElementName=CanChanged,Path=IsChecked}"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Редактирование"/>
-                <CheckBox Name="CanChanged" />
+            <TextBlock Text="Доп информация" Margin="10 0 0 0" Style="{StaticResource TextStle}"/>
+            <TextBox Margin="10"  IsEnabled="{Binding ElementName=CanChanged,Path=IsChecked}" />
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Редактирование" Style="{StaticResource TextStle}"/>
+                <CheckBox Name="CanChanged" Margin="5 2 0 0" IsChecked="True" />
             </StackPanel>
         </StackPanel>
     </Grid>

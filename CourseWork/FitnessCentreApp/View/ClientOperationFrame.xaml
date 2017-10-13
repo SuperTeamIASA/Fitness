@@ -101,7 +101,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Text="Всего к оплате:" FontWeight="Bold"   Style="{StaticResource TextStyle}"/>
-                        <TextBlock MinWidth="50" Foreground="Red"/>
+                        <TextBlock MinWidth="50" Foreground="Red" FontSize="16"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
                         <Button Style="{StaticResource ButtonStyle}" Content="Оплатить" >
@@ -135,10 +135,10 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBlock Text="Всего к оплате:" FontWeight="Bold"  Style="{StaticResource TextStyle}"/>
-                    <TextBlock MinWidth="50" Foreground="Red" />
+                    <TextBlock MinWidth="50" Foreground="Red" FontSize="16"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-                        <Button Style="{StaticResource ButtonStyle}" Content="Оплатить" >
+                        <Button Style="{StaticResource ButtonStyle}" Content="Оплатить"  >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="BorderBrush" Value="Black"></Setter>
