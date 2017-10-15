@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Net.Mail;
 using System.IO;
 using System.Net;
+using System.Xml.Linq;
 
 namespace Server_Application.Model
 {
@@ -29,19 +30,24 @@ namespace Server_Application.Model
                     int pass = rand.Next(100000, 999999);
                     Customers client1 = new Customers() { name = client.Name, email = client.Email, lastname = client.Surname, pass = pass.ToString() };
                     db.Customers.Add(client1);
-                     
+                    db.SaveChanges();
                     MailAddress address = new MailAddress("vladkoval0@gmail.com", "Fitness Center");
                     MailAddress to = new MailAddress(client.Email);
                     MailMessage m = new MailMessage(address, to);
                     m.Subject = "Добро пожаловать в наш фитнес центр";
                     m.IsBodyHtml = true;
-
                     m.Body = "<h2> Поздравляем " + client.Name + ", вы зарегистрировались как клиент нашего фитнес клуба</h2><p> Ваш логин: " + client.Email + "<p> Пароль: " + pass + "<p> Возпользуйтесь этими данними для доступа к персональному акаунта в нашем приложении <p><p> Приложение можно сказать по ссылке ....<p>";
                     SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-
+                    
                     smtp.Credentials = new NetworkCredential("vladkoval0@gmail.com", "Vlad1798");
                     smtp.EnableSsl = true;
                     smtp.Send(m);
+                    var q = from c in db.Customers
+                            where c.email == client.Email
+                            select c.customerId;
+                    CustomerInfo ci = new CustomerInfo() { Phone = client.Phone, customerId = q.First() };
+                    
+                    db.CustomerInfo.Add(ci);
                     db.SaveChanges();
                     return 0;
                 }
@@ -79,6 +85,7 @@ namespace Server_Application.Model
 
         public byte[] getsession()
         {
+            
             FileStream fs = new FileStream(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\Model\q.xml", FileMode.Open);
             byte[] array = new byte[10000];
             fs.Read(array, 0, 10000);
