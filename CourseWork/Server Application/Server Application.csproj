@@ -72,6 +72,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\MessageControl.cs" />
     <Compile Include="Model\Aboniments.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
@@ -122,6 +123,7 @@
     <Compile Include="Model\MessageClass.cs" />
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\New.cs" />
+    <Compile Include="Model\newsControl.cs" />
     <Compile Include="Model\Posts.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
@@ -201,6 +203,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Model\chatuser.xml" />
     <Content Include="Model\FitnessDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitnessDB.edmx</DependentUpon>
@@ -211,6 +214,7 @@
       <DependentUpon>FitnessDB.edmx</DependentUpon>
       <LastGenOutput>FitnessDB.cs</LastGenOutput>
     </Content>
+    <Resource Include="Model\news.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

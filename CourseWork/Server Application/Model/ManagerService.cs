@@ -11,6 +11,7 @@ using System.Xml.Linq;
 
 namespace Server_Application.Model
 {
+    
     class ManagerService : IManagerContract
     {
         public void AddNew(New news)
@@ -78,14 +79,16 @@ namespace Server_Application.Model
         public New[] GetNews()
         {
             List<New> list = new List<New>();
-            list.Add(new New() { Title = "Заголовок", NewText = "много много текса", Image1 = "twitter.png" });
-            list.Add(new New() { Title = "Заголовок1", NewText = "много много текса22221112", Image1 = "twitter.png" });
+            list.Add(new New() { Title = "Заголовок", NewText = "много много текса", imagename = "twitter.png" });
+            list.Add(new New() { Title = "Заголовок1", NewText = "много много текса22221112", imagename = "twitter.png" });
             return list.ToArray();
         }
 
         public byte[] getsession()
         {
+           
             
+            XDocument doc = new XDocument();
             FileStream fs = new FileStream(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\Model\q.xml", FileMode.Open);
             byte[] array = new byte[10000];
             fs.Read(array, 0, 10000);

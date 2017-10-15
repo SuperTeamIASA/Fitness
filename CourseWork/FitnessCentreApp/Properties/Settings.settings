@@ -8,5 +8,8 @@
     <Setting Name="directorPassword" Type="System.String" Scope="Application">
       <Value Profile="(Default)">qwerty1234</Value>
     </Setting>
+    <Setting Name="newsCurrentId" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

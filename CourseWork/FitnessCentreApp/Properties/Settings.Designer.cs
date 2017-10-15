@@ -40,5 +40,17 @@ namespace FitnessCentreApp.Properties {
                 return ((string)(this["directorPassword"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int newsCurrentId {
+            get {
+                return ((int)(this["newsCurrentId"]));
+            }
+            set {
+                this["newsCurrentId"] = value;
+            }
+        }
     }
 }
