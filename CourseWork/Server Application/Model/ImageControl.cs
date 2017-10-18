@@ -20,7 +20,7 @@ namespace Server_Application.Model
             {
                 FileInfo a = new FileInfo(dirpath + name);
                 System.Drawing.Imaging.ImageFormat e;
-                switch (a.Extension)
+                switch (name.Split('.')[1])
                 {
                     case "jpg": e = System.Drawing.Imaging.ImageFormat.Jpeg; break;
                     case "png": e = System.Drawing.Imaging.ImageFormat.Png; break;
@@ -44,8 +44,8 @@ namespace Server_Application.Model
         {
             System.IO.MemoryStream memoryStream1 = new System.IO.MemoryStream();
             foreach (byte b1 in array) memoryStream1.WriteByte(b1);
-            string s = string.Empty;
-            for(int i = name.Length-3;i<name.Length ; i++) { s += name[i]; }
+            
+           string  s =   name.Split('.')[1];
             System.Drawing.Imaging.ImageFormat e;
             switch (s)
             {

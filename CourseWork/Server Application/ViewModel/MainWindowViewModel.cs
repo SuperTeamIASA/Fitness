@@ -37,9 +37,9 @@ namespace Server_Application.ViewModel
                 else
                 ((MainWindowViewModel)App.Current.MainWindow.DataContext).ImageSource1 = offline;
             }
-        }
+        }   
         
-        ObservableCollection<string> log;
+        ObservableCollection<string> log;  //TODO:Добавить вывод лог информации в этот список, также можно по завершению программы сохранять лог в файл
         public ObservableCollection<string> LogList
         {
             get

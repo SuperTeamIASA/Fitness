@@ -21,16 +21,7 @@ namespace Server_Application.Model
         public string NewText { get; set; }
         [DataMember]
         public string imagename { get; set; }
-
-       
-
-
-
-
-
-
-
-
+        
     }
 }
     

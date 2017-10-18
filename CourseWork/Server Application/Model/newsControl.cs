@@ -19,6 +19,7 @@ namespace Server_Application.Model
         }
     public    static IEnumerable<XElement> Getnews()
         {
+
             DirectoryInfo dir = new DirectoryInfo(dirpath);
             foreach (var a in dir.GetFiles("*.xml", SearchOption.TopDirectoryOnly))
                  {
