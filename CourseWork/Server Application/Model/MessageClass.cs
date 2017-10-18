@@ -25,7 +25,7 @@ namespace  Server_Application.Model
             }
         }
         [DataMember]
-        public  byte _autor { get; set; }
+        public  int _autor { get; set; }
         [DataMember]
         public string MessageText { get; set; }
         public string Data

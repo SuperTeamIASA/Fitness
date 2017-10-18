@@ -11,11 +11,14 @@ namespace Server_Application.Model
     [DataContract(Namespace ="Some")]
     class ChatUser
     {
+        [DataMember]
+        public int userId { get; set; }
         /// <summary>
         /// Имя клиента
         /// </summary>
         [DataMember]
       public  string Name { get; set; }
+
 
         /// <summary>
         /// Фамилия клиента
@@ -25,26 +28,25 @@ namespace Server_Application.Model
         /// <summary>
         /// есть ли новые собщения от клиента
         /// </summary>
-        [DataMember]
-        bool _HaveNewMessage;
+      
         /// <summary>
         /// Обвертка для отображения картинки
         /// </summary>
-        public Visibility HaveNewMessage
-        {
-            get
-            {
-                if (_HaveNewMessage == true)
-                    return Visibility.Visible;
-                else return Visibility.Hidden;
-            }
-            set
-            {
-                if (value == Visibility.Hidden)
-                    _HaveNewMessage = false;
-                else _HaveNewMessage = true;
-            }
-        }
+        //public Visibility HaveNewMessage
+        //{
+        //    get
+        //    {
+        //        if (_HaveNewMessage == true)
+        //            return Visibility.Visible;
+        //        else return Visibility.Hidden;
+        //    }
+        //    set
+        //    {
+        //        if (value == Visibility.Hidden)
+        //            _HaveNewMessage = false;
+        //        else _HaveNewMessage = true;
+        //    }
+        //}
 
 
     }

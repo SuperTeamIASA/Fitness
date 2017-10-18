@@ -34,3 +34,5 @@ C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\obj\Debug\
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\obj\Debug\Server Application.g.resources
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\obj\Debug\Server_Application.Properties.Resources.resources
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\obj\Debug\Server Application.csproj.GenerateResource.Cache
+C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll

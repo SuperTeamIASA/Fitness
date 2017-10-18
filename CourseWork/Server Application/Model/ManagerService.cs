@@ -7,17 +7,22 @@ using System.Diagnostics;
 using System.Net.Mail;
 using System.IO;
 using System.Net;
+using System.ServiceModel;
 using System.Xml.Linq;
-
+using Server_Application.ViewModel;
 namespace Server_Application.Model
 {
     
-    class ManagerService : IManagerContract
+    class ManagerService : IManagerContract,IDisposable
     {
+        public static int CountManagers { get { return CountManagers; } set { CountManagers = value; } }
+        public ManagerService()
+        {
+            MainWindowViewModel.adminonline = true;
+        }
         public void AddNew(New news)
         {
-           
-            throw new NotImplementedException();
+            newsControl.AddNew(news);
         }
 
         public int AddNewClient(Client client)
@@ -46,7 +51,7 @@ namespace Server_Application.Model
                     var q = from c in db.Customers
                             where c.email == client.Email
                             select c.customerId;
-                    CustomerInfo ci = new CustomerInfo() { Phone = client.Phone, customerId = q.First() };
+                    CustomerInfo ci = new CustomerInfo() { Phone =ToNormPhome( client.Phone), customerId = q.First() };
                     
                     db.CustomerInfo.Add(ci);
                     db.SaveChanges();
@@ -59,21 +64,46 @@ namespace Server_Application.Model
             }
           }
             
-                   
+        private string ToNormPhome(string phone)
+        {
+            int[] phoneInt = new int[10];
+            int i = 0;
+            foreach (var c in phone)
+            {
+                if (Char.IsDigit(c))
+                {
+                    phoneInt[i] = (int)Char.GetNumericValue(c);
+                }
+            }
+            string s = "(";
+            for (int ij = 0; ij < 3; ij++)
+                s += phoneInt[i];
+            s += ")";
+            for (int ij = 3; ij < phoneInt.Length; ij++)
+                s += phoneInt[i];
+            return s;
+
+        }            
 
         public void DeleteNew(New news)
         {
-            throw new NotImplementedException();
+            newsControl.DeleteNew(news);
+        }
+
+        public void Dispose()
+        {
+            MainWindowViewModel.adminonline = false;
         }
 
         public ChatUser[] GetChatUsers()
         {
-            throw new NotImplementedException();
+            return MessageControl.GetChatUsers().ToArray();
         }
 
         public MessageClass[] GetMessage(ChatUser user)
         {
-            throw new NotImplementedException();
+           return MessageControl.GetMessageHistory(user.userId).ToArray<MessageClass>();
+           
         }
 
         public New[] GetNews()
@@ -86,19 +116,32 @@ namespace Server_Application.Model
 
         public byte[] getsession()
         {
-           
+            XDocument doc = new XDocument(new XElement("sesion"));
+            doc.Root.Add(new XElement("news"));
+            doc.Root.Add(new XElement("messages"));
+            foreach (var n in newsControl.Getnews())
+            {
+                doc.Root.Element("news").Add(n);
+            }
+            doc.Save(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
             
-            XDocument doc = new XDocument();
-            FileStream fs = new FileStream(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\Server Application\Model\q.xml", FileMode.Open);
-            byte[] array = new byte[10000];
-            fs.Read(array, 0, 10000);
+
+
+
+            FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml", FileMode.Open);
+            
+            
+            byte[] array = new byte[fs.Length];
+            fs.Read(array, 0, (int)fs.Length);
             fs.Close();
             return array;
         }
 
         public void SendMessade(ChatUser user, MessageClass message)
         {
-            throw new NotImplementedException();
+            MessageControl.AddMessage(user.userId, message);
         }
+       
     }
+
 }

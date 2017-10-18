@@ -17,7 +17,7 @@ namespace Server_Application.Model
             dirpath = (Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "/News")).FullName;
 
         }
-    public    static IEnumerator<XElement> Getnews()
+    public    static IEnumerable<XElement> Getnews()
         {
             DirectoryInfo dir = new DirectoryInfo(dirpath);
             foreach (var a in dir.GetFiles("*.xml", SearchOption.TopDirectoryOnly))
@@ -48,6 +48,10 @@ namespace Server_Application.Model
             doc.Root.Attribute("Image").Value = news.imagename;
 
             doc.Save(dirpath + "/new" + news.NewsId + ".xml");
+        }
+        public static void DeleteNew(New news)
+        {
+            File.Delete(dirpath + "/new" + news.NewsId + ".xml");
         }
 
     }
