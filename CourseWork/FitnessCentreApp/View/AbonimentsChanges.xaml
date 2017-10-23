@@ -3,12 +3,62 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:FitnessCentreApp.View"
+      xmlns:local="clr-namespace:FitnessCentreApp.ViewModel"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="700" d:DesignWidth="890"
       Title="AbonimentsChanges">
-
+    <Page.DataContext>
+        <local:AbonimentChangeViewModel></local:AbonimentChangeViewModel>
+    </Page.DataContext>
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Text="Абонименты" HorizontalAlignment="Center" Margin="0 40" FontSize="28"></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выберите абонимент"/>
+                <ComboBox MinWidth="100 "></ComboBox>
+                            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Добавить"></Button>
+                <Button Content="Удалить"></Button>
+                <Button Content="Изменить"></Button>
+            </StackPanel>
+            <Border>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" >
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Название"></TextBlock>
+                            <TextBox ></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Цена"></TextBlock>
+                            <TextBox ></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Скидка"></TextBlock>
+                            <TextBox ></TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Цена со скидкой"></TextBlock>
+                            <TextBox ></TextBox>
+                        </StackPanel>
+                        <TextBlock Text="Информация о абонименте"></TextBlock>
+                        <TextBox TextWrapping="Wrap"></TextBox>
+
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Image></Image>
+
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </StackPanel>
     </Grid>
 </Page>
