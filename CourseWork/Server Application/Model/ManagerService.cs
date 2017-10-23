@@ -51,7 +51,7 @@ namespace Server_Application.Model
                     var q = from c in db.Customers
                             where c.email == client.Email
                             select c.customerId;
-                    CustomerInfo ci = new CustomerInfo() { Phone =ToNormPhome( client.Phone), customerId = q.First() };
+                    CustomerInfo ci = new CustomerInfo() { Phone =client.Phone, customerId = q.First() };
                     
                     db.CustomerInfo.Add(ci);
                     db.SaveChanges();
@@ -105,17 +105,17 @@ namespace Server_Application.Model
            return MessageControl.GetMessageHistory(user.userId).ToArray<MessageClass>();
            
         }
-
-        public New[] GetNews()
-        {
-            List<New> list = new List<New>();
-            list.Add(new New() { Title = "Заголовок", NewText = "много много текса", imagename = "twitter.png" });
-            list.Add(new New() { Title = "Заголовок1", NewText = "много много текса22221112", imagename = "twitter.png" });
-            return list.ToArray();
-        }
-
+        
         public byte[] getsession()
         {
+            try
+            {
+                File.Delete(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
+            }
+            catch(FileNotFoundException)
+            {
+
+            }            
             XDocument doc = new XDocument(new XElement("sesion"));
             doc.Root.Add(new XElement("news"));
             doc.Root.Add(new XElement("messages"));
@@ -124,13 +124,7 @@ namespace Server_Application.Model
                 doc.Root.Element("news").Add(n);
             }
             doc.Save(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
-            
-
-
-
-            FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml", FileMode.Open);
-            
-            
+            FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml", FileMode.Open);            
             byte[] array = new byte[fs.Length];
             fs.Read(array, 0, (int)fs.Length);
             fs.Close();
@@ -141,7 +135,16 @@ namespace Server_Application.Model
         {
             MessageControl.AddMessage(user.userId, message);
         }
-       
+
+        public void SendImage(string name, byte[] array)
+        {
+            ImageControl.SaveImage(array, name);
+        }
+
+        public byte[] GetImage(string name)
+        {
+           return ImageControl.GetImage(name);
+        }
     }
 
 }

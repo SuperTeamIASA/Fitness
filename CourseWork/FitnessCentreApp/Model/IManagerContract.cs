@@ -17,12 +17,7 @@ namespace FitnessCentreApp.Model
         /// <returns>Возвращает 0, если операция успешна</returns>
         [OperationContract]
         int AddNewClient(Client client);
-        /// <summary>
-        /// Получить масив новостей 
-        /// </summary>
-        /// <returns>Масив новостей</returns>
-        [OperationContract]
-        New[] GetNews();
+
         /// <summary>
         /// Добавление новой новости
         /// </summary>
@@ -54,5 +49,9 @@ namespace FitnessCentreApp.Model
 
         [OperationContract]
         byte[] getsession();
+        [OperationContract]
+        void SendImage(string name,byte[] array);
+        [OperationContract]
+        byte[] GetImage(string name);
     }
 }

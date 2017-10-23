@@ -42,7 +42,7 @@
                                 <Expander.Content>
                                     <StackPanel>
                                     <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Text="{Binding Path=NewText}"/>
-                                        <Image />
+                                        <Image Source="{Binding Path=Image}" />
 
 
 

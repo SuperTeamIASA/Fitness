@@ -71,6 +71,7 @@
     <Compile Include="Model\ChatUsers.cs" />
     <Compile Include="Model\Client.cs" />
     <Compile Include="Model\FullClientInfo.cs" />
+    <Compile Include="Model\ImageControl.cs" />
     <Compile Include="Model\MessageClass.cs" />
     <Compile Include="Model\New.cs" />
     <Compile Include="Model\OperationManager.cs" />

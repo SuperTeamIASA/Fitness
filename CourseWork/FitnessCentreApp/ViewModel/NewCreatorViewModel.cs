@@ -17,6 +17,7 @@ namespace FitnessCentreApp.ViewModel
         New _cuttentnew;
         RelayCommand _AttachPhoto;
         RelayCommand _AddNews;
+        string fotopath;
         public NewCreatorViewModel()
         {
             chanal = Channal.Create();
@@ -63,11 +64,15 @@ namespace FitnessCentreApp.ViewModel
 
         private void ExecuteAddNew(object obj)
         {
+            if (fotopath != string.Empty) {
+                chanal.channal.SendImage(CurrentNew.imagename, Model.ImageControl.ImageToByte(fotopath));
+                    }
             chanal.channal.AddNew(CurrentNew);
+            
             CurrentNew.Title = string.Empty;
             CurrentNew.NewText = string.Empty;
-            CurrentNew.imagebytearray = null;
-           // CurrentNew.Image1 = null;
+            CurrentNew.imagename = string.Empty;
+          
         }
         private bool CanAttachPhoto(object obj)
         {
@@ -84,8 +89,9 @@ namespace FitnessCentreApp.ViewModel
             if (result == true)
             {
 
-                CurrentNew.Image1 = new Bitmap(filedialoge.FileName);
+                CurrentNew.imagename = filedialoge.SafeFileName;
 
+                fotopath = filedialoge.FileName;
             }
         }
     }

@@ -24,9 +24,10 @@ namespace FitnessCentreApp.Model
             endpoint = new EndpointAddress(address);
             factory = new ChannelFactory<IManagerContract>(binding, endpoint);
             channal = factory.CreateChannel();
-           var f =  channal.getsession();
-            FileStream fs = new FileStream(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Model\session.xml", FileMode.Create);
+            var f =  channal.getsession();
+            FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml", FileMode.Create);
             fs.Write(f,0,f.Length);
+            fs.Close();
             
         }
         public static Channal Create()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 using System.Threading.Tasks;
 using FitnessCentreApp.Infrastructure;
 using System.Windows.Input;
@@ -19,9 +20,7 @@ namespace FitnessCentreApp.ViewModel
         RelayCommand _NewsSetting;
         RelayCommand _DeleteNews;
         RelayCommand _Update;
-        ObservableCollection<New> _newsCollection = new ObservableCollection<New>() { new New() { Title = "Title1", NewText = "Text Text Text Text Text Text Text Text Text Text Text Text Text Text ", Image1 = new Bitmap(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Images\twitter.png") } ,
-            new New() { Title = "Title1", NewText = "Text Text Text Text Text Text Text Text Text Text Text Text Text Text ", Image1 = new Bitmap(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Images\twitter.png") } ,
-            new New() { Title = "Title1", NewText = "Text Text Text Text Text Text Text Text Text Text Text Text Text Text ", Image1 = new Bitmap(@"C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Images\twitter.png") } };
+        ObservableCollection<New> _newsCollection;
         public NewsFrameViewModel()
         {
             channal = Channal.Create();
@@ -33,7 +32,19 @@ namespace FitnessCentreApp.ViewModel
             {
                 if (_newsCollection == null)
                 {
-                    _newsCollection = new ObservableCollection<New>(channal.channal.GetNews());
+                    _newsCollection = new ObservableCollection<New>();
+                    XDocument doc = XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
+                 foreach(var n in   doc.Root.Element("news").Elements())
+                    {
+                        _newsCollection.Add(new New()
+                        {
+                            Title = n.Attribute("Title").Value,
+                            NewsId = int.Parse(n.Attribute("id").Value),
+                            NewText = n.Attribute("Text").Value,
+                            imagename = n.Attribute("Image").Value
+                            
+                        });
+                    }
                 }
 
                 return _newsCollection;

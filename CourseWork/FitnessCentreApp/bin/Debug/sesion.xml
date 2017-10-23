@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sesion>
+  <news>
+    <new id="1" Title="Заголовок" Text="Основной текст" Image="headfon.jpg"></new>
+  </news>
+  <messages />
+</sesion>

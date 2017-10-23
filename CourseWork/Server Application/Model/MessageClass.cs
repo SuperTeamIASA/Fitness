@@ -28,13 +28,6 @@ namespace  Server_Application.Model
         public  int _autor { get; set; }
         [DataMember]
         public string MessageText { get; set; }
-        public string Data
-        {
-            get
-            {
-                return Timeofmessage.Month + "." + Timeofmessage.Day + " " + Timeofmessage.Hour + ":" + Timeofmessage.Minute; 
-            } 
-        }
         public HorizontalAlignment alignment
         {
             get

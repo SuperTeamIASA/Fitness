@@ -23,16 +23,17 @@ namespace Server_Application.ViewModel
      
         ServiceHost host = null;
         bool ServerWorking;
+        static bool _adminonline;
         public static bool adminonline
         {
             get
             {
-                return adminonline;
+                return _adminonline;
             }
             set
             {
-                adminonline = value;
-                if (value)
+                _adminonline = value;
+                if (_adminonline)
                     ((MainWindowViewModel)App.Current.MainWindow.DataContext).ImageSource1 = online;
                 else
                 ((MainWindowViewModel)App.Current.MainWindow.DataContext).ImageSource1 = offline;
