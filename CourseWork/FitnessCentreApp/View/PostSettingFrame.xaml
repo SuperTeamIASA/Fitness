@@ -35,7 +35,15 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
-        <StackPanel Grid.Column="1" Margin="0 100 0 0">
+        <StackPanel Grid.Column="1" Margin="0 100 0 0" RenderTransformOrigin="0.5,0.5">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.718"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="2.787"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
             <TextBlock HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Зарплата" Style="{StaticResource TextStle}" />
@@ -43,10 +51,11 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Количевство сотрудников" Style="{StaticResource TextStle}"/>
-                <TextBlock  Margin="10 0 0 0"/> <!--Сделать вспывавающую подсказку-->
+                <TextBlock  Margin="10 0 0 0"/>
+                <!--Сделать вспывавающую подсказку-->
             </StackPanel>
             <TextBlock Text="Доп информация" Margin="10 0 0 0" Style="{StaticResource TextStle}"/>
-            <TextBox Margin="10"  IsEnabled="{Binding ElementName=CanChanged,Path=IsChecked}" />
+            <TextBox Margin="10,10,9.8,10" TextWrapping="Wrap"  IsEnabled="{Binding ElementName=CanChanged,Path=IsChecked}" Height="154" />
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Редактирование" Style="{StaticResource TextStle}"/>
                 <CheckBox Name="CanChanged" Margin="5 2 0 0" IsChecked="True" />

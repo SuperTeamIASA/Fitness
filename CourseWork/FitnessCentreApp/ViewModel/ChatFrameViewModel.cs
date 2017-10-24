@@ -10,11 +10,11 @@ using System.Collections.ObjectModel;
 namespace FitnessCentreApp.ViewModel
 {
     class ChatFrameViewModel : ViewModelBase
-    {
-        
+    {        
         RelayCommand _clear;
         RelayCommand _send;
         Channal channal;
+        string _message;
         public ChatFrameViewModel()
         {
             channal = Channal.Create();
@@ -71,8 +71,6 @@ namespace FitnessCentreApp.ViewModel
         }
         //выбранный индекс текущего елемнта в списке клиентов
         public int SelectionClientItem { get; set; }
-
-        string _message;
         public string Message
         {
             get

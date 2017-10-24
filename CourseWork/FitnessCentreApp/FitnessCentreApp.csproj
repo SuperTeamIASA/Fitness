@@ -75,6 +75,7 @@
     <Compile Include="Model\MessageClass.cs" />
     <Compile Include="Model\New.cs" />
     <Compile Include="Model\OperationManager.cs" />
+    <Compile Include="Model\ShortClientInfo.cs" />
     <Compile Include="ViewModel\AbonimentChangeViewModel.cs" />
     <Compile Include="ViewModel\AddNewClientFrameViewModel.cs" />
     <Compile Include="ViewModel\ChatFrameViewModel.cs" />

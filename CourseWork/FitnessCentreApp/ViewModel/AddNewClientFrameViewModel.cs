@@ -13,6 +13,8 @@ namespace FitnessCentreApp.ViewModel
     {
         Client _currentClient;
         Channal channal;
+        RelayCommand _AddClient;
+        RelayCommand _DeleteRow;
         string _result;
         public AddNewClientFrameViewModel()
         {
@@ -45,8 +47,7 @@ namespace FitnessCentreApp.ViewModel
             }
         }
 
-        RelayCommand _AddClient;
-        RelayCommand _DeleteRow;
+      
         public ICommand AddClientCommand
         {
             get
@@ -77,10 +78,7 @@ namespace FitnessCentreApp.ViewModel
         private void ExecuteDeleteRow(object obj)
         {
             _currentClient = null;
-            //CurrentClient.Name = String.Empty;
-            //CurrentClient.Surname = String.Empty;
-            //CurrentClient.Email = String.Empty;
-            //CurrentClient.Phone = String.Empty;
+          
             Result = String.Empty;
         }
 

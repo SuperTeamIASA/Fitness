@@ -7,7 +7,8 @@
       xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
       mc:Ignorable="d" 
        d:DesignHeight="700" d:DesignWidth="890"
-      Title="ChatFrame">
+      Title="ChatFrame" >
+    
     <Page.DataContext>
         <local:ChatFrameViewModel></local:ChatFrameViewModel>
     </Page.DataContext>
@@ -19,6 +20,7 @@
             <Setter Property="FontSize" Value="15"></Setter>
         </Style>
     </Page.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="295*"/>
@@ -33,7 +35,7 @@
                             <TextBlock Text="{Binding Path=Name}" />
                             <TextBlock Text="{Binding Path=Surname}" />
                         </StackPanel>
-                        <Image Source="C:\Users\vladk\documents\visual studio 2015\Projects\CourseWork\FitnessCentreApp\Resources\mess.png" Visibility="{Binding HaveNewMessage}"/>
+                        
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -46,9 +48,9 @@
                         <StackPanel Orientation="Horizontal"  HorizontalAlignment="{Binding Path=alignment}">
                                 <StackPanel Orientation="Vertical">
                                     <TextBlock Text="{Binding Path=CurrentUserName}" Style="{StaticResource MessageAuthor}"/>
-                                    <TextBlock Text="{Binding Path=MessageText}" Style="{StaticResource MessegeStyle}"/>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Path=MessageText}" Style="{StaticResource MessegeStyle}"/>
                                 </StackPanel>
-                                <TextBlock VerticalAlignment="Center" Text="{Binding Path=Data}" />
+                                <TextBlock VerticalAlignment="Center" Text="{Binding Path=Timeofmessage,StringFormat={}{0:MM/dd/yy H:mm}}" />
                             </StackPanel>
                         </Border>
                     </DataTemplate>

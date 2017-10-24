@@ -52,6 +52,10 @@ namespace Server_Application.Model
         void SendImage(string name, byte[] array);
         [OperationContract]
         byte[] GetImage(string name);
+        [OperationContract]
+        FullClientInfo GetClient(int Id);
+        [OperationContract]
+        ShortClientInfo[] GetShortClientInfo(string name, string lastname);
 
     }
 }

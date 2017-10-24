@@ -73,6 +73,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Aboniment.cs" />
+    <Compile Include="Model\FullClientInfo.cs" />
     <Compile Include="Model\ImageControl.cs" />
     <Compile Include="Model\MessageControl.cs" />
     <Compile Include="Model\Aboniments.cs">
@@ -129,6 +131,7 @@
     <Compile Include="Model\Posts.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\ShortClientInfo.cs" />
     <Compile Include="Model\SportHalls.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>

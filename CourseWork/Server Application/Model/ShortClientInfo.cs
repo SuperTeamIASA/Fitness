@@ -4,24 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using System.Windows;
 
-namespace FitnessCentreApp.Model
+namespace Server_Application.Model
 {
-    [DataContract(Namespace ="Some")]
-    class ChatUser
+    [DataContract(Namespace = "Some")]
+    class ShortClientInfo
     {
         [DataMember]
-        public int userId { get; set; }
-       
+       public int ID { get; set; }
         [DataMember]
-      public  string Name { get; set; }
-
-      
+        public string Name { get; set; }
         [DataMember]
         public string Surname { get; set; }
-         
-
-
     }
 }

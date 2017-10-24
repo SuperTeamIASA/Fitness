@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +12,11 @@ namespace FitnessCentreApp.ViewModel
     {
         RelayCommand _BuyGroup;
         RelayCommand _BuySinge;
-
+        Channal channel;
+        public ClientOperationFrameViewModel()
+        {
+            channel = Channal.Create();
+        }
         public ICommand BuyGroup
         {
             get
@@ -32,19 +36,77 @@ namespace FitnessCentreApp.ViewModel
                 return _BuySinge;
             }
         }
-        FullClientInfo _currentClient;
+         FullClientInfo _currentClient;
+        ObservableCollection<ShortClientInfo> _clientList;
+        public ObservableCollection<ShortClientInfo> clientList
+        {
+            get
+            {
+                return _clientList;
+            }
+            set
+            {
+                _clientList = value;
 
+            }
+
+        }
+
+        public FullClientInfo ClientInfo
+        {
+            get
+            {
+                return _currentClient;
+            }
+            set
+            {
+                _currentClient = value;
+            }
+        }
+        string _nameSearch;
+        string _lastnameSearch;
         public   string NameSearch
         {
-            get; set;
+            get
+            {
+                return _nameSearch;
+            }
+            set
+            {
+                _nameSearch = value;
+                OnPropertyChanged("NameSearch");
+               clientList = new ObservableCollection<ShortClientInfo>( channel.channal.GetShortClientInfo(NameSearch, LastNameSearch));
+            }
         }
         public   string LastNameSearch
         {
-            get;
-            set;
+            get
+            {
+                return _lastnameSearch;
+            }
+            set
+            {
+                _lastnameSearch = value;
+                OnPropertyChanged("LastNameSearch");
+                clientList = new ObservableCollection<ShortClientInfo>(channel.channal.GetShortClientInfo(NameSearch, LastNameSearch));
+            }
         }
-        public  int SelectedClient { get; set; }
-       
+        int selectedclient;
+        public  int SelectedClient
+        {
+            get
+            {
+                return selectedclient;
+            }
+            set
+            {
+                selectedclient = value;
+                OnPropertyChanged("SelectedClient");
+                ClientInfo = channel.channal.GetClient(clientList[SelectedClient].ID);
+
+
+            }
+        }
 
         private bool CanBuySingle(object obj)
         {

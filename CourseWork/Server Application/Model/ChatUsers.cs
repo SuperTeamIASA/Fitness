@@ -25,28 +25,7 @@ namespace Server_Application.Model
         /// </summary>
         [DataMember]
         public string Surname { get; set; }
-        /// <summary>
-        /// есть ли новые собщения от клиента
-        /// </summary>
-      
-        /// <summary>
-        /// Обвертка для отображения картинки
-        /// </summary>
-        //public Visibility HaveNewMessage
-        //{
-        //    get
-        //    {
-        //        if (_HaveNewMessage == true)
-        //            return Visibility.Visible;
-        //        else return Visibility.Hidden;
-        //    }
-        //    set
-        //    {
-        //        if (value == Visibility.Hidden)
-        //            _HaveNewMessage = false;
-        //        else _HaveNewMessage = true;
-        //    }
-        //}
+        
 
 
     }

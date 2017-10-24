@@ -4,12 +4,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FitnessCentreApp.Model;
+
 using System.Runtime.Serialization;
 using System.Drawing;
 
 
-namespace FitnessCentreApp.Model
+namespace Server_Application.Model
 {
     [DataContract(Namespace ="Some")]
     class FullClientInfo
@@ -35,23 +35,7 @@ namespace FitnessCentreApp.Model
         public string information { get; set; }
         [DataMember]
         string image { get; set; }
-        public string Image
-        {
-            get
-            {
-                try
-                {
-                    File.Open(AppDomain.CurrentDomain.BaseDirectory + "/Image/" + image, FileMode.Open);
-                    return AppDomain.CurrentDomain.BaseDirectory + "/Image/" + image;
-                }
-                catch (FileNotFoundException)
-                {
-                    ImageControl.ByteToImage(Channal.Create().channal.GetImage(image), image);
-                    return AppDomain.CurrentDomain.BaseDirectory + "/Image/" + image;
-                }
-            }
-        }
-     
+        
         public Aboniment AbonimentInfo { get; set; }
 
     }

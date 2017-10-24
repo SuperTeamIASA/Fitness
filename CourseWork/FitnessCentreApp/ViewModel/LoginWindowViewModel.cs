@@ -12,12 +12,10 @@ namespace FitnessCentreApp.ViewModel
 {
     class LoginWindowViewModel : ViewModelBase
     {
-        
-       
         public LoginWindow window { get; set; }
         RelayCommand _login;
         RelayCommand _cancel;
-      public  ICommand CancelCommand
+        public  ICommand CancelCommand
         {
             get
             {
@@ -26,7 +24,7 @@ namespace FitnessCentreApp.ViewModel
                 return _cancel;
             }
         }
-      public  ICommand LoginCommand
+        public  ICommand LoginCommand
         {
             get
             {
@@ -67,8 +65,5 @@ namespace FitnessCentreApp.ViewModel
         {
             return true;
         }
-
-
-
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitnessCentreApp.Model
+namespace Server_Application.Model
 {
     class Aboniment
     {

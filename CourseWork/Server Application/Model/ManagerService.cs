@@ -145,6 +145,16 @@ namespace Server_Application.Model
         {
            return ImageControl.GetImage(name);
         }
+
+        public FullClientInfo GetClient(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ShortClientInfo[] GetShortClientInfo(string name, string lastname)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

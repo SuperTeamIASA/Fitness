@@ -13,7 +13,7 @@
       <!--  <RichTextBox Margin="10" Height="70" BorderThickness="1" BorderBrush="Black"  ></RichTextBox>-->
         <TextBox x:Name="TextBlock" Margin="10" Height="70" BorderThickness="1" BorderBrush="Black" FontSize="16" Text="{Binding Path=CurrentNew.NewText,UpdateSourceTrigger=PropertyChanged,Mode=OneWay}" TabIndex="2"/>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Вставить картинку" VerticalAlignment="Stretch" Command="{Binding AttachPhotoCommand}" HorizontalAlignment="Left" Margin="20 0 0 0 " Height="30" TabIndex="3"  />
+            <Button Name="Attach" Content="Вставить картинку" VerticalAlignment="Stretch" Command="{Binding AttachPhotoCommand}" Click="Button_Click" HorizontalAlignment="Left" Margin="20 0 0 0 " Height="30" TabIndex="3"  />
             <Button Content="Добавить новость" HorizontalAlignment="Right" Margin="150 10 10 10" Height="30" Command="{Binding AddNewCommand}" TabIndex="4"/>
 
         </StackPanel>
