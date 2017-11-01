@@ -17,7 +17,7 @@ namespace FitnessCentreApp.ViewModel
         New _cuttentnew;
         RelayCommand _AttachPhoto;
         RelayCommand _AddNews;
-       pu string fotopath;
+     public   string fotopath;
         public NewCreatorViewModel()
         {
             chanal = Channal.Create();

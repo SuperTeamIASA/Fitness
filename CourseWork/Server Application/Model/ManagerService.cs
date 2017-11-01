@@ -148,7 +148,13 @@ namespace Server_Application.Model
 
         public FullClientInfo GetClient(int Id)
         {
-            throw new NotImplementedException();
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                var qwery = from c in db.Customers
+                            where c.customerId == Id
+                            select qwery
+                            
+            }
         }
 
         public ShortClientInfo[] GetShortClientInfo(string name, string lastname)
