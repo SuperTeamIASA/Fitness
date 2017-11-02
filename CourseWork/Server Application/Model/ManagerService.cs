@@ -118,11 +118,59 @@ namespace Server_Application.Model
             XDocument doc = new XDocument(new XElement("sesion"));
             doc.Root.Add(new XElement("news"));
             doc.Root.Add(new XElement("messages"));
+            doc.Root.Add(new XElement("aboniments"));
+            doc.Root.Add(new XElement("worktimes"));
+            doc.Root.Add(new XElement("lessons"));
+            doc.Root.Add(new XElement("halls"));
             foreach (var n in newsControl.Getnews())
             {
                 doc.Root.Element("news").Add(n);
             }
-            doc.Save(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                var qwery = from c in db.WorkTimes
+                            select c;
+                foreach (var item in qwery)
+                {
+                    doc.Root.Element("worktimes").Add(new XElement("worktime", new XAttribute("worktimeid", item.wtId), new XAttribute("stringf", item.wtname)));
+                }
+                var qwery1 = from c in db.Aboniments
+                             select c;
+                foreach (var item in qwery1)
+                {
+                    doc.Root.Element("aboniments").Add(new XElement("aboniment", new XAttribute("id", item.abonimentId), new XAttribute("description", item.abonimentDescription),
+                                                                                new XAttribute("cost", item.abonimentCost), new XAttribute("sale", item.abonimentSale),
+                                                                                new XAttribute("pool", item.poolacsess),
+                                                                                new XAttribute("groupCount", item.groupCount),
+                                                                                new XAttribute("duration", item.abonimentDuration)));
+                }
+                var qwery2 = from c in db.LessonsType
+                             select c;
+                foreach (var item in qwery2)
+                {
+                    doc.Root.Element("lessons").Add(new XElement("lesson",
+                                                    new XAttribute("id", item.lessonId),
+                                                    new XAttribute("description", item.lessonDescription),
+                                                    new XAttribute("name", item.lessonname),
+                                                    new XAttribute("groupcost", item.grouplessoncost),
+                                                    new XAttribute("individualcost", item.individuallessoncost),
+                                                    new XAttribute("duration", item.lessonDurarion)));
+                                                                       
+                }
+                var qwery3 = from c in db.SportHalls
+                             select c;
+                foreach (var item in qwery3)
+                {
+                    doc.Root.Element("halls").Add(new XElement("hall",
+                                                  new XAttribute("id", item.hallID),
+                                                  new XAttribute("description", item.hallDescription),
+                                                  new XAttribute("amount", item.hallAmount),
+                                                  new XAttribute("image", item.hallimage)));
+                }
+            
+            }
+           
+                doc.Save(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
             FileStream fs = new FileStream(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml", FileMode.Open);            
             byte[] array = new byte[fs.Length];
             fs.Read(array, 0, (int)fs.Length);
@@ -174,9 +222,7 @@ namespace Server_Application.Model
                             groupcount = (int)item.AbonimentsWithClient.First().externgroup
                         }
                     };
-                        
-                        
-                    
+                                            
                 }
                 return cc;
             }
@@ -195,6 +241,20 @@ namespace Server_Application.Model
                 }
                 return list.ToArray();
             }
+        }
+        public object getShedule(DateTime date)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                var qwery = from c in db.GetShedule(date)
+                            orderby c.
+                            select c;
+                foreach (var item in qwery)
+                {
+                    item.
+                }
+            }
+                return 0;
         }
     }
 

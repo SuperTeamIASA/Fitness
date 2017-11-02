@@ -8,6 +8,6 @@ namespace FitnessCentreApp.ViewModel
 {
     class ScheduleViewModel : ViewModelBase
     {
-
+        //TODO This ViewModel and View
     }
 }

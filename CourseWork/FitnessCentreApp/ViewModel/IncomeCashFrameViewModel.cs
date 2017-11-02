@@ -8,5 +8,9 @@ namespace FitnessCentreApp.ViewModel
 {
     class IncomeCashFrameViewModel : ViewModelBase
     {
+        //TODO DO this ViewModel and View
+        // Тут директор должен увидеть все доходы и расходы фитнесс центра за месяц
+        //доход это продажа занятий и абониментов
+        //расход на зарплаты
     }
 }

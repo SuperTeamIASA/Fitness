@@ -137,6 +137,7 @@
     <Compile Include="Model\Posts.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Schedule.cs" />
     <Compile Include="Model\ShortClientInfo.cs" />
     <Compile Include="Model\SportHalls.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>

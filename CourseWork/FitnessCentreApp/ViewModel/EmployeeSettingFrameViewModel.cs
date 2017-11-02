@@ -8,5 +8,6 @@ namespace FitnessCentreApp.ViewModel
 {
     class EmployeeSettingFrameViewModel : ViewModelBase
     {
+        //TODO Do this ViewModel
     }
 }

@@ -9,5 +9,6 @@ namespace FitnessCentreApp.ViewModel
 {
     class PostSettingFrameViewModel : ViewModelBase
     {
+        //TODO This ViewModel
     }
 }
