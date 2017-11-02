@@ -22,12 +22,13 @@ namespace Server_Application.Model
     
         public int grouplessonId { get; set; }
         public int lessontypeId { get; set; }
-        public System.DateTime lessondate { get; set; }
-        public System.TimeSpan lessontime { get; set; }
+        public System.DateTime grouplessondate { get; set; }
+        public int lessontimeId { get; set; }
         public Nullable<int> trainerId { get; set; }
         public Nullable<int> SportHallid { get; set; }
     
         public virtual LessonsType LessonsType { get; set; }
+        public virtual WorkTimes WorkTimes { get; set; }
         public virtual SportHalls SportHalls { get; set; }
         public virtual TrainerInfo TrainerInfo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

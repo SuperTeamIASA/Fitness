@@ -23,7 +23,7 @@ namespace Server_Application.Model
         public int abonimentId { get; set; }
         public string abonimentDescription { get; set; }
         public int abonimentDuration { get; set; }
-        public int poolacsess { get; set; }
+        public bool poolacsess { get; set; }
         public decimal abonimentCost { get; set; }
         public Nullable<double> abonimentSale { get; set; }
         public Nullable<int> groupCount { get; set; }

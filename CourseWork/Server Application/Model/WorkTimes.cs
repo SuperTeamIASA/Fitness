@@ -12,30 +12,21 @@ namespace Server_Application.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Customers
+    public partial class WorkTimes
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
+        public WorkTimes()
         {
-            this.AbonimentsWithClient = new HashSet<AbonimentsWithClient>();
-            this.CustomerInfo = new HashSet<CustomerInfo>();
-            this.IndividualLesson = new HashSet<IndividualLesson>();
             this.GroupLessons = new HashSet<GroupLessons>();
+            this.IndividualLesson = new HashSet<IndividualLesson>();
         }
     
-        public int customerId { get; set; }
-        public string email { get; set; }
-        public string pass { get; set; }
-        public string name { get; set; }
-        public string lastname { get; set; }
+        public int wtId { get; set; }
+        public string wtname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AbonimentsWithClient> AbonimentsWithClient { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerInfo> CustomerInfo { get; set; }
+        public virtual ICollection<GroupLessons> GroupLessons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IndividualLesson> IndividualLesson { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GroupLessons> GroupLessons { get; set; }
     }
 }

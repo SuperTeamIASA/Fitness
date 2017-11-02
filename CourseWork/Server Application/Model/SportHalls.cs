@@ -24,6 +24,7 @@ namespace Server_Application.Model
         public int hallID { get; set; }
         public int hallAmount { get; set; }
         public string hallDescription { get; set; }
+        public string hallimage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GroupLessons> GroupLessons { get; set; }

@@ -34,9 +34,9 @@ namespace Server_Application.Model
                 {
                     Random rand = new Random();
                     int pass = rand.Next(100000, 999999);
-                    Customers client1 = new Customers() { name = client.Name, email = client.Email, lastname = client.Surname, pass = pass.ToString() };
-                    db.Customers.Add(client1);
-                    db.SaveChanges();
+                    
+                    db.AddClient(client.Name, client.Surname, client.Email, pass.ToString());
+                    
                     MailAddress address = new MailAddress("vladkoval0@gmail.com", "Fitness Center");
                     MailAddress to = new MailAddress(client.Email);
                     MailMessage m = new MailMessage(address, to);
@@ -51,9 +51,8 @@ namespace Server_Application.Model
                     var q = from c in db.Customers
                             where c.email == client.Email
                             select c.customerId;
-                    CustomerInfo ci = new CustomerInfo() { Phone =client.Phone, customerId = q.First() };
-                    
-                    db.CustomerInfo.Add(ci);
+                    db.AddCustomerInfo(q.First(), string.Empty, null, string.Empty, null, client.Phone, string.Empty, string.Empty);
+                 
                     db.SaveChanges();
                     return 0;
                 }
@@ -152,14 +151,50 @@ namespace Server_Application.Model
             {
                 var qwery = from c in db.Customers
                             where c.customerId == Id
-                            select qwery
-                            
+                            select c;
+                FullClientInfo cc = new FullClientInfo();
+                foreach (var item in qwery)
+                {
+                    cc = new FullClientInfo()
+                    {
+                        Email = item.email,
+                        Name = item.name,
+                        Surname = item.lastname,
+                        Phone = item.CustomerInfo.First().Phone,
+                        City = item.CustomerInfo.First().city,
+                        Adress = item.CustomerInfo.First().adress,
+                        information = item.CustomerInfo.First().detailinfo,
+                        Gender = (item.CustomerInfo.First().sex).Value ? "Мужчина" : "Женщина",
+                        image = item.CustomerInfo.First().userimage,
+                        bdate = (DateTime)item.CustomerInfo.First().bdate,
+                        AbonimentInfo = new Aboniment()
+                        {
+                            abonID = (int)item.AbonimentsWithClient.First().abonimentId,
+                            selldata = (DateTime)item.AbonimentsWithClient.First().selldate,
+                            groupcount = (int)item.AbonimentsWithClient.First().externgroup
+                        }
+                    };
+                        
+                        
+                    
+                }
+                return cc;
             }
         }
 
         public ShortClientInfo[] GetShortClientInfo(string name, string lastname)
         {
-            throw new NotImplementedException();
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                List<ShortClientInfo> list = new List<ShortClientInfo>();
+                var qwery = from c in db.GETClientsByName(name, lastname)
+                            select c;
+                foreach (var item in qwery)
+                {
+                    list.Add(new ShortClientInfo() { ID = item.customerId, Name = item.name, Surname = item.pass });
+                }
+                return list.ToArray();
+            }
         }
     }
 

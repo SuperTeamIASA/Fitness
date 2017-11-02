@@ -74,20 +74,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Aboniment.cs" />
-    <Compile Include="Model\FullClientInfo.cs" />
-    <Compile Include="Model\ImageControl.cs" />
-    <Compile Include="Model\MessageControl.cs" />
     <Compile Include="Model\Aboniments.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AbonimentsWithClient.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\ChatUsers.cs" />
-    <Compile Include="Model\Client.cs" />
-    <Compile Include="Model\ClientConnection.cs" />
-    <Compile Include="Model\ClientService.cs" />
-    <Compile Include="Model\ConnectionForFitness.cs" />
     <Compile Include="Model\CustomerInfo.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
@@ -112,17 +104,31 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FitnessDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\FullClientInfo.cs" />
+    <Compile Include="Model\GETClientsByName_Result.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\GetShedule_Result.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\GroupLessons.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\IClientContract.cs" />
-    <Compile Include="Model\IManagerContract.cs" />
+    <Compile Include="Model\ImageControl.cs" />
     <Compile Include="Model\IndividualLesson.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LessonsType.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\MessageControl.cs" />
+    <Compile Include="Model\ChatUsers.cs" />
+    <Compile Include="Model\Client.cs" />
+    <Compile Include="Model\ClientConnection.cs" />
+    <Compile Include="Model\ClientService.cs" />
+    <Compile Include="Model\ConnectionForFitness.cs" />
+    <Compile Include="Model\IClientContract.cs" />
+    <Compile Include="Model\IManagerContract.cs" />
     <Compile Include="Model\ManagerService.cs" />
     <Compile Include="Model\MessageClass.cs" />
     <Compile Include="Model\Model.cs" />
@@ -135,10 +141,19 @@
     <Compile Include="Model\SportHalls.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagrams_Result.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\sysdiagrams.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\TrainerInfo.cs">
+      <DependentUpon>FitnessDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WorkTimes.cs">
       <DependentUpon>FitnessDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -211,6 +226,9 @@
     <Resource Include="Model\chatuser.xml">
       <SubType>Designer</SubType>
     </Resource>
+    <Resource Include="Model\news.xml" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\FitnessDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FitnessDB.edmx</DependentUpon>
@@ -221,7 +239,6 @@
       <DependentUpon>FitnessDB.edmx</DependentUpon>
       <LastGenOutput>FitnessDB.cs</LastGenOutput>
     </Content>
-    <Resource Include="Model\news.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

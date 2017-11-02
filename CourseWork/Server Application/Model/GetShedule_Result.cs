@@ -10,22 +10,21 @@
 namespace Server_Application.Model
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class IndividualLesson
+    public partial class GetShedule_Result
     {
-        public int IndividualLesson1 { get; set; }
+        public int IndividualLesson { get; set; }
         public int lessontypeId { get; set; }
         public int trainerId { get; set; }
         public int clientid { get; set; }
         public System.DateTime lessondate { get; set; }
         public int lessontimeId { get; set; }
         public Nullable<int> SportHallid { get; set; }
-    
-        public virtual Customers Customers { get; set; }
-        public virtual LessonsType LessonsType { get; set; }
-        public virtual WorkTimes WorkTimes { get; set; }
-        public virtual SportHalls SportHalls { get; set; }
-        public virtual TrainerInfo TrainerInfo { get; set; }
+        public int grouplessonId { get; set; }
+        public int lessontypeId1 { get; set; }
+        public System.DateTime grouplessondate { get; set; }
+        public int lessontimeId1 { get; set; }
+        public Nullable<int> trainerId1 { get; set; }
+        public Nullable<int> SportHallid1 { get; set; }
     }
 }

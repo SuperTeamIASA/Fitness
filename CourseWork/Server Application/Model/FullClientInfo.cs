@@ -34,8 +34,19 @@ namespace Server_Application.Model
         [DataMember]
         public string information { get; set; }
         [DataMember]
-        string image { get; set; }
-        
+        public string image { get; set; }
+        [DataMember]
+        long bdatebyt;
+        public DateTime bdate {
+            get
+            {
+                return DateTime.FromBinary(bdatebyt);
+            }
+            set
+            {
+               bdatebyt = value.ToBinary();
+            }
+        }
         public Aboniment AbonimentInfo { get; set; }
 
     }

@@ -14,19 +14,13 @@ namespace Server_Application.Model
     
     public partial class AbonimentsWithClient
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AbonimentsWithClient()
-        {
-            this.CustomerInfo = new HashSet<CustomerInfo>();
-        }
-    
         public int abonimentClientId { get; set; }
         public Nullable<int> abonimentId { get; set; }
+        public Nullable<int> customerId { get; set; }
         public Nullable<System.DateTime> selldate { get; set; }
         public Nullable<int> externgroup { get; set; }
     
         public virtual Aboniments Aboniments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CustomerInfo> CustomerInfo { get; set; }
+        public virtual Customers Customers { get; set; }
     }
 }
