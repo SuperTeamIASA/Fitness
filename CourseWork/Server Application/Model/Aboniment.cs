@@ -16,6 +16,5 @@ namespace Server_Application.Model
         public int groupcount { get; set; }
         [DataMember]
         public DateTime selldata { get; set; }
-            
     }
 }

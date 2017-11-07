@@ -10,17 +10,31 @@
     <Page.DataContext>
         <local:AbonimentChangeViewModel></local:AbonimentChangeViewModel>
     </Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="ButtonsStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Padding" Value="5"></Setter>
+            
+        </Style>
+        <Style x:Key="Text_Box_Style" TargetType="TextBox">
+            <Setter Property="MinWidth" Value="100"></Setter>
+            <Setter Property="Margin" Value="10 0 0 0"></Setter>
+        </Style>
+        <Style x:Key="Text_Style" TargetType="TextBlock">
+            
+        </Style>
+    </Page.Resources>
     <Grid Background="White">
         <StackPanel>
             <TextBlock Text="Абонименты" HorizontalAlignment="Center" Margin="0 40" FontSize="28"></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Выберите абонимент"/>
-                <ComboBox MinWidth="100 "></ComboBox>
+                <TextBlock Text="Выберите абонимент" Margin="10 0 0 0 " Style="{StaticResource Text_Style}"/>
+                <ComboBox MinWidth="140" Margin="15 0 0 0"></ComboBox>
                             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Добавить"></Button>
-                <Button Content="Удалить"></Button>
-                <Button Content="Изменить"></Button>
+                <Button Content="Добавить"  Style="{StaticResource ButtonsStyle}"></Button>
+                <Button Content="Удалить" Style="{StaticResource ButtonsStyle}"></Button>
+                <Button Content="Изменить" Style="{StaticResource ButtonsStyle}"></Button>
             </StackPanel>
             <Border>
                 <Grid>
@@ -30,28 +44,28 @@
 
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" >
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Название"></TextBlock>
-                            <TextBox ></TextBox>
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <TextBlock Text="Название" Style="{StaticResource Text_Style}"></TextBlock>
+                            <TextBox Style="{StaticResource Text_Box_Style}"></TextBox>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Цена"></TextBlock>
-                            <TextBox ></TextBox>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <TextBlock Text="Цена" Style="{StaticResource Text_Style}"></TextBlock>
+                            <TextBox Style="{StaticResource Text_Box_Style}" ></TextBox>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Скидка"></TextBlock>
-                            <TextBox ></TextBox>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <TextBlock Text="Скидка" Style="{StaticResource Text_Style}"></TextBlock>
+                            <TextBox Style="{StaticResource Text_Box_Style}"></TextBox>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Цена со скидкой"></TextBlock>
-                            <TextBox ></TextBox>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <TextBlock Text="Цена со скидкой" Style="{StaticResource Text_Style}"></TextBlock>
+                            <TextBox Style="{StaticResource Text_Box_Style}"></TextBox>
                         </StackPanel>
-                        <TextBlock Text="Информация о абонименте"></TextBlock>
-                        <TextBox TextWrapping="Wrap"></TextBox>
+                        <TextBlock Text="Информация о абонименте:" Margin="10" Style="{StaticResource Text_Style}"></TextBlock>
+                        <TextBox Style="{StaticResource Text_Box_Style}" MinHeight="50" TextWrapping="Wrap"></TextBox>
 
 
                     </StackPanel>
-                    <StackPanel Grid.Column="1">
+                    <StackPanel Margin="15" Grid.Column="1">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                             <Image></Image>
 

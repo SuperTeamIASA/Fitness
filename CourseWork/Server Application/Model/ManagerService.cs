@@ -122,6 +122,9 @@ namespace Server_Application.Model
             doc.Root.Add(new XElement("worktimes"));
             doc.Root.Add(new XElement("lessons"));
             doc.Root.Add(new XElement("halls"));
+            doc.Root.Add(new XElement("posts"));
+            doc.Root.Add(new XElement("emploees"));
+            doc.Root.Add(new XElement("trainers"));
             foreach (var n in newsControl.Getnews())
             {
                 doc.Root.Element("news").Add(n);
@@ -167,6 +170,45 @@ namespace Server_Application.Model
                                                   new XAttribute("amount", item.hallAmount),
                                                   new XAttribute("image", item.hallimage)));
                 }
+
+                var qwery4 = from c in db.Posts
+                             select c;
+                foreach (var item in qwery4)
+                {
+                    doc.Root.Element("posts").Add(new XElement("post",
+                                                  new XAttribute("id", item.postId),
+                                                  new XAttribute("description", item.postDescription),
+                                                  new XAttribute("name", item.postName),
+                                                  new XAttribute("salary", item.postsalary)));
+                }
+                var qwery5 = from c in db.Employee
+                             select c;
+                foreach (var item in qwery5)
+                {
+                    doc.Root.Element("emploees").Add(new XElement("emp",
+                                                     new XAttribute("id", item.employeeId),
+                                                     new XAttribute("name", item.empName),
+                                                     new XAttribute("lastname", item.emplastName),
+                                                     new XAttribute("bdate", item.empBdate),
+                                                     new XAttribute("email", item.empEmail),
+                                                     new XAttribute("phone", item.empPhone)));
+                }
+                var qwery6 = from c in db.TrainerInfo
+                             select c;
+                foreach (var item in qwery6)
+                {
+                    doc.Root.Element("trainers").Add(new XElement("trainer",
+                                                     new XAttribute("trainerId", item.trainerId),
+                                                     new XAttribute("empId", item.empid),
+                                                     new XAttribute("name", item.Employee.empName),
+                                                      new XAttribute("lastname", item.Employee.emplastName),
+                                                     new XAttribute("bdate", item.Employee.empBdate),
+                                                     new XAttribute("email", item.Employee.empEmail),
+                                                     new XAttribute("phone", item.Employee.empPhone),
+                                                     new XAttribute("about", item.trainerabout)));
+                                            
+                }
+                
             
             }
            
@@ -247,11 +289,11 @@ namespace Server_Application.Model
             using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
             {
                 var qwery = from c in db.GetShedule(date)
-                            orderby c.
+                            orderby c.lessontimeId
                             select c;
                 foreach (var item in qwery)
                 {
-                    item.
+                    
                 }
             }
                 return 0;

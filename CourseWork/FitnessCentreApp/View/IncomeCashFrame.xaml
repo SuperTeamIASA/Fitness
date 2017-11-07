@@ -10,7 +10,12 @@
     <Page.DataContext>
         <local:IncomeCashFrameViewModel></local:IncomeCashFrameViewModel>
     </Page.DataContext>
+    <Page.Resources>
+        <Style>
+
+        </Style>
+    </Page.Resources>
     <Grid>
-        
-    </Grid>
+       
+    </Grid> 
 </Page>

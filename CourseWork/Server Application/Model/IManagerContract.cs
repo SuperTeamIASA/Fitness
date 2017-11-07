@@ -56,6 +56,6 @@ namespace Server_Application.Model
         FullClientInfo GetClient(int Id);
         [OperationContract]
         ShortClientInfo[] GetShortClientInfo(string name, string lastname);
-
+        
     }
 }

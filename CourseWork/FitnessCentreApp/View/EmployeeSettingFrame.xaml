@@ -11,6 +11,45 @@
         <local:EmployeeSettingFrameViewModel></local:EmployeeSettingFrameViewModel>
     </Page.DataContext>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="333*"></ColumnDefinition>
+            <ColumnDefinition Width="557*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+        <StackPanel  Grid.Column="0">
+            <TextBlock Text="Сотрудники" FontSize="30" HorizontalAlignment="Center" Margin="0 40 0 0 "/>
+            <ListBox Margin="30 50 20 30"  Height="400">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Добавить" Padding="8" Margin="100 5">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Уволить"  Padding="8"  Margin="100 5">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Изменить"  Padding="8" Margin="100 5">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            
+        </StackPanel>
     </Grid>
 </Page>

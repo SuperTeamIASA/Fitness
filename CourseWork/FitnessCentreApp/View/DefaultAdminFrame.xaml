@@ -9,6 +9,7 @@
       Title="DefaultAdminFrame">
 
     <Grid>
-        
+        <Image x:Name="___FitnessCentreApp_component_fitness_clip_art_48_jpg" Margin="10" Source="/FitnessCentreApp;component/fitness-clip-art-48.jpg" Stretch="Fill"/>
+
     </Grid>
 </Page>

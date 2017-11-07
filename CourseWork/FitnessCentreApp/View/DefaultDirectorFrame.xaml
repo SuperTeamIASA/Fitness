@@ -9,6 +9,10 @@
       Title="DefaultDirectorFrame">
 
     <Grid>
-        
+        <Grid.Background>
+            <SolidColorBrush Color="Aquamarine" >
+                <!-- -->
+            </SolidColorBrush>
+        </Grid.Background>
     </Grid>
 </Page>
