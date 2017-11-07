@@ -29,7 +29,9 @@
             <TextBlock Text="Абонименты" HorizontalAlignment="Center" Margin="0 40" FontSize="28"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Выберите абонимент" Margin="10 0 0 0 " Style="{StaticResource Text_Style}"/>
-                <ComboBox MinWidth="140" Margin="15 0 0 0"></ComboBox>
+                <ComboBox MinWidth="140" Margin="15 0 0 0" SelectedIndex="{Binding Path=SelectedAboniment, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=abonimentList}">
+                    
+                </ComboBox>
                             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Button Content="Добавить"  Style="{StaticResource ButtonsStyle}"></Button>

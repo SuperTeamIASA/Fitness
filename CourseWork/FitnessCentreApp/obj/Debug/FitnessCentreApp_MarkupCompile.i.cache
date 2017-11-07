@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\
+D:\Studio Projects\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\
 FitnessCentreApp
 none
 false
 DEBUG;TRACE
-C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\App.xaml
+D:\Studio Projects\GitHub\Fitness\CourseWork\FitnessCentreApp\App.xaml
 16252789949
 
-51-1696324478
-18-475370205
+51-1849046990
+18-426678574
 MainWindow.xaml;View\AbonimentsChanges.xaml;View\AddNewClientFrame.xaml;View\ChatFrame.xaml;View\ClientOperationFrame.xaml;View\Controls_Admin.xaml;View\Controls_Director.xaml;View\DefaultAdminFrame.xaml;View\DefaultDirectorFrame.xaml;View\EmployeeSettingFrame.xaml;View\IncomeCashFrame.xaml;View\LoginWindow.xaml;View\NewCreator.xaml;View\NewsFrame.xaml;View\PostSettingFrame.xaml;View\Schedule.xaml;
 
-True
+False
 

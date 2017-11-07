@@ -94,3 +94,6 @@ C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\Fi
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\FitnessCentreApp.csproj.GenerateResource.Cache
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\View\AbonimentsChanges.g.cs
 C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\View\AbonimentsChanges.baml
+D:\Studio Projects\GitHub\Fitness\CourseWork\FitnessCentreApp\bin\Debug\FitnessCentreApp.exe.config
+D:\Studio Projects\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\FitnessCentreApp.exe
+D:\Studio Projects\GitHub\Fitness\CourseWork\FitnessCentreApp\obj\Debug\FitnessCentreApp.pdb
