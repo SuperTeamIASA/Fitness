@@ -141,11 +141,14 @@ namespace Server_Application.Model
                              select c;
                 foreach (var item in qwery1)
                 {
-                    doc.Root.Element("aboniments").Add(new XElement("aboniment", new XAttribute("id", item.abonimentId), new XAttribute("description", item.abonimentDescription),
-                                                                                new XAttribute("cost", item.abonimentCost), new XAttribute("sale", item.abonimentSale),
-                                                                                new XAttribute("pool", item.poolacsess),
-                                                                                new XAttribute("groupCount", item.groupCount),
-                                                                                new XAttribute("duration", item.abonimentDuration)));
+                    doc.Root.Element("aboniments").Add(new XElement("aboniment", new XAttribute("id", item.abonimentId),
+                                                                                 new XAttribute("description", item.abonimentDescription),
+                                                                                 new XAttribute("cost", item.abonimentCost), 
+                                                                                 new XAttribute("sale", item.abonimentSale),
+                                                                                 new XAttribute("pool", item.poolacsess),
+                                                                                 new XAttribute("groupCount", item.groupCount),
+                                                                                 new XAttribute("duration", item.abonimentDuration),
+                                                                                 new XAttribute("name",item.abonimentName)));
                 }
                 var qwery2 = from c in db.LessonsType
                              select c;

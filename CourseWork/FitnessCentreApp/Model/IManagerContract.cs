@@ -57,6 +57,11 @@ namespace FitnessCentreApp.Model
         FullClientInfo GetClient(int Id);
         [OperationContract]
         ShortClientInfo[] GetShortClientInfo(string name, string lastname);
-            
+        [OperationContract]
+        void DeleteAboniment(int id);
+        [OperationContract]
+        void ChangeAboniment(int id , Aboniment abon);
+        [OperationContract]
+        void AddAboniment(Aboniment abon);
     }
 }

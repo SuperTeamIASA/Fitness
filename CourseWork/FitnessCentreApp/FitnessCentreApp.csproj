@@ -82,6 +82,7 @@
     <Compile Include="ViewModel\ClientOperationFrameViewModel.cs" />
     <Compile Include="ViewModel\Controls_AdminViewModel.cs" />
     <Compile Include="ViewModel\Controls_DirectorViewModel.cs" />
+    <Compile Include="ViewModel\Employee.cs" />
     <Compile Include="ViewModel\EmployeeSettingFrameViewModel.cs" />
     <Compile Include="ViewModel\IncomeCashFrameViewModel.cs" />
     <Compile Include="ViewModel\LoginWindowViewModel.cs" />

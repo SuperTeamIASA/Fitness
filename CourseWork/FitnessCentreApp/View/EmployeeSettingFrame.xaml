@@ -7,9 +7,9 @@
       mc:Ignorable="d" 
        d:DesignHeight="700" d:DesignWidth="890"
       Title="EmployeeSettingFrame">
-    <Page.DataContext>
+   <!-- <Page.DataContext>
         <local:EmployeeSettingFrameViewModel></local:EmployeeSettingFrameViewModel>
-    </Page.DataContext>
+    </Page.DataContext>-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="333*"></ColumnDefinition>

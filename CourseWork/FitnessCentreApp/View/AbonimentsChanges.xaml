@@ -29,14 +29,21 @@
             <TextBlock Text="Абонименты" HorizontalAlignment="Center" Margin="0 40" FontSize="28"></TextBlock>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Выберите абонимент" Margin="10 0 0 0 " Style="{StaticResource Text_Style}"/>
-                <ComboBox MinWidth="140" Margin="15 0 0 0" SelectedIndex="{Binding Path=SelectedAboniment, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=abonimentList}">
-                    
+                <ComboBox MinWidth="140" Margin="15 0 0 0" SelectedIndex="{Binding Path=SelectedAboniment, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=AbonimentList}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=name}"/>
+                                <TextBlock Text="{Binding Path=cost}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
                 </ComboBox>
                             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Добавить"  Style="{StaticResource ButtonsStyle}"></Button>
-                <Button Content="Удалить" Style="{StaticResource ButtonsStyle}"></Button>
-                <Button Content="Изменить" Style="{StaticResource ButtonsStyle}"></Button>
+                <Button Content="Добавить"  Style="{StaticResource ButtonsStyle}" Command="{Binding Add}"></Button>
+                <Button Content="Удалить" Style="{StaticResource ButtonsStyle}" Command="{Binding Delete}"></Button>
+                <Button Content="Изменить" Style="{StaticResource ButtonsStyle}" Command="{Binding Change}"></Button>
             </StackPanel>
             <Border>
                 <Grid>
@@ -48,22 +55,34 @@
                     <StackPanel Grid.Column="0" >
                         <StackPanel Orientation="Horizontal" Margin="10">
                             <TextBlock Text="Название" Style="{StaticResource Text_Style}"></TextBlock>
-                            <TextBox Style="{StaticResource Text_Box_Style}"></TextBox>
+                            <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.name}"></TextBox>
                         </StackPanel>
                         <StackPanel Margin="10" Orientation="Horizontal">
                             <TextBlock Text="Цена" Style="{StaticResource Text_Style}"></TextBlock>
-                            <TextBox Style="{StaticResource Text_Box_Style}" ></TextBox>
+                            <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.cost}"></TextBox>
                         </StackPanel>
                         <StackPanel Margin="10" Orientation="Horizontal">
                             <TextBlock Text="Скидка" Style="{StaticResource Text_Style}"></TextBlock>
-                            <TextBox Style="{StaticResource Text_Box_Style}"></TextBox>
+                            <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.sale}"></TextBox>
                         </StackPanel>
                         <StackPanel Margin="10" Orientation="Horizontal">
                             <TextBlock Text="Цена со скидкой" Style="{StaticResource Text_Style}"></TextBlock>
-                            <TextBox Style="{StaticResource Text_Box_Style}"></TextBox>
+                            <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.name}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <TextBlock Text="Бассейн" Style="{StaticResource Text_Style}"></TextBlock>
+                            <CheckBox Margin=" 10 0 0 0 " IsChecked="{Binding AbonimentInfo.pool}"/>
+                        </StackPanel>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <TextBlock Text="Груповые занятия" Style="{StaticResource Text_Style}"></TextBlock>
+                            <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.groupcount}"></TextBox>
+                        </StackPanel>
+                        <StackPanel Margin="10" Orientation="Horizontal">
+                            <TextBlock Text="Длительность" Style="{StaticResource Text_Style}"></TextBlock>
+                            <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.duration}"></TextBox>
                         </StackPanel>
                         <TextBlock Text="Информация о абонименте:" Margin="10" Style="{StaticResource Text_Style}"></TextBlock>
-                        <TextBox Style="{StaticResource Text_Box_Style}" MinHeight="50" TextWrapping="Wrap"></TextBox>
+                        <TextBox Style="{StaticResource Text_Box_Style}" Text="{Binding AbonimentInfo.description}" MinHeight="50" TextWrapping="Wrap"></TextBox>
 
 
                     </StackPanel>

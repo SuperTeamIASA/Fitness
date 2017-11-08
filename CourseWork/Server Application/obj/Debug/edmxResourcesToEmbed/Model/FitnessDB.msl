@@ -19,6 +19,7 @@
         <MappingFragment StoreEntitySet="AbonimentsWithClient">
           <ScalarProperty Name="abonimentClientId" ColumnName="abonimentClientId" />
           <ScalarProperty Name="abonimentId" ColumnName="abonimentId" />
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
           <ScalarProperty Name="selldate" ColumnName="selldate" />
           <ScalarProperty Name="externgroup" ColumnName="externgroup" />
         </MappingFragment>
@@ -36,7 +37,6 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="userimage" ColumnName="userimage" />
           <ScalarProperty Name="detailinfo" ColumnName="detailinfo" />
-          <ScalarProperty Name="abonimentClientId" ColumnName="abonimentClientId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -69,8 +69,8 @@
         <MappingFragment StoreEntitySet="GroupLessons">
           <ScalarProperty Name="grouplessonId" ColumnName="grouplessonId" />
           <ScalarProperty Name="lessontypeId" ColumnName="lessontypeId" />
-          <ScalarProperty Name="lessondate" ColumnName="lessondate" />
-          <ScalarProperty Name="lessontime" ColumnName="lessontime" />
+          <ScalarProperty Name="grouplessondate" ColumnName="grouplessondate" />
+          <ScalarProperty Name="lessontimeId" ColumnName="lessontimeId" />
           <ScalarProperty Name="trainerId" ColumnName="trainerId" />
           <ScalarProperty Name="SportHallid" ColumnName="SportHallid" />
         </MappingFragment>
@@ -84,7 +84,7 @@
           <ScalarProperty Name="trainerId" ColumnName="trainerId" />
           <ScalarProperty Name="clientid" ColumnName="clientid" />
           <ScalarProperty Name="lessondate" ColumnName="lessondate" />
-          <ScalarProperty Name="lessontime" ColumnName="lessontime" />
+          <ScalarProperty Name="lessontimeId" ColumnName="lessontimeId" />
           <ScalarProperty Name="SportHallid" ColumnName="SportHallid" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -117,6 +117,7 @@
           <ScalarProperty Name="hallID" ColumnName="hallID" />
           <ScalarProperty Name="hallAmount" ColumnName="hallAmount" />
           <ScalarProperty Name="hallDescription" ColumnName="hallDescription" />
+          <ScalarProperty Name="hallimage" ColumnName="hallimage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -141,6 +142,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="WorkTimes">
+      <EntityTypeMapping TypeName="FitnessCenterDBModel.WorkTimes">
+        <MappingFragment StoreEntitySet="WorkTimes">
+          <ScalarProperty Name="wtId" ColumnName="wtId" />
+          <ScalarProperty Name="wtname" ColumnName="wtname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="CustomerGroup" TypeName="FitnessCenterDBModel.CustomerGroup" StoreEntitySet="CustomerGroup">
       <EndProperty Name="Customers">
         <ScalarProperty Name="customerId" ColumnName="customerId" />
@@ -149,5 +158,67 @@
         <ScalarProperty Name="grouplessonId" ColumnName="grouplessonId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="AddClient" FunctionName="Хранилище FitnessCenterDBModel.AddClient" />
+    <FunctionImportMapping FunctionImportName="AddCustomerInfo" FunctionName="Хранилище FitnessCenterDBModel.AddCustomerInfo" />
+    <FunctionImportMapping FunctionImportName="AddGrouplesson" FunctionName="Хранилище FitnessCenterDBModel.AddGrouplesson" />
+    <FunctionImportMapping FunctionImportName="AddIndividualLess" FunctionName="Хранилище FitnessCenterDBModel.AddIndividualLess" />
+    <FunctionImportMapping FunctionImportName="AddNewEmployy" FunctionName="Хранилище FitnessCenterDBModel.AddNewEmployy" />
+    <FunctionImportMapping FunctionImportName="AddNewPost" FunctionName="Хранилище FitnessCenterDBModel.AddNewPost" />
+    <FunctionImportMapping FunctionImportName="ChangePassWord" FunctionName="Хранилище FitnessCenterDBModel.ChangePassWord" />
+    <FunctionImportMapping FunctionImportName="GETClientsByName" FunctionName="Хранилище FitnessCenterDBModel.GETClientsByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FitnessCenterDBModel.GETClientsByName_Result">
+          <ScalarProperty Name="customerId" ColumnName="customerId" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetShedule" FunctionName="Хранилище FitnessCenterDBModel.GetShedule">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FitnessCenterDBModel.GetShedule_Result">
+          <ScalarProperty Name="IndividualLesson" ColumnName="IndividualLesson" />
+          <ScalarProperty Name="lessontypeId" ColumnName="lessontypeId" />
+          <ScalarProperty Name="trainerId" ColumnName="trainerId" />
+          <ScalarProperty Name="clientid" ColumnName="clientid" />
+          <ScalarProperty Name="lessondate" ColumnName="lessondate" />
+          <ScalarProperty Name="lessontimeId" ColumnName="lessontimeId" />
+          <ScalarProperty Name="SportHallid" ColumnName="SportHallid" />
+          <ScalarProperty Name="grouplessonId" ColumnName="grouplessonId" />
+          <ScalarProperty Name="lessontypeId1" ColumnName="lessontypeId1" />
+          <ScalarProperty Name="grouplessondate" ColumnName="grouplessondate" />
+          <ScalarProperty Name="lessontimeId1" ColumnName="lessontimeId1" />
+          <ScalarProperty Name="trainerId1" ColumnName="trainerId1" />
+          <ScalarProperty Name="SportHallid1" ColumnName="SportHallid1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище FitnessCenterDBModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище FitnessCenterDBModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище FitnessCenterDBModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище FitnessCenterDBModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FitnessCenterDBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище FitnessCenterDBModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="FitnessCenterDBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище FitnessCenterDBModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище FitnessCenterDBModel.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="TOGroupLesson" FunctionName="Хранилище FitnessCenterDBModel.TOGroupLesson" />
   </EntityContainerMapping>
 </Mapping>
