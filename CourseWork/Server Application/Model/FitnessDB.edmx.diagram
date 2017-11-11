@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="05488df6baab4c19b2a059c9f6cb38c7" Name="Diagram1">
-        <EntityTypeShape EntityType="FitnessCenterDBModel.Aboniments" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+      <Diagram DiagramId="6a99056f20cb4b3f9043ccdd62c7333d" Name="Diagram1">
+        <EntityTypeShape EntityType="FitnessCenterDBModel.Aboniments" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessCenterDBModel.AbonimentsWithClient" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessCenterDBModel.CustomerInfo" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessCenterDBModel.Customers" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
@@ -16,22 +16,22 @@
         <EntityTypeShape EntityType="FitnessCenterDBModel.Posts" Width="1.5" PointX="1.5" PointY="21.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessCenterDBModel.SportHalls" Width="1.5" PointX="3.75" PointY="14.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FitnessCenterDBModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitnessCenterDBModel.TrainerInfo" Width="1.5" PointX="3.75" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FitnessCenterDBModel.WorkTimes" Width="1.5" PointX="3.75" PointY="20.625" IsExpanded="true" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Aboniment__aboni__4EDDB18F" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Aboniment__custo__50C5FA01" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__CustomerI__custo__54968AE5" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__clien__7226EDCC" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Employee__postid__5E1FF51F" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__TrainerIn__empid__61F08603" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__lesso__66B53B20" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__lesso__67A95F59" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__Sport__6991A7CB" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__train__689D8392" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__lesso__703EA55A" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__lesso__731B1205" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__Sport__740F363E" ManuallyRouted="false" />
-        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__train__7132C993" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.TrainerInfo" Width="1.5" PointX="3.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.WorkTimes" Width="1.5" PointX="3.75" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Aboniment__aboni__23893F36" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Aboniment__custo__257187A8" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__CustomerI__custo__2942188C" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__clien__47C69FAC" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Employee__postid__33BFA6FF" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__TrainerIn__empid__379037E3" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__lesso__3C54ED00" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__lesso__3D491139" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__Sport__3F3159AB" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__train__3E3D3572" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__lesso__45DE573A" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__lesso__48BAC3E5" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__Sport__49AEE81E" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__train__46D27B73" ManuallyRouted="false" />
         <AssociationConnector Association="FitnessCenterDBModel.CustomerGroup" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

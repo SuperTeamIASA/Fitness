@@ -27,6 +27,9 @@ namespace Server_Application.Model
         public decimal abonimentCost { get; set; }
         public Nullable<double> abonimentSale { get; set; }
         public Nullable<int> groupCount { get; set; }
+        public string abonimentName { get; set; }
+        public bool actualbool { get; set; }
+        public string abonimentImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AbonimentsWithClient> AbonimentsWithClient { get; set; }

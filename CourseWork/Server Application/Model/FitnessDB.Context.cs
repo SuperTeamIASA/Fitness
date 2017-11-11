@@ -41,6 +41,39 @@ namespace Server_Application.Model
         public virtual DbSet<TrainerInfo> TrainerInfo { get; set; }
         public virtual DbSet<WorkTimes> WorkTimes { get; set; }
     
+        public virtual int AddAboniment(string name, string description, Nullable<int> duration, Nullable<bool> poolacsess, Nullable<decimal> cost, Nullable<double> sale, Nullable<int> groupCount)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var durationParameter = duration.HasValue ?
+                new ObjectParameter("Duration", duration) :
+                new ObjectParameter("Duration", typeof(int));
+    
+            var poolacsessParameter = poolacsess.HasValue ?
+                new ObjectParameter("poolacsess", poolacsess) :
+                new ObjectParameter("poolacsess", typeof(bool));
+    
+            var costParameter = cost.HasValue ?
+                new ObjectParameter("Cost", cost) :
+                new ObjectParameter("Cost", typeof(decimal));
+    
+            var saleParameter = sale.HasValue ?
+                new ObjectParameter("Sale", sale) :
+                new ObjectParameter("Sale", typeof(double));
+    
+            var groupCountParameter = groupCount.HasValue ?
+                new ObjectParameter("groupCount", groupCount) :
+                new ObjectParameter("groupCount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddAboniment", nameParameter, descriptionParameter, durationParameter, poolacsessParameter, costParameter, saleParameter, groupCountParameter);
+        }
+    
         public virtual int AddClient(string name, string lastName, string email, string pass)
         {
             var nameParameter = name != null ?
@@ -99,6 +132,35 @@ namespace Server_Application.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddCustomerInfo", clientidParameter, cityParameter, sexParameter, adressParameter, bdateParameter, phoneParameter, userimageParameter, detailinfoParameter);
         }
     
+        public virtual int AddEmployee(string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("lastName", lastName) :
+                new ObjectParameter("lastName", typeof(string));
+    
+            var empEmailParameter = empEmail != null ?
+                new ObjectParameter("empEmail", empEmail) :
+                new ObjectParameter("empEmail", typeof(string));
+    
+            var empBdateParameter = empBdate.HasValue ?
+                new ObjectParameter("empBdate", empBdate) :
+                new ObjectParameter("empBdate", typeof(System.DateTime));
+    
+            var empPhoneParameter = empPhone != null ?
+                new ObjectParameter("empPhone", empPhone) :
+                new ObjectParameter("empPhone", typeof(string));
+    
+            var postidParameter = postid.HasValue ?
+                new ObjectParameter("postid", postid) :
+                new ObjectParameter("postid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddEmployee", nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter);
+        }
+    
         public virtual int AddGrouplesson(Nullable<int> trainerId, Nullable<int> lessontypeId, Nullable<int> hallId, Nullable<System.DateTime> lessdate, Nullable<int> lesstimeId)
         {
             var trainerIdParameter = trainerId.HasValue ?
@@ -153,7 +215,7 @@ namespace Server_Application.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddIndividualLess", trainerIdParameter, lessontypeIdParameter, hallIdParameter, lessdateParameter, lesstimeIdParameter, clientidParameter);
         }
     
-        public virtual int AddNewEmployy(string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid)
+        public virtual int AddNewEmployy(string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid, Nullable<System.DateTime> empdate)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
@@ -179,10 +241,14 @@ namespace Server_Application.Model
                 new ObjectParameter("postid", postid) :
                 new ObjectParameter("postid", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewEmployy", nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter);
+            var empdateParameter = empdate.HasValue ?
+                new ObjectParameter("empdate", empdate) :
+                new ObjectParameter("empdate", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewEmployy", nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter, empdateParameter);
         }
     
-        public virtual int AddNewPost(string postName, string postDescription, Nullable<decimal> postsalary)
+        public virtual int AddPost(string postName, string postDescription, Nullable<decimal> postsalary)
         {
             var postNameParameter = postName != null ?
                 new ObjectParameter("postName", postName) :
@@ -196,7 +262,61 @@ namespace Server_Application.Model
                 new ObjectParameter("postsalary", postsalary) :
                 new ObjectParameter("postsalary", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewPost", postNameParameter, postDescriptionParameter, postsalaryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddPost", postNameParameter, postDescriptionParameter, postsalaryParameter);
+        }
+    
+        public virtual int AddTrainerAbout(Nullable<int> empId, string about, string photo)
+        {
+            var empIdParameter = empId.HasValue ?
+                new ObjectParameter("empId", empId) :
+                new ObjectParameter("empId", typeof(int));
+    
+            var aboutParameter = about != null ?
+                new ObjectParameter("about", about) :
+                new ObjectParameter("about", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddTrainerAbout", empIdParameter, aboutParameter, photoParameter);
+        }
+    
+        public virtual int ChangeAboniment(Nullable<int> id, string name, string description, Nullable<int> duration, Nullable<bool> poolacsess, Nullable<decimal> cost, Nullable<double> sale, Nullable<int> groupCount)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var descriptionParameter = description != null ?
+                new ObjectParameter("Description", description) :
+                new ObjectParameter("Description", typeof(string));
+    
+            var durationParameter = duration.HasValue ?
+                new ObjectParameter("Duration", duration) :
+                new ObjectParameter("Duration", typeof(int));
+    
+            var poolacsessParameter = poolacsess.HasValue ?
+                new ObjectParameter("poolacsess", poolacsess) :
+                new ObjectParameter("poolacsess", typeof(bool));
+    
+            var costParameter = cost.HasValue ?
+                new ObjectParameter("Cost", cost) :
+                new ObjectParameter("Cost", typeof(decimal));
+    
+            var saleParameter = sale.HasValue ?
+                new ObjectParameter("Sale", sale) :
+                new ObjectParameter("Sale", typeof(double));
+    
+            var groupCountParameter = groupCount.HasValue ?
+                new ObjectParameter("groupCount", groupCount) :
+                new ObjectParameter("groupCount", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangeAboniment", idParameter, nameParameter, descriptionParameter, durationParameter, poolacsessParameter, costParameter, saleParameter, groupCountParameter);
         }
     
         public virtual int ChangePassWord(Nullable<int> id, string pass)
@@ -210,6 +330,54 @@ namespace Server_Application.Model
                 new ObjectParameter("pass", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangePassWord", idParameter, passParameter);
+        }
+    
+        public virtual int ChangePost(Nullable<int> id, string postName, string postDescription, Nullable<decimal> postsalary)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var postNameParameter = postName != null ?
+                new ObjectParameter("postName", postName) :
+                new ObjectParameter("postName", typeof(string));
+    
+            var postDescriptionParameter = postDescription != null ?
+                new ObjectParameter("postDescription", postDescription) :
+                new ObjectParameter("postDescription", typeof(string));
+    
+            var postsalaryParameter = postsalary.HasValue ?
+                new ObjectParameter("postsalary", postsalary) :
+                new ObjectParameter("postsalary", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangePost", idParameter, postNameParameter, postDescriptionParameter, postsalaryParameter);
+        }
+    
+        public virtual int DeleteAboniment(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteAboniment", idParameter);
+        }
+    
+        public virtual int DeleteEmployee(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteEmployee", idParameter);
+        }
+    
+        public virtual int DeletePost(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeletePost", idParameter);
         }
     
         public virtual ObjectResult<GETClientsByName_Result> GETClientsByName(string name, string lastName)

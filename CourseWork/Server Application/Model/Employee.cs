@@ -27,6 +27,7 @@ namespace Server_Application.Model
         public System.DateTime empBdate { get; set; }
         public string empPhone { get; set; }
         public int postid { get; set; }
+        public System.DateTime empdate { get; set; }
     
         public virtual Posts Posts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
