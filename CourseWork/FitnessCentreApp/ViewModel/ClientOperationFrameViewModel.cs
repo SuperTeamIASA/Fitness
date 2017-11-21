@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using FitnessCentreApp.Infrastructure;
 using FitnessCentreApp.Model;
 using System.Windows.Input;
+using System.Xml.Linq;
+
 namespace FitnessCentreApp.ViewModel
 {
     class ClientOperationFrameViewModel : ViewModelBase
@@ -36,7 +38,7 @@ namespace FitnessCentreApp.ViewModel
                 return _BuySinge;
             }
         }
-         FullClientInfo _currentClient;
+        FullClientInfo _currentClient;
         ObservableCollection<ShortClientInfo> _clientList;
         public ObservableCollection<ShortClientInfo> clientList
         {
@@ -107,6 +109,19 @@ namespace FitnessCentreApp.ViewModel
 
             }
         }
+        int _extergroup;
+        public int ExterngroupCount
+        {
+            get
+            {
+                return _extergroup;
+            }
+            set
+            {
+                _extergroup = value;
+                OnPropertyChanged("ExterngroupCount");
+            }
+        }
 
         private bool CanBuySingle(object obj)
         {
@@ -127,5 +142,71 @@ namespace FitnessCentreApp.ViewModel
         {
             throw new NotImplementedException();
         }
+        ObservableCollection<Aboniment> _abonlist;
+        public ObservableCollection<Aboniment> AbonimentsList
+        {
+            get
+            {
+                if (_abonlist == null)
+                {
+
+                    XDocument doc = XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
+                    _abonlist = new ObservableCollection<Aboniment>();
+                    foreach (var item in doc.Root.Element("aboniments").Elements())
+                    {
+                        _abonlist.Add(new Aboniment()
+                        {
+                            abonID = int.Parse(item.Attribute("id").Value),
+                            description = item.Attribute("description").Value,
+                            cost = double.Parse(item.Attribute("cost").Value),
+                            sale = double.Parse(item.Attribute("sale").Value),
+                            pool = bool.Parse(item.Attribute("pool").Value),
+                            groupcount = int.Parse(item.Attribute("groupCount").Value),
+                            duration = int.Parse(item.Attribute("duration").Value),
+                            name = item.Attribute("name").Value
+                        });
+                    }
+
+
+                }
+                return _abonlist;
+
+            }
+            set
+            {
+                _abonlist = value;
+            }
+           
+        }
+        ObservableCollection<Lessons> _lessons;
+        public ObservableCollection<Lessons> LessonList
+        {
+            get
+            {
+                if(_lessons==null)
+                {
+                    XDocument doc = XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
+                    _lessons = new ObservableCollection<Lessons>();
+                    foreach (var item in doc.Root.Element("lessons").Elements())
+                    {
+                        _lessons.Add(new Lessons()
+                        {
+                            lessonid = int.Parse(item.Attribute("id").Value),
+                            name = item.Attribute("name").Value,
+                            description = item.Attribute("description").Value,
+                            duration = int.Parse(item.Attribute("duration").Value),
+                            groupcost = decimal.Parse(item.Attribute("groupcost").Value),
+                            indivcost = decimal.Parse(item.Attribute("individualcost").Value)
+                        });
+                    }
+                }
+                return _lessons;
+            }
+            set
+            {
+                _lessons = value;
+            }
+        }
+
     }
 }

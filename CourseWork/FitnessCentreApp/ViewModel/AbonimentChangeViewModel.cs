@@ -29,7 +29,10 @@ namespace FitnessCentreApp.ViewModel
 
         private bool CanAdd(object obj)
         {
-            return true; //TODO Проверка на звполнение строк
+            if (string.IsNullOrEmpty(AbonimentInfo.name) ||
+              string.IsNullOrEmpty(AbonimentInfo.description))
+                return false;
+            return true;
         }
 
         private void AddExecute(object obj)
@@ -50,7 +53,10 @@ namespace FitnessCentreApp.ViewModel
 
         private bool CanChange(object obj)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(AbonimentInfo.name) ||
+             string.IsNullOrEmpty(AbonimentInfo.description))
+                return false;
+            return true;
         }
 
         private void ChangeExecute(object obj)
@@ -71,7 +77,10 @@ namespace FitnessCentreApp.ViewModel
 
         private bool CanDelete(object obj)
         {
-            return true;
+            if (SelectedAboniment != 0)
+                return true;
+            else
+                return false;
         }
 
         private void DeleteExecute(object obj)

@@ -194,7 +194,8 @@ namespace Server_Application.Model
                                                      new XAttribute("lastname", item.emplastName),
                                                      new XAttribute("bdate", item.empBdate),
                                                      new XAttribute("email", item.empEmail),
-                                                     new XAttribute("phone", item.empPhone)));
+                                                     new XAttribute("phone", item.empPhone),
+                                                     new XAttribute("postId",item.postid)));
                 }
                 var qwery6 = from c in db.TrainerInfo
                              select c;
@@ -208,7 +209,9 @@ namespace Server_Application.Model
                                                      new XAttribute("bdate", item.Employee.empBdate),
                                                      new XAttribute("email", item.Employee.empEmail),
                                                      new XAttribute("phone", item.Employee.empPhone),
-                                                     new XAttribute("about", item.trainerabout)));
+                                                     new XAttribute("about", item.trainerabout),
+                                                     new XAttribute("photo",item.photo
+                                                     )));
                                             
                 }
                 

@@ -63,5 +63,13 @@ namespace FitnessCentreApp.Model
         void ChangeAboniment(int id , Aboniment abon);
         [OperationContract]
         void AddAboniment(Aboniment abon);
+        [OperationContract]
+        void DeletePost(int id);
+        [OperationContract]
+        void ChangePost(int id, Post post);
+        [OperationContract]
+        void AddPost(Post post);
+        
+        
     }
 }
