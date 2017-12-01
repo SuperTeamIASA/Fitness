@@ -24,6 +24,7 @@ namespace Server_Application.Model
         public string empName { get; set; }
         public string emplastName { get; set; }
         public string empEmail { get; set; }
+        public bool empGender { get; set; }
         public System.DateTime empBdate { get; set; }
         public string empPhone { get; set; }
         public int postid { get; set; }

@@ -20,9 +20,14 @@ namespace FitnessCentreApp.View
     /// </summary>
     public partial class Schedule : Page
     {
+      
+
         public Schedule()
         {
             InitializeComponent();
+                   
+            
         }
+        
     }
 }

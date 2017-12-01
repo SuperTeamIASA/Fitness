@@ -75,51 +75,52 @@
     </ApplicationDefinition>
     <Compile Include="Model\Aboniment.cs" />
     <Compile Include="Model\Aboniments.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AbonimentsWithClient.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Cash.cs" />
     <Compile Include="Model\CustomerInfo.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Customers.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Employee.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\FitnessDB.Context.cs">
+    <Compile Include="Model\Fitness.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FitnessDB.Context.tt</DependentUpon>
+      <DependentUpon>Fitness.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\FitnessDB.cs">
+    <Compile Include="Model\Fitness.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\FitnessDB.Designer.cs">
+    <Compile Include="Model\Fitness.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FitnessDB.edmx</DependentUpon>
+      <DependentUpon>Fitness.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\FullClientInfo.cs" />
     <Compile Include="Model\GETClientsByName_Result.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GetShedule_Result.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\GroupLessons.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ImageControl.cs" />
     <Compile Include="Model\IndividualLesson.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\LessonsType.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\MessageControl.cs" />
     <Compile Include="Model\ChatUsers.cs" />
@@ -134,28 +135,36 @@
     <Compile Include="Model\Model.cs" />
     <Compile Include="Model\New.cs" />
     <Compile Include="Model\newsControl.cs" />
+    <Compile Include="Model\Post.cs" />
     <Compile Include="Model\Posts.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Schedule.cs" />
     <Compile Include="Model\ShortClientInfo.cs" />
     <Compile Include="Model\SportHalls.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagrams_Result.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Trainer.cs" />
     <Compile Include="Model\TrainerInfo.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrainerList_Result.cs">
+      <DependentUpon>Fitness.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\WoorkTim_Result.cs">
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\WorkTimes.cs">
-      <DependentUpon>FitnessDB.tt</DependentUpon>
+      <DependentUpon>Fitness.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -194,12 +203,12 @@
     <None Include="app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Model\FitnessDB.edmx">
+    <EntityDeploy Include="Model\Fitness.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FitnessDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>Fitness.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\FitnessDB.edmx.diagram">
-      <DependentUpon>FitnessDB.edmx</DependentUpon>
+    <None Include="Model\Fitness.edmx.diagram">
+      <DependentUpon>Fitness.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -230,15 +239,15 @@
     <Resource Include="Model\news.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\FitnessDB.Context.tt">
+    <Content Include="Model\Fitness.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FitnessDB.edmx</DependentUpon>
-      <LastGenOutput>FitnessDB.Context.cs</LastGenOutput>
+      <DependentUpon>Fitness.edmx</DependentUpon>
+      <LastGenOutput>Fitness.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Model\FitnessDB.tt">
+    <Content Include="Model\Fitness.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FitnessDB.edmx</DependentUpon>
-      <LastGenOutput>FitnessDB.cs</LastGenOutput>
+      <DependentUpon>Fitness.edmx</DependentUpon>
+      <LastGenOutput>Fitness.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

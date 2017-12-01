@@ -19,6 +19,7 @@ namespace Server_Application.Model
         {
             this.GroupLessons = new HashSet<GroupLessons>();
             this.IndividualLesson = new HashSet<IndividualLesson>();
+            this.TrainerInfo = new HashSet<TrainerInfo>();
         }
     
         public int lessonId { get; set; }
@@ -32,5 +33,7 @@ namespace Server_Application.Model
         public virtual ICollection<GroupLessons> GroupLessons { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<IndividualLesson> IndividualLesson { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TrainerInfo> TrainerInfo { get; set; }
     }
 }

@@ -56,6 +56,30 @@ namespace Server_Application.Model
         FullClientInfo GetClient(int Id);
         [OperationContract]
         ShortClientInfo[] GetShortClientInfo(string name, string lastname);
-        
+        [OperationContract]
+        void DeleteAboniment(int id);
+        [OperationContract]
+        void ChangeAboniment(int id, Aboniment abon);
+        [OperationContract]
+        void AddAboniment(Aboniment abon);
+        [OperationContract]
+        void DeletePost(int id);
+        [OperationContract]
+        void ChangePost(int id, Post post);
+        [OperationContract]
+        void AddPost(Post post);
+        [OperationContract]
+        void addEmployee(Employee emp);
+        [OperationContract]
+        void changeEmployee(int id, Employee emp);
+        [OperationContract]
+        void deleteEmployee(int id);
+        [OperationContract]
+        Cash GetCashFromTo(long from, long to);
+        [OperationContract]
+        int[] GetTrainerlist(int lessonid);
+        [OperationContract]
+        int[] GetFreeTime(DateTime date, int hallId);
     }
+}
 }

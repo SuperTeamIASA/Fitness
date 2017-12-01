@@ -10,8 +10,70 @@
     <Page.DataContext>
         <local:ScheduleViewModel></local:ScheduleViewModel>
     </Page.DataContext>
-    <Grid Background="Aqua">
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="40">Hello</TextBlock>
-        
-    </Grid>
+    <Page.Content>
+        <Grid Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="501*"></ColumnDefinition>
+                <ColumnDefinition Width="389*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Выберите дату:"></TextBlock>
+                    <DatePicker MinWidth="100" SelectedDate="{Binding Path=SelectedDate}"></DatePicker>
+                </StackPanel>
+                <DataGrid x:Name="ScheduleGrid"  CanUserAddRows="False" AutoGenerateColumns="False"  CanUserDeleteRows="False" Height="500" HeadersVisibility="All" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Время" ></DataGridTextColumn>
+                        <DataGridTemplateColumn Header="Зал1">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel >
+                                        <TextBlock></TextBlock>
+                                        <TextBlock></TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="10 150 10 100">
+                <TextBlock Text="Добавить занятие" HorizontalAlignment="Center" FontSize="30" Margin="0 10" ></TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock MinWidth="100" Text="Занятие:" FontSize="24"></TextBlock>
+                    <ComboBox MinWidth="100" ItemsSource="{Binding Path=LessonList}" SelectedIndex="{Binding Path=SelectedLessonIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock MinWidth="100" FontSize="24" Text="Тренер:"></TextBlock>
+                    <ComboBox MinWidth="100" ItemsSource="{Binding Path=TrainerList}" SelectedIndex="{Binding Path=TrainerListIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                                    <TextBlock Text="{Binding Path=LastName}" Margin="10 0 0 0"/>
+
+
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <TextBlock MinWidth="100" FontSize="24" Text="Зал:"></TextBlock>
+                    <ComboBox MinWidth="100"></ComboBox>
+                </StackPanel>
+                <Button Content="Добавить" FontSize="24" MinWidth="120" Margin="10" HorizontalAlignment="Center" Command="{Binding Add}"></Button>
+                <Button Content="Удалить" FontSize="24" MinWidth="120" Margin="10" HorizontalAlignment="Center" Command="{Binding Delete}"></Button>
+                <Button Content="Изменить" FontSize="24"  MinWidth="120" Margin="10" HorizontalAlignment="Center" Command="{Binding Change}"></Button>
+            </StackPanel>
+        </Grid>
+    </Page.Content>
 </Page>

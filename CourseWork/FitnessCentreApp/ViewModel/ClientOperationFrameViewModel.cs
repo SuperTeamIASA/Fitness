@@ -28,8 +28,8 @@ namespace FitnessCentreApp.ViewModel
                 return _BuyGroup;
             }
         }
-        
-       public  ICommand BuySingle
+
+        public ICommand BuySingle
         {
             get
             {
@@ -67,7 +67,7 @@ namespace FitnessCentreApp.ViewModel
         }
         string _nameSearch;
         string _lastnameSearch;
-        public   string NameSearch
+        public string NameSearch
         {
             get
             {
@@ -77,10 +77,10 @@ namespace FitnessCentreApp.ViewModel
             {
                 _nameSearch = value;
                 OnPropertyChanged("NameSearch");
-               clientList = new ObservableCollection<ShortClientInfo>( channel.channal.GetShortClientInfo(NameSearch, LastNameSearch));
+                clientList = new ObservableCollection<ShortClientInfo>(channel.channal.GetShortClientInfo(NameSearch, LastNameSearch));
             }
         }
-        public   string LastNameSearch
+        public string LastNameSearch
         {
             get
             {
@@ -94,7 +94,7 @@ namespace FitnessCentreApp.ViewModel
             }
         }
         int selectedclient;
-        public  int SelectedClient
+        public int SelectedClient
         {
             get
             {
@@ -176,14 +176,26 @@ namespace FitnessCentreApp.ViewModel
             {
                 _abonlist = value;
             }
-           
+
         }
+        private int _abonlistindex;
+
+        public int AbonListIndex
+        {
+            get { return _abonlistindex; }
+            set
+            {
+                _abonlistindex = value;
+                OnPropertyChanged("AbonListIndex");
+            }
+        }
+
         ObservableCollection<Lessons> _lessons;
         public ObservableCollection<Lessons> LessonList
         {
             get
             {
-                if(_lessons==null)
+                if (_lessons == null)
                 {
                     XDocument doc = XDocument.Load(AppDomain.CurrentDomain.BaseDirectory + "/sesion.xml");
                     _lessons = new ObservableCollection<Lessons>();
@@ -207,6 +219,86 @@ namespace FitnessCentreApp.ViewModel
                 _lessons = value;
             }
         }
+        private int _lessonlistindex;
+
+        public int LessonListIndex
+        {
+            get { return _lessonlistindex; }
+            set
+            {
+                _lessonlistindex = value;
+                TrainerList = new ObservableCollection<Trainer>(channel.channal.GetTrainerlist(LessonList[LessonListIndex].lessonid));
+                OnPropertyChanged("LessonListIndex");
+            }
+        }
+
+        private int groupCountAdd;
+
+        public int GroupCountAdd
+        {
+            get { return groupCountAdd; }
+            set
+            {
+                groupCountAdd = value;
+                OnPropertyChanged("GroupCountAdd");
+            }
+        }
+        private int _groupmoney;
+
+        public int GroupMoney
+        {
+            get { return _groupmoney; }
+            set { _groupmoney = value; }
+        }
+        private int _indivMoney;
+
+        public int IndivMoney
+        {
+            get { return _indivMoney; }
+            set { _indivMoney = value; }
+        }
+        ObservableCollection<Trainer> _trainerlist;
+        public ObservableCollection<Trainer> TrainerList
+        {
+            get
+            {
+                if (_trainerlist == null)
+                    _trainerlist = new ObservableCollection<Trainer>();
+                return _trainerlist;
+            }
+            set
+            {
+                _trainerlist = value;
+                OnPropertyChanged("TrainerList");
+            }
+        }
+        private int _trainerlistindex;
+        private DateTime _selected_date;
+
+        public int TrainerListIndex
+        {
+            get { return _trainerlistindex; }
+            set
+            {
+                _trainerlistindex = value;
+                OnPropertyChanged("TrainerListIndex");
+            }
+        }
+        public DateTime SelectedDate
+        {
+            get
+            {
+
+                return _selected_date;
+            }
+            set
+            {
+                _selected_date = value;
+            }
+        }
+
+
+
 
     }
 }

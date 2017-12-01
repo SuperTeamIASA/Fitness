@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\Model\FitnessDB.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\vladk\Documents\GitHub\Fitness\CourseWork\Server Application\Model\Fitness.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

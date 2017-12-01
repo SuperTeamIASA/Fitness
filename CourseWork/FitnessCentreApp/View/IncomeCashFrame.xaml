@@ -10,8 +10,39 @@
     <Page.DataContext>
         <local:IncomeCashFrameViewModel></local:IncomeCashFrameViewModel>
     </Page.DataContext>
-   
-    <Grid>
-       
+    <Page.Resources>
+        <Style x:Key="TextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="MaxWidth" Value="210"></Setter>
+        </Style>
+    </Page.Resources>
+    <Grid Background="White">
+        <StackPanel Margin="40 " >
+            <TextBlock Text="Доходы/расходы" HorizontalAlignment="Center" FontSize="40" Margin="20"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Выбрать период: ОТ " FontSize="20"></TextBlock>
+                <DatePicker Margin="2 0 0 0" SelectedDate="{Binding DateFrom}"/>
+                <TextBlock Margin="5 0" FontSize="20"  Text="ДО"/>
+                <DatePicker Margin="2 0 0 0" SelectedDate="{Binding DateTo}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Доходы:" Style="{StaticResource TextStyle}"/>
+                <TextBlock MinWidth="100" Text="{Binding Path=CashInfo.allincash}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Зарплата сотрудников:" Style="{StaticResource TextStyle}"/>
+                <TextBlock MinWidth="100" Text="{Binding Path=CashInfo.salarycash}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Налоги:" Style="{StaticResource TextStyle}"/>
+                <TextBlock MinWidth="100" Text="{Binding Path=CashInfo.podatok}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Чистая прибиль:" Style="{StaticResource TextStyle}"/>
+                <TextBlock MinWidth="100" Text="{Binding Path=CashInfo.flowcash}"/>
+            </StackPanel>
+            <Button Width="100" Command="{Binding Print}" HorizontalAlignment="Left" Margin="10 40" Padding="5 10" Background="Gray" Content="Печать"/>
+        </StackPanel>
     </Grid> 
 </Page>

@@ -67,6 +67,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Model\Aboniment.cs" />
+    <Compile Include="Model\Cash.cs" />
     <Compile Include="Model\Channal.cs" />
     <Compile Include="Model\ChatUsers.cs" />
     <Compile Include="Model\Client.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Model\New.cs" />
     <Compile Include="Model\OperationManager.cs" />
     <Compile Include="Model\Post.cs" />
+    <Compile Include="Model\ScheduleCell.cs" />
     <Compile Include="Model\ShortClientInfo.cs" />
     <Compile Include="Model\Trainer.cs" />
     <Compile Include="ViewModel\AbonimentChangeViewModel.cs" />
@@ -257,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="fitness-clip-art-48.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

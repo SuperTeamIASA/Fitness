@@ -132,15 +132,15 @@ namespace Server_Application.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddCustomerInfo", clientidParameter, cityParameter, sexParameter, adressParameter, bdateParameter, phoneParameter, userimageParameter, detailinfoParameter);
         }
     
-        public virtual int AddEmployee(string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid)
+        public virtual int AddEmployee(string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid, Nullable<System.DateTime> empdate, Nullable<bool> gender)
         {
             var nameParameter = name != null ?
                 new ObjectParameter("Name", name) :
                 new ObjectParameter("Name", typeof(string));
     
             var lastNameParameter = lastName != null ?
-                new ObjectParameter("lastName", lastName) :
-                new ObjectParameter("lastName", typeof(string));
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
     
             var empEmailParameter = empEmail != null ?
                 new ObjectParameter("empEmail", empEmail) :
@@ -158,7 +158,15 @@ namespace Server_Application.Model
                 new ObjectParameter("postid", postid) :
                 new ObjectParameter("postid", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddEmployee", nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter);
+            var empdateParameter = empdate.HasValue ?
+                new ObjectParameter("empdate", empdate) :
+                new ObjectParameter("empdate", typeof(System.DateTime));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddEmployee", nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter, empdateParameter, genderParameter);
         }
     
         public virtual int AddGrouplesson(Nullable<int> trainerId, Nullable<int> lessontypeId, Nullable<int> hallId, Nullable<System.DateTime> lessdate, Nullable<int> lesstimeId)
@@ -215,39 +223,6 @@ namespace Server_Application.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddIndividualLess", trainerIdParameter, lessontypeIdParameter, hallIdParameter, lessdateParameter, lesstimeIdParameter, clientidParameter);
         }
     
-        public virtual int AddNewEmployy(string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid, Nullable<System.DateTime> empdate)
-        {
-            var nameParameter = name != null ?
-                new ObjectParameter("Name", name) :
-                new ObjectParameter("Name", typeof(string));
-    
-            var lastNameParameter = lastName != null ?
-                new ObjectParameter("LastName", lastName) :
-                new ObjectParameter("LastName", typeof(string));
-    
-            var empEmailParameter = empEmail != null ?
-                new ObjectParameter("empEmail", empEmail) :
-                new ObjectParameter("empEmail", typeof(string));
-    
-            var empBdateParameter = empBdate.HasValue ?
-                new ObjectParameter("empBdate", empBdate) :
-                new ObjectParameter("empBdate", typeof(System.DateTime));
-    
-            var empPhoneParameter = empPhone != null ?
-                new ObjectParameter("empPhone", empPhone) :
-                new ObjectParameter("empPhone", typeof(string));
-    
-            var postidParameter = postid.HasValue ?
-                new ObjectParameter("postid", postid) :
-                new ObjectParameter("postid", typeof(int));
-    
-            var empdateParameter = empdate.HasValue ?
-                new ObjectParameter("empdate", empdate) :
-                new ObjectParameter("empdate", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddNewEmployy", nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter, empdateParameter);
-        }
-    
         public virtual int AddPost(string postName, string postDescription, Nullable<decimal> postsalary)
         {
             var postNameParameter = postName != null ?
@@ -280,6 +255,58 @@ namespace Server_Application.Model
                 new ObjectParameter("photo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddTrainerAbout", empIdParameter, aboutParameter, photoParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> CashinAbon(Nullable<System.DateTime> from, Nullable<System.DateTime> end)
+        {
+            var fromParameter = from.HasValue ?
+                new ObjectParameter("from", from) :
+                new ObjectParameter("from", typeof(System.DateTime));
+    
+            var endParameter = end.HasValue ?
+                new ObjectParameter("end", end) :
+                new ObjectParameter("end", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CashinAbon", fromParameter, endParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> CashinGroup(Nullable<System.DateTime> from, Nullable<System.DateTime> end)
+        {
+            var fromParameter = from.HasValue ?
+                new ObjectParameter("from", from) :
+                new ObjectParameter("from", typeof(System.DateTime));
+    
+            var endParameter = end.HasValue ?
+                new ObjectParameter("end", end) :
+                new ObjectParameter("end", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CashinGroup", fromParameter, endParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> CashInIndiv(Nullable<System.DateTime> from, Nullable<System.DateTime> end)
+        {
+            var fromParameter = from.HasValue ?
+                new ObjectParameter("from", from) :
+                new ObjectParameter("from", typeof(System.DateTime));
+    
+            var endParameter = end.HasValue ?
+                new ObjectParameter("end", end) :
+                new ObjectParameter("end", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CashInIndiv", fromParameter, endParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<decimal>> CashOutSalary(Nullable<System.DateTime> from, Nullable<System.DateTime> end)
+        {
+            var fromParameter = from.HasValue ?
+                new ObjectParameter("from", from) :
+                new ObjectParameter("from", typeof(System.DateTime));
+    
+            var endParameter = end.HasValue ?
+                new ObjectParameter("end", end) :
+                new ObjectParameter("end", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("CashOutSalary", fromParameter, endParameter);
         }
     
         public virtual int ChangeAboniment(Nullable<int> id, string name, string description, Nullable<int> duration, Nullable<bool> poolacsess, Nullable<decimal> cost, Nullable<double> sale, Nullable<int> groupCount)
@@ -317,6 +344,43 @@ namespace Server_Application.Model
                 new ObjectParameter("groupCount", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangeAboniment", idParameter, nameParameter, descriptionParameter, durationParameter, poolacsessParameter, costParameter, saleParameter, groupCountParameter);
+        }
+    
+        public virtual int ChangeEmp(Nullable<int> empId, string name, string lastName, string empEmail, Nullable<System.DateTime> empBdate, string empPhone, Nullable<int> postid, Nullable<bool> gender)
+        {
+            var empIdParameter = empId.HasValue ?
+                new ObjectParameter("empId", empId) :
+                new ObjectParameter("empId", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var lastNameParameter = lastName != null ?
+                new ObjectParameter("LastName", lastName) :
+                new ObjectParameter("LastName", typeof(string));
+    
+            var empEmailParameter = empEmail != null ?
+                new ObjectParameter("empEmail", empEmail) :
+                new ObjectParameter("empEmail", typeof(string));
+    
+            var empBdateParameter = empBdate.HasValue ?
+                new ObjectParameter("empBdate", empBdate) :
+                new ObjectParameter("empBdate", typeof(System.DateTime));
+    
+            var empPhoneParameter = empPhone != null ?
+                new ObjectParameter("empPhone", empPhone) :
+                new ObjectParameter("empPhone", typeof(string));
+    
+            var postidParameter = postid.HasValue ?
+                new ObjectParameter("postid", postid) :
+                new ObjectParameter("postid", typeof(int));
+    
+            var genderParameter = gender.HasValue ?
+                new ObjectParameter("gender", gender) :
+                new ObjectParameter("gender", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("ChangeEmp", empIdParameter, nameParameter, lastNameParameter, empEmailParameter, empBdateParameter, empPhoneParameter, postidParameter, genderParameter);
         }
     
         public virtual int ChangePassWord(Nullable<int> id, string pass)
@@ -516,6 +580,41 @@ namespace Server_Application.Model
                 new ObjectParameter("groupLessonid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("TOGroupLesson", clientidParameter, groupLessonidParameter);
+        }
+    
+        public virtual ObjectResult<TrainerList_Result> TrainerList(Nullable<int> lessonId)
+        {
+            var lessonIdParameter = lessonId.HasValue ?
+                new ObjectParameter("lessonId", lessonId) :
+                new ObjectParameter("lessonId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TrainerList_Result>("TrainerList", lessonIdParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> WoorkTimGroup(Nullable<System.DateTime> data, Nullable<int> hallid)
+        {
+            var dataParameter = data.HasValue ?
+                new ObjectParameter("data", data) :
+                new ObjectParameter("data", typeof(System.DateTime));
+    
+            var hallidParameter = hallid.HasValue ?
+                new ObjectParameter("hallid", hallid) :
+                new ObjectParameter("hallid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("WoorkTimGroup", dataParameter, hallidParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> WoorkTimIndiv(Nullable<System.DateTime> data, Nullable<int> hallid)
+        {
+            var dataParameter = data.HasValue ?
+                new ObjectParameter("data", data) :
+                new ObjectParameter("data", typeof(System.DateTime));
+    
+            var hallidParameter = hallid.HasValue ?
+                new ObjectParameter("hallid", hallid) :
+                new ObjectParameter("hallid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("WoorkTimIndiv", dataParameter, hallidParameter);
         }
     }
 }

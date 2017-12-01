@@ -69,7 +69,17 @@ namespace FitnessCentreApp.Model
         void ChangePost(int id, Post post);
         [OperationContract]
         void AddPost(Post post);
-        
-        
+        [OperationContract]
+        void addEmployee(Employee emp);
+        [OperationContract]
+        void changeEmployee(int id, Employee emp);
+        [OperationContract]
+        void deleteEmployee(int id);
+        [OperationContract]
+        Cash GetCashFromTo(long from, long to);
+        [OperationContract]
+        int[] GetTrainerlist(int lessonid);
+        [OperationContract]
+        int[] GetFreeTime(DateTime date, int hallId);        
     }
 }

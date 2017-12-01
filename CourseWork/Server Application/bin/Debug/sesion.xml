@@ -4,4 +4,27 @@
     <new id="1" Title="Заголовок" Text="Основной текст" Image="headfon.jpg"></new>
   </news>
   <messages />
+  <aboniments>
+    <aboniment id="1" description="Без абоніменту" cost="0.0000" sale="0" pool="false" groupCount="0" duration="0" name="Порожній" />
+  </aboniments>
+  <worktimes>
+    <worktime worktimeid="1" stringf="8-9" />
+    <worktime worktimeid="2" stringf="9-10" />
+    <worktime worktimeid="3" stringf="10-11" />
+    <worktime worktimeid="4" stringf="11-12" />
+    <worktime worktimeid="5" stringf="12-13" />
+    <worktime worktimeid="6" stringf="13-14" />
+    <worktime worktimeid="7" stringf="14-15" />
+    <worktime worktimeid="8" stringf="16-17" />
+    <worktime worktimeid="9" stringf="18-19" />
+    <worktime worktimeid="10" stringf="19-20" />
+    <worktime worktimeid="11" stringf="20-21" />
+  </worktimes>
+  <lessons />
+  <halls />
+  <posts>
+    <post id="1" description="ВАКАНСІЯ" name="ВАКАНСІЯ" salary="0.0000" />
+  </posts>
+  <emploees />
+  <trainers />
 </sesion>

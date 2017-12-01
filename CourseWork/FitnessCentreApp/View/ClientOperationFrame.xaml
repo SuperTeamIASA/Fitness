@@ -14,20 +14,20 @@
         <Style x:Key="TextStyle" TargetType="TextBlock">
             <Setter Property="Margin" Value="10 1 10 1"></Setter>
             <Setter Property="FontSize" Value="14"></Setter>
-                       
+
         </Style>
         <Style x:Key="TextBoxStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="MinWidth" Value="30"></Setter>
         </Style>
         <Style x:Key="TextBindStyle" TargetType="TextBlock">
-            
+
         </Style>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="14"></Setter>
             <Setter Property="Padding" Value="5"></Setter>
-           
-            
+
+
         </Style>
         <Style x:Key="TextInfoStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="15"></Setter>
@@ -70,7 +70,7 @@
                         </TextBox.Resources>
                     </TextBox>
                 </StackPanel>
-                <ComboBox HorizontalAlignment="Center"  Width="120" Margin="0 10 0 0"  SelectedIndex="{Binding Path=SelectedClient,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=clientList}">
+                <ComboBox HorizontalAlignment="Center"  Width="120" Margin="0 10 0 0"  SelectedIndex="{Binding Path=SelectedClient,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Path=clientList}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -86,7 +86,7 @@
                     <TextBlock Text="Абонимент" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="DarkRed" Margin="2"/>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <TextBlock Text="Текущий абонимент"  Style="{StaticResource TextStyle}"/>
-                        <TextBlock Style="{StaticResource TextBindStyle}" />
+                        <TextBlock Text="" Style="{StaticResource TextBindStyle}" />
                     </StackPanel >
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <TextBlock Text="Осталось дней" Style="{StaticResource TextStyle}" />
@@ -100,19 +100,28 @@
                     <TextBlock FontSize="17"  Text="Купить дополнительные груповые занятия:" HorizontalAlignment="Center" Style="{StaticResource TextStyle}" />
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <TextBlock Text="Количевство занятий:" Style="{StaticResource TextStyle}" />
-                        <TextBox Style="{StaticResource TextBoxStyle}"/>
+                        <TextBox Text="{Binding Path=GroupCountAdd,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Style="{StaticResource TextBoxStyle}"/>
                     </StackPanel>
                     <TextBlock Margin="0 2 0 2 " FontSize="17" Text="Купить абонимент на следующий месяц" HorizontalAlignment="Center" Style="{StaticResource TextStyle}"/>
                     <StackPanel Orientation="Horizontal" Margin="3">
                         <TextBlock Text="Выберите абонимент" Style="{StaticResource TextStyle}"/>
-                        <ComboBox Width="100" />
+                        <ComboBox Width="100" ItemsSource="{Binding Path=AbonimentsList}" SelectedIndex="{Binding Path=AbonListIndex,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=name}"/>
+                                        <TextBlock Text="{Binding Path=cost}" Margin="10 0 0 0"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <TextBlock Text="Всего к оплате:" FontWeight="Bold"   Style="{StaticResource TextStyle}"/>
-                        <TextBlock MinWidth="50" Foreground="Red" FontSize="16"/>
+                        <TextBlock MinWidth="50" Foreground="Red" Text="{Binding Path=GroupMoney,Mode=TwoWay}" FontSize="16"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-                        <Button Style="{StaticResource ButtonStyle}" Content="Оплатить" >
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding BuyGroup}" Content="Оплатить" >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="BorderBrush" Value="Black"></Setter>
@@ -125,28 +134,45 @@
                 </StackPanel>
             </Border >
             <Border Grid.Row="2" BorderBrush="Black" BorderThickness="3" CornerRadius="20">
-            <StackPanel >
+                <StackPanel >
                     <TextBlock Text="Индивидуальные занятия" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Foreground="DarkRed" Margin="2"/>
-                <StackPanel Orientation="Horizontal" Margin="3">
-                    <TextBlock Text="Выберите тип занятия" Style="{StaticResource TextStyle}"/>
-                    <ComboBox MinWidth="100" />
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="3">
-                    <TextBlock Text="Выберите тренера" Style="{StaticResource TextStyle}" />
-                    <ComboBox MinWidth="100"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="3">
-                    <TextBlock  Text="Дата" Margin="10 0 20 0" Style="{StaticResource TextStyle}"/>
-                    <DatePicker />
-                    <TextBlock Text="Время" Style="{StaticResource TextStyle}" Margin="10 0 15 0"/>
-                    <ComboBox MinWidth="50"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBlock Text="Всего к оплате:" FontWeight="Bold"  Style="{StaticResource TextStyle}"/>
-                    <TextBlock MinWidth="50" Foreground="Red" FontSize="16"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-                        <Button Style="{StaticResource ButtonStyle}" Content="Оплатить"  >
+                    <StackPanel Orientation="Horizontal" Margin="3">
+                        <TextBlock Text="Выберите тип занятия" Style="{StaticResource TextStyle}"/>
+                        <ComboBox MinWidth="100" ItemsSource="{Binding Path=LessonList}" SelectedIndex="{Binding Path=LessonListIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=name}"></TextBlock>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="3">
+                        <TextBlock Text="Выберите тренера" Style="{StaticResource TextStyle}" />
+                        <ComboBox MinWidth="100" ItemsSource="{Binding Path=TrainerList}" SelectedIndex="{Binding Path=TrainerListIndex,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                                        <TextBlock Text="{Binding Path=LastName}" Margin="10 0 0 0"/>
+
+
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="3">
+                        <TextBlock  Text="Дата" Margin="10 0 20 0" Style="{StaticResource TextStyle}"/>
+                        <DatePicker SelectedDate="{Binding Path=}"/>
+                        <TextBlock Text="Время" Style="{StaticResource TextStyle}" Margin="10 0 15 0"/>
+                        <ComboBox MinWidth="50"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Всего к оплате:" FontWeight="Bold"  Style="{StaticResource TextStyle}"/>
+                        <TextBlock MinWidth="50" Foreground="Red" Text="{Binding Path=IndivMoney,Mode=TwoWay}" FontSize="16"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding BuySingle}" Content="Оплатить"  >
                             <Button.Resources>
                                 <Style TargetType="{x:Type Border}">
                                     <Setter Property="BorderBrush" Value="Black"></Setter>
@@ -156,8 +182,8 @@
                             </Button.Resources>
                         </Button>
 
+                    </StackPanel>
                 </StackPanel>
-            </StackPanel>
             </Border>
         </Grid>
         <StackPanel Grid.Column="1" Margin="5">

@@ -11,6 +11,9 @@
           <ScalarProperty Name="abonimentCost" ColumnName="abonimentCost" />
           <ScalarProperty Name="abonimentSale" ColumnName="abonimentSale" />
           <ScalarProperty Name="groupCount" ColumnName="groupCount" />
+          <ScalarProperty Name="abonimentName" ColumnName="abonimentName" />
+          <ScalarProperty Name="actualbool" ColumnName="actualbool" />
+          <ScalarProperty Name="abonimentImage" ColumnName="abonimentImage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -61,6 +64,7 @@
           <ScalarProperty Name="empBdate" ColumnName="empBdate" />
           <ScalarProperty Name="empPhone" ColumnName="empPhone" />
           <ScalarProperty Name="postid" ColumnName="postid" />
+          <ScalarProperty Name="empdate" ColumnName="empdate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -158,13 +162,21 @@
         <ScalarProperty Name="grouplessonId" ColumnName="grouplessonId" />
       </EndProperty>
     </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="AddAboniment" FunctionName="Хранилище FitnessCenterDBModel.AddAboniment" />
     <FunctionImportMapping FunctionImportName="AddClient" FunctionName="Хранилище FitnessCenterDBModel.AddClient" />
     <FunctionImportMapping FunctionImportName="AddCustomerInfo" FunctionName="Хранилище FitnessCenterDBModel.AddCustomerInfo" />
+    <FunctionImportMapping FunctionImportName="AddEmployee" FunctionName="Хранилище FitnessCenterDBModel.AddEmployee" />
     <FunctionImportMapping FunctionImportName="AddGrouplesson" FunctionName="Хранилище FitnessCenterDBModel.AddGrouplesson" />
     <FunctionImportMapping FunctionImportName="AddIndividualLess" FunctionName="Хранилище FitnessCenterDBModel.AddIndividualLess" />
     <FunctionImportMapping FunctionImportName="AddNewEmployy" FunctionName="Хранилище FitnessCenterDBModel.AddNewEmployy" />
-    <FunctionImportMapping FunctionImportName="AddNewPost" FunctionName="Хранилище FitnessCenterDBModel.AddNewPost" />
+    <FunctionImportMapping FunctionImportName="AddPost" FunctionName="Хранилище FitnessCenterDBModel.AddPost" />
+    <FunctionImportMapping FunctionImportName="AddTrainerAbout" FunctionName="Хранилище FitnessCenterDBModel.AddTrainerAbout" />
+    <FunctionImportMapping FunctionImportName="ChangeAboniment" FunctionName="Хранилище FitnessCenterDBModel.ChangeAboniment" />
     <FunctionImportMapping FunctionImportName="ChangePassWord" FunctionName="Хранилище FitnessCenterDBModel.ChangePassWord" />
+    <FunctionImportMapping FunctionImportName="ChangePost" FunctionName="Хранилище FitnessCenterDBModel.ChangePost" />
+    <FunctionImportMapping FunctionImportName="DeleteAboniment" FunctionName="Хранилище FitnessCenterDBModel.DeleteAboniment" />
+    <FunctionImportMapping FunctionImportName="DeleteEmployee" FunctionName="Хранилище FitnessCenterDBModel.DeleteEmployee" />
+    <FunctionImportMapping FunctionImportName="DeletePost" FunctionName="Хранилище FitnessCenterDBModel.DeletePost" />
     <FunctionImportMapping FunctionImportName="GETClientsByName" FunctionName="Хранилище FitnessCenterDBModel.GETClientsByName">
       <ResultMapping>
         <ComplexTypeMapping TypeName="FitnessCenterDBModel.GETClientsByName_Result">

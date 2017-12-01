@@ -13,5 +13,6 @@ namespace FitnessCentreApp
     /// </summary>
     public partial class App : Application
     {
+       
     }
 }

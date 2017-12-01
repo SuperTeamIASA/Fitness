@@ -10,5 +10,9 @@ namespace FitnessCentreApp.Model
         public string empEmail { get; set; }
         public string empPhone { get; set; }
         public int postId { get; set; }
+        public DateTime empDate { get; set; }
+        public bool empGender { get; set; }
+        
+        
     }
 }

@@ -7,10 +7,10 @@
       mc:Ignorable="d" 
        d:DesignHeight="700" d:DesignWidth="890"
       Title="EmployeeSettingFrame">
-   <!-- <Page.DataContext>
+    <Page.DataContext>
         <local:EmployeeSettingFrameViewModel></local:EmployeeSettingFrameViewModel>
-    </Page.DataContext>-->
-    <Grid>
+    </Page.DataContext>
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="333*"></ColumnDefinition>
             <ColumnDefinition Width="557*"></ColumnDefinition>
@@ -21,11 +21,17 @@
             <ListBox Margin="30 50 20 30"  Height="400">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=empName}"/>
+                                <TextBlock Text="{Binding Path=empLastName}"/>
+                            </StackPanel>
 
+                        </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Content="Добавить" Padding="8" Margin="100 5">
+            <Button Content="Добавить" Command="{Binding Add }" Padding="8" Margin="100 5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"></Setter>
@@ -33,14 +39,14 @@
                 </Button.Resources>
             </Button>
 
-            <Button Content="Уволить"  Padding="8"  Margin="100 5">
+            <Button Content="Уволить" Command="{Binding Delete}"  Padding="8"  Margin="100 5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"></Setter>
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button Content="Изменить"  Padding="8" Margin="100 5">
+            <Button Content="Изменить" Command="{Binding Change}" Padding="8" Margin="100 5">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"></Setter>
@@ -48,8 +54,42 @@
                 </Button.Resources>
             </Button>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            
+        <StackPanel Grid.ColumnSpan="2" Margin="323,-64,10,64" >
+            <StackPanel Orientation="Horizontal" Margin="20 100  0 10 ">
+                <TextBlock Text="Имя" Width="100"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedEmp.empName}" Margin="10 0 0 0 "/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20 10 ">
+                <TextBlock Text="Фамилия"  Width="100"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedEmp.empLastName}"  Margin="10 0 0 0 "/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="20 10 ">
+                <TextBlock Text="Дата рождения"  Width="100"/>
+                <DatePicker MinWidth="100" DisplayDate="{Binding SelectedEmp.empBdate}"  Margin="10 0 0 0 "/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="20 10 ">
+                <TextBlock Text="Пол"  Width="100"/>
+                <ComboBox MinWidth="100"  Margin="10 0 0 0" SelectedIndex="{Binding SelectedEmp.empGender}">
+                    <TextBlock>Женщина</TextBlock>
+                    <TextBlock>Мужчина</TextBlock>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="20 10 ">
+                <TextBlock Text="Email"  Width="100"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedEmp.empEmail}"  Margin="10 0 0 0 "/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="20 10 ">
+                <TextBlock Text="Телефон"  Width="100"/>
+                <TextBox MinWidth="100" Text="{Binding SelectedEmp.empPhone}"  Margin="10 0 0 0 "/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="20 10 ">
+                <TextBlock Text="Дата прийнятия на работу"  TextWrapping="Wrap"  Width="100"/>
+                <TextBox MinWidth="100" Margin="10 0 0 0 " Text="{Binding SelectedEmp.empDate}"/>
+            </StackPanel>
+
+
+
+
         </StackPanel>
     </Grid>
 </Page>

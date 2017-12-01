@@ -45,7 +45,11 @@ namespace FitnessCentreApp.ViewModel
                             empEmail = item.Attribute("email").Value,
                             empPhone = item.Attribute("phone").Value,
                             empBdate = DateTime.Parse(item.Attribute("bdate").Value),
-                            postId = int.Parse(item.Attribute("postId").Value)
+                            postId = int.Parse(item.Attribute("postId").Value),
+                            empDate = DateTime.Parse(item.Attribute("empDate").Value),
+                            empGender = bool.Parse(item.Attribute("empGender").Value)
+                            
+
                         });
                     }
                 }
@@ -94,12 +98,18 @@ namespace FitnessCentreApp.ViewModel
 
         private bool CanAdd(object obj)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(SelectedEmp.empName) || !string.IsNullOrEmpty(SelectedEmp.empLastName) || !string.IsNullOrEmpty(SelectedEmp.empEmail) || !string.IsNullOrEmpty(SelectedEmp.empPhone)
+                 || !string.IsNullOrEmpty(SelectedEmp.empBdate.ToString()))
+                return true;
+            return false;
         }
 
         private void ExAdd(object obj)
         {
-            throw new NotImplementedException();
+            channal.channal.addEmployee(SelectedEmp);
+            EmpList.Add(SelectedEmp);
+            SelectedEmp = new Employee();
+
         }
 
         public ICommand Change
@@ -114,12 +124,19 @@ namespace FitnessCentreApp.ViewModel
 
         private bool CanChange(object obj)
         {
-            throw new NotImplementedException();
+            if (!string.IsNullOrEmpty(SelectedEmp.empName) || !string.IsNullOrEmpty(SelectedEmp.empLastName) || !string.IsNullOrEmpty(SelectedEmp.empEmail) || !string.IsNullOrEmpty(SelectedEmp.empPhone)
+                  || !string.IsNullOrEmpty(SelectedEmp.empBdate.ToString()))
+                return true;
+            return false;
         }
 
         private void ExChange(object obj)
         {
-            throw new NotImplementedException();
+            channal.channal.changeEmployee(EmpList[SelectedIndex].empId, SelectedEmp);
+            EmpList[SelectedIndex] = SelectedEmp;
+            SelectedIndex = 0;
+            SelectedEmp = new Employee();
+
         }
 
         public ICommand Delete
@@ -134,12 +151,17 @@ namespace FitnessCentreApp.ViewModel
 
         private bool CanDelete(object obj)
         {
-            throw new NotImplementedException();
+            if (SelectedIndex != 0)
+                return true;
+            return false;
         }
 
         private void DeleteEx(object obj)
         {
-            throw new NotImplementedException();
+            channal.channal.deleteEmployee(EmpList[SelectedIndex].empId);
+            EmpList.RemoveAt(SelectedIndex);
+            SelectedIndex = 0;
+            SelectedEmp =new  Employee();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Runtime.Serialization;
 
 namespace Server_Application.Model
 {
-    [DataContract(Namespace ="Some")]
+    [DataContract(Namespace = "Some")]
     class Aboniment
     {
         [DataMember]
@@ -15,6 +15,30 @@ namespace Server_Application.Model
         [DataMember]
         public int groupcount { get; set; }
         [DataMember]
-        public DateTime selldata { get; set; }
+        public long selldatebits;
+        public DateTime selldata
+        {
+            get
+            {
+                return DateTime.FromBinary(selldatebits);
+            }
+            set
+            {
+                selldatebits = value.ToBinary();
+            }
+        }
+        [DataMember]
+        public string name { get; set; }
+        [DataMember]
+        public double cost { get; set; }
+        [DataMember]
+        public double sale { get; set; }
+        [DataMember]
+        public bool pool { get; set; }
+        [DataMember]
+        public string description { get; set; }
+        [DataMember]
+        public int duration { get; set; }
+
     }
 }

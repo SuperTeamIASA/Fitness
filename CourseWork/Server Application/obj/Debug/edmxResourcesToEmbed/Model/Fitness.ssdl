@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище FitnessCenterDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Aboniments">
+    <Key>
+      <PropertyRef Name="abonimentId" />
+    </Key>
+    <Property Name="abonimentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="abonimentDescription" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="abonimentDuration" Type="int" Nullable="false" />
+    <Property Name="poolacsess" Type="bit" Nullable="false" />
+    <Property Name="abonimentCost" Type="money" Nullable="false" />
+    <Property Name="abonimentSale" Type="float" />
+    <Property Name="groupCount" Type="int" />
+    <Property Name="abonimentName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="actualbool" Type="bit" Nullable="false" />
+    <Property Name="abonimentImage" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="AbonimentsWithClient">
+    <Key>
+      <PropertyRef Name="abonimentClientId" />
+    </Key>
+    <Property Name="abonimentClientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="abonimentId" Type="int" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="selldate" Type="date" />
+    <Property Name="externgroup" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerGroup">
+    <Key>
+      <PropertyRef Name="customerId" />
+      <PropertyRef Name="grouplessonId" />
+    </Key>
+    <Property Name="customerId" Type="int" Nullable="false" />
+    <Property Name="grouplessonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerInfo">
+    <Key>
+      <PropertyRef Name="customerInfoId" />
+    </Key>
+    <Property Name="customerInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="customerId" Type="int" />
+    <Property Name="city" Type="nvarchar" MaxLength="15" />
+    <Property Name="sex" Type="bit" />
+    <Property Name="adress" Type="nvarchar" MaxLength="50" />
+    <Property Name="bdate" Type="date" />
+    <Property Name="Phone" Type="char" MaxLength="10" />
+    <Property Name="userimage" Type="nvarchar" MaxLength="15" />
+    <Property Name="detailinfo" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="customerId" />
+    </Key>
+    <Property Name="customerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="pass" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="lastname" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="employeeId" />
+    </Key>
+    <Property Name="employeeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="emplastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="empEmail" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="empGender" Type="bit" Nullable="false" />
+    <Property Name="empBdate" Type="date" Nullable="false" />
+    <Property Name="empPhone" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="postid" Type="int" Nullable="false" />
+    <Property Name="empdate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GroupLessons">
+    <Key>
+      <PropertyRef Name="grouplessonId" />
+    </Key>
+    <Property Name="grouplessonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lessontypeId" Type="int" Nullable="false" />
+    <Property Name="grouplessondate" Type="date" Nullable="false" />
+    <Property Name="lessontimeId" Type="int" Nullable="false" />
+    <Property Name="trainerId" Type="int" />
+    <Property Name="SportHallid" Type="int" />
+  </EntityType>
+  <EntityType Name="IndividualLesson">
+    <Key>
+      <PropertyRef Name="IndividualLesson" />
+    </Key>
+    <Property Name="IndividualLesson" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lessontypeId" Type="int" Nullable="false" />
+    <Property Name="trainerId" Type="int" Nullable="false" />
+    <Property Name="clientid" Type="int" Nullable="false" />
+    <Property Name="lessondate" Type="date" Nullable="false" />
+    <Property Name="lessontimeId" Type="int" Nullable="false" />
+    <Property Name="SportHallid" Type="int" />
+  </EntityType>
+  <EntityType Name="LessonsToTrainer">
+    <Key>
+      <PropertyRef Name="trainerId" />
+      <PropertyRef Name="lessonId" />
+    </Key>
+    <Property Name="trainerId" Type="int" Nullable="false" />
+    <Property Name="lessonId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LessonsType">
+    <Key>
+      <PropertyRef Name="lessonId" />
+    </Key>
+    <Property Name="lessonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="lessonname" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="lessonDescription" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="lessonDurarion" Type="int" Nullable="false" />
+    <Property Name="grouplessoncost" Type="money" Nullable="false" />
+    <Property Name="individuallessoncost" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="postId" />
+    </Key>
+    <Property Name="postId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="postName" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="postDescription" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="postsalary" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SportHalls">
+    <Key>
+      <PropertyRef Name="hallID" />
+    </Key>
+    <Property Name="hallID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="hallAmount" Type="int" Nullable="false" />
+    <Property Name="hallDescription" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="hallimage" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TrainerInfo">
+    <Key>
+      <PropertyRef Name="trainerId" />
+    </Key>
+    <Property Name="trainerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="trainerabout" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="photo" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WorkTimes">
+    <Key>
+      <PropertyRef Name="wtId" />
+    </Key>
+    <Property Name="wtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wtname" Type="nvarchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Aboniment__aboni__6FD49106">
+    <End Role="Aboniments" Type="Self.Aboniments" Multiplicity="0..1" />
+    <End Role="AbonimentsWithClient" Type="Self.AbonimentsWithClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aboniments">
+        <PropertyRef Name="abonimentId" />
+      </Principal>
+      <Dependent Role="AbonimentsWithClient">
+        <PropertyRef Name="abonimentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Aboniment__custo__71BCD978">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="AbonimentsWithClient" Type="Self.AbonimentsWithClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="AbonimentsWithClient">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerG__custo__131DCD43">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="CustomerGroup" Type="Self.CustomerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="CustomerGroup">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerG__group__1411F17C">
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="1" />
+    <End Role="CustomerGroup" Type="Self.CustomerGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupLessons">
+        <PropertyRef Name="grouplessonId" />
+      </Principal>
+      <Dependent Role="CustomerGroup">
+        <PropertyRef Name="grouplessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CustomerI__custo__758D6A5C">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="CustomerInfo">
+        <PropertyRef Name="customerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__postid__000AF8CF">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="postId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="postid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__lesso__0D64F3ED">
+    <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonsType">
+        <PropertyRef Name="lessonId" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="lessontypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__lesso__0E591826">
+    <End Role="WorkTimes" Type="Self.WorkTimes" Multiplicity="1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkTimes">
+        <PropertyRef Name="wtId" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="lessontimeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__Sport__10416098">
+    <End Role="SportHalls" Type="Self.SportHalls" Multiplicity="0..1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportHalls">
+        <PropertyRef Name="hallID" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="SportHallid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__GroupLess__train__0F4D3C5F">
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="0..1" />
+    <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainerInfo">
+        <PropertyRef Name="trainerId" />
+      </Principal>
+      <Dependent Role="GroupLessons">
+        <PropertyRef Name="trainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__clien__18D6A699">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customerId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="clientid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__lesso__16EE5E27">
+    <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonsType">
+        <PropertyRef Name="lessonId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="lessontypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__lesso__19CACAD2">
+    <End Role="WorkTimes" Type="Self.WorkTimes" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkTimes">
+        <PropertyRef Name="wtId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="lessontimeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__Sport__1ABEEF0B">
+    <End Role="SportHalls" Type="Self.SportHalls" Multiplicity="0..1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportHalls">
+        <PropertyRef Name="hallID" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="SportHallid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Individua__train__17E28260">
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="1" />
+    <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainerInfo">
+        <PropertyRef Name="trainerId" />
+      </Principal>
+      <Dependent Role="IndividualLesson">
+        <PropertyRef Name="trainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LessonsTo__lesso__0A888742">
+    <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
+    <End Role="LessonsToTrainer" Type="Self.LessonsToTrainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LessonsType">
+        <PropertyRef Name="lessonId" />
+      </Principal>
+      <Dependent Role="LessonsToTrainer">
+        <PropertyRef Name="lessonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LessonsTo__train__09946309">
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="1" />
+    <End Role="LessonsToTrainer" Type="Self.LessonsToTrainer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainerInfo">
+        <PropertyRef Name="trainerId" />
+      </Principal>
+      <Dependent Role="LessonsToTrainer">
+        <PropertyRef Name="trainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TrainerIn__empid__04CFADEC">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="employeeId" />
+      </Principal>
+      <Dependent Role="TrainerInfo">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AddAboniment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Duration" Type="int" Mode="In" />
+    <Parameter Name="poolacsess" Type="bit" Mode="In" />
+    <Parameter Name="Cost" Type="money" Mode="In" />
+    <Parameter Name="Sale" Type="float" Mode="In" />
+    <Parameter Name="groupCount" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddCustomerInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clientid" Type="int" Mode="In" />
+    <Parameter Name="city" Type="nvarchar" Mode="In" />
+    <Parameter Name="sex" Type="bit" Mode="In" />
+    <Parameter Name="adress" Type="nvarchar" Mode="In" />
+    <Parameter Name="bdate" Type="date" Mode="In" />
+    <Parameter Name="Phone" Type="char" Mode="In" />
+    <Parameter Name="userimage" Type="nvarchar" Mode="In" />
+    <Parameter Name="detailinfo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="empEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="empBdate" Type="date" Mode="In" />
+    <Parameter Name="empPhone" Type="char" Mode="In" />
+    <Parameter Name="postid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddGrouplesson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrainerId" Type="int" Mode="In" />
+    <Parameter Name="lessontypeId" Type="int" Mode="In" />
+    <Parameter Name="hallId" Type="int" Mode="In" />
+    <Parameter Name="lessdate" Type="date" Mode="In" />
+    <Parameter Name="lesstimeId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddIndividualLess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TrainerId" Type="int" Mode="In" />
+    <Parameter Name="lessontypeId" Type="int" Mode="In" />
+    <Parameter Name="hallId" Type="int" Mode="In" />
+    <Parameter Name="lessdate" Type="date" Mode="In" />
+    <Parameter Name="lesstimeId" Type="int" Mode="In" />
+    <Parameter Name="clientid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AddNewEmployy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="empEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="empBdate" Type="date" Mode="In" />
+    <Parameter Name="empPhone" Type="char" Mode="In" />
+    <Parameter Name="postid" Type="int" Mode="In" />
+    <Parameter Name="empdate" Type="date" Mode="In" />
+  </Function>
+  <Function Name="AddPost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="postName" Type="nvarchar" Mode="In" />
+    <Parameter Name="postDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="postsalary" Type="money" Mode="In" />
+  </Function>
+  <Function Name="AddTrainerAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empId" Type="int" Mode="In" />
+    <Parameter Name="about" Type="nvarchar" Mode="In" />
+    <Parameter Name="photo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="CashIn" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="from" Type="date" Mode="In" />
+    <Parameter Name="end" Type="date" Mode="In" />
+  </Function>
+  <Function Name="CashInOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="from" Type="date" Mode="In" />
+    <Parameter Name="end" Type="date" Mode="In" />
+  </Function>
+  <Function Name="CashOut" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="from" Type="date" Mode="In" />
+    <Parameter Name="end" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ChangeAboniment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Duration" Type="int" Mode="In" />
+    <Parameter Name="poolacsess" Type="bit" Mode="In" />
+    <Parameter Name="Cost" Type="money" Mode="In" />
+    <Parameter Name="Sale" Type="float" Mode="In" />
+    <Parameter Name="groupCount" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ChangePassWord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ChangePost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="postName" Type="nvarchar" Mode="In" />
+    <Parameter Name="postDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="postsalary" Type="money" Mode="In" />
+  </Function>
+  <Function Name="DeleteAboniment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="GETClientsByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetShedule" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Date" Type="date" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="TOGroupLesson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="clientid" Type="int" Mode="In" />
+    <Parameter Name="groupLessonid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TrainerList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lessonId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище FitnessCenterDBModelContainer">
+    <EntitySet Name="Aboniments" EntityType="Self.Aboniments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AbonimentsWithClient" EntityType="Self.AbonimentsWithClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerGroup" EntityType="Self.CustomerGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerInfo" EntityType="Self.CustomerInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GroupLessons" EntityType="Self.GroupLessons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="IndividualLesson" EntityType="Self.IndividualLesson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LessonsToTrainer" EntityType="Self.LessonsToTrainer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LessonsType" EntityType="Self.LessonsType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SportHalls" EntityType="Self.SportHalls" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainerInfo" EntityType="Self.TrainerInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkTimes" EntityType="Self.WorkTimes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Aboniment__aboni__6FD49106" Association="Self.FK__Aboniment__aboni__6FD49106">
+      <End Role="Aboniments" EntitySet="Aboniments" />
+      <End Role="AbonimentsWithClient" EntitySet="AbonimentsWithClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Aboniment__custo__71BCD978" Association="Self.FK__Aboniment__custo__71BCD978">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="AbonimentsWithClient" EntitySet="AbonimentsWithClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerG__custo__131DCD43" Association="Self.FK__CustomerG__custo__131DCD43">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerGroup" EntitySet="CustomerGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerG__group__1411F17C" Association="Self.FK__CustomerG__group__1411F17C">
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+      <End Role="CustomerGroup" EntitySet="CustomerGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CustomerI__custo__758D6A5C" Association="Self.FK__CustomerI__custo__758D6A5C">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerInfo" EntitySet="CustomerInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__postid__000AF8CF" Association="Self.FK__Employee__postid__000AF8CF">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__lesso__0D64F3ED" Association="Self.FK__GroupLess__lesso__0D64F3ED">
+      <End Role="LessonsType" EntitySet="LessonsType" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__lesso__0E591826" Association="Self.FK__GroupLess__lesso__0E591826">
+      <End Role="WorkTimes" EntitySet="WorkTimes" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__Sport__10416098" Association="Self.FK__GroupLess__Sport__10416098">
+      <End Role="SportHalls" EntitySet="SportHalls" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__GroupLess__train__0F4D3C5F" Association="Self.FK__GroupLess__train__0F4D3C5F">
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+      <End Role="GroupLessons" EntitySet="GroupLessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__clien__18D6A699" Association="Self.FK__Individua__clien__18D6A699">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__lesso__16EE5E27" Association="Self.FK__Individua__lesso__16EE5E27">
+      <End Role="LessonsType" EntitySet="LessonsType" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__lesso__19CACAD2" Association="Self.FK__Individua__lesso__19CACAD2">
+      <End Role="WorkTimes" EntitySet="WorkTimes" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__Sport__1ABEEF0B" Association="Self.FK__Individua__Sport__1ABEEF0B">
+      <End Role="SportHalls" EntitySet="SportHalls" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Individua__train__17E28260" Association="Self.FK__Individua__train__17E28260">
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+      <End Role="IndividualLesson" EntitySet="IndividualLesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LessonsTo__lesso__0A888742" Association="Self.FK__LessonsTo__lesso__0A888742">
+      <End Role="LessonsType" EntitySet="LessonsType" />
+      <End Role="LessonsToTrainer" EntitySet="LessonsToTrainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LessonsTo__train__09946309" Association="Self.FK__LessonsTo__train__09946309">
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+      <End Role="LessonsToTrainer" EntitySet="LessonsToTrainer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TrainerIn__empid__04CFADEC" Association="Self.FK__TrainerIn__empid__04CFADEC">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TrainerInfo" EntitySet="TrainerInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

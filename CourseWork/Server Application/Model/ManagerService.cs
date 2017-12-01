@@ -171,7 +171,8 @@ namespace Server_Application.Model
                                                   new XAttribute("id", item.hallID),
                                                   new XAttribute("description", item.hallDescription),
                                                   new XAttribute("amount", item.hallAmount),
-                                                  new XAttribute("image", item.hallimage)));
+                                                  new XAttribute("image", item.hallimage),
+                                                  new XAttribute("name" , item.name)));
                 }
 
                 var qwery4 = from c in db.Posts
@@ -195,7 +196,9 @@ namespace Server_Application.Model
                                                      new XAttribute("bdate", item.empBdate),
                                                      new XAttribute("email", item.empEmail),
                                                      new XAttribute("phone", item.empPhone),
-                                                     new XAttribute("postId",item.postid)));
+                                                     new XAttribute("postId",item.postid),
+                                                     new XAttribute("empDate",item.empdate),
+                                                     new XAttribute("empGender",item.empGender)));
                 }
                 var qwery6 = from c in db.TrainerInfo
                              select c;
@@ -303,6 +306,163 @@ namespace Server_Application.Model
                 }
             }
                 return 0;
+        }
+
+        public void DeleteAboniment(int id)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.DeleteAboniment(id);
+            }            
+        }
+
+        public void ChangeAboniment(int id, Aboniment abon)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.ChangeAboniment(id, abon.name, abon.description, abon.duration, abon.pool, Convert.ToDecimal(abon.cost), abon.sale, abon.groupcount);
+            }
+        }
+
+        public void AddAboniment(Aboniment abon)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.AddAboniment(abon.name, abon.description, abon.duration, abon.pool, Convert.ToDecimal(abon.cost), abon.sale, abon.groupcount);
+            }
+        }
+
+        public void DeletePost(int id)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.DeletePost(id);
+            }
+        }
+
+        public void ChangePost(int id, Post post)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.ChangePost(id, post.postName, post.description, post.salary);
+            }
+        }
+
+        public void AddPost(Post post)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.AddPost(post.postName, post.description, post.salary);
+            }
+        }
+
+        public void addEmployee(Employee emp)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.AddEmployee(emp.empName, emp.emplastName, emp.empEmail, emp.empBdate, emp.empPhone, emp.postid,DateTime.Now,emp.empGender);
+            }
+        }
+
+        public void changeEmployee(int id, Employee emp)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.ChangeEmp(id, emp.empName, emp.emplastName, emp.empEmail, emp.empBdate, emp.empPhone, emp.postid, emp.empGender); 
+            }
+        }
+
+        public void deleteEmployee(int id)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                db.DeleteEmployee(id);
+            }
+        }
+
+        public Cash GetCashFromTo(long from1, long to)
+        {
+            using(FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                var qwery = from c in db.CashinAbon(DateTime.FromBinary(from1), DateTime.FromBinary(to))
+                            select  c;
+                var qwery1 = from c in db.CashinGroup(DateTime.FromBinary(from1), DateTime.FromBinary(to))
+                            select c;
+                var qwery2 = from c in db.CashInIndiv(DateTime.FromBinary(from1), DateTime.FromBinary(to))
+                             select c;
+                var qwery3 = from c in db.CashOutSalary(DateTime.FromBinary(from1), DateTime.FromBinary(to))
+                             select c;
+                decimal d =0;
+                decimal s =0;
+                
+                foreach (var item in qwery)
+                {
+                   d += item.Value;
+                }
+                foreach (var item in qwery1)
+                {
+                    d += item.Value;
+                }
+                foreach (var item in qwery2)
+                {
+                    d += item.Value;
+                }
+                foreach (var item in qwery3)
+                {
+                    s += item.Value;
+                }
+                return new Cash() { allincash = d, salarycash = s };
+
+
+
+            }
+        }
+
+        public int[] GetTrainerlist(int lessonid)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                var qwery = from c in db.TrainerList(lessonid)
+                            select c;
+                List<int> list = new List<int>();
+                foreach (var item in qwery)
+                {
+                    list.Add(item.trainerId);
+                }
+                return list.ToArray();
+            }
+        }
+
+        public int[] GetFreeTime(DateTime date, int hallId)
+        {
+            using (FitnessCenterDBEntities db = new FitnessCenterDBEntities())
+            {
+                var qwery1 = from c in db.WoorkTimGroup(date, hallId)
+                            select c;
+                List<int> temp = new List<int>();
+                foreach (var item in qwery1)
+                {
+                    temp.Add(item.Value);
+                }
+                var qwery2 = from c in db.WoorkTimIndiv(date, hallId)
+                             select c;
+                foreach (var item in qwery2)
+                {
+                    temp.Add(item.Value);
+                }
+                List<int> rez = new List<int>();
+                var qwery3 = from c in db.WorkTimes
+                             select c.wtId;
+                foreach (var item in qwery3)
+                {
+                    rez.Add(item);
+                }
+                for (int i = 0; i <temp.Count; i++)
+                {
+                    rez.Remove(temp[i]);
+                }
+                return rez.ToArray();
+            }
         }
     }
 

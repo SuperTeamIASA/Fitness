@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="92b2aef3a53d407783e4b9637d5dce15" Name="Diagram1">
+        <EntityTypeShape EntityType="FitnessCenterDBModel.Aboniments" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.AbonimentsWithClient" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.CustomerInfo" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.Customers" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.Employee" Width="1.5" PointX="1.5" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.GroupLessons" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.IndividualLesson" Width="1.5" PointX="6" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.LessonsType" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.Posts" Width="1.5" PointX="1.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.SportHalls" Width="1.5" PointX="3.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.TrainerInfo" Width="1.5" PointX="3.75" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FitnessCenterDBModel.WorkTimes" Width="1.5" PointX="3.75" PointY="21.5" IsExpanded="true" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Aboniment__aboni__1B13F4C6" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Aboniment__custo__1CFC3D38" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__CustomerI__custo__20CCCE1C" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__clien__44160A59" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Employee__postid__2B4A5C8F" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__TrainerIn__empid__300F11AC" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__lesso__38A457AD" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__lesso__39987BE6" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__Sport__3B80C458" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__GroupLess__train__3A8CA01F" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__lesso__422DC1E7" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__lesso__450A2E92" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__Sport__45FE52CB" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.FK__Individua__train__4321E620" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.CustomerGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="FitnessCenterDBModel.LessonsToTrainer" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -5,12 +5,15 @@
       <PropertyRef Name="abonimentId" />
     </Key>
     <Property Name="abonimentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="abonimentDescription" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="abonimentDescription" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="abonimentDuration" Type="int" Nullable="false" />
     <Property Name="poolacsess" Type="bit" Nullable="false" />
     <Property Name="abonimentCost" Type="money" Nullable="false" />
     <Property Name="abonimentSale" Type="float" />
     <Property Name="groupCount" Type="int" />
+    <Property Name="abonimentName" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="actualbool" Type="bit" Nullable="false" />
+    <Property Name="abonimentImage" Type="nvarchar" MaxLength="15" />
   </EntityType>
   <EntityType Name="AbonimentsWithClient">
     <Key>
@@ -65,6 +68,7 @@
     <Property Name="empBdate" Type="date" Nullable="false" />
     <Property Name="empPhone" Type="char" MaxLength="12" Nullable="false" />
     <Property Name="postid" Type="int" Nullable="false" />
+    <Property Name="empdate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="GroupLessons">
     <Key>
@@ -144,7 +148,7 @@
     <Property Name="wtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="wtname" Type="nvarchar" MaxLength="5" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Aboniment__aboni__4EDDB18F">
+  <Association Name="FK__Aboniment__aboni__23893F36">
     <End Role="Aboniments" Type="Self.Aboniments" Multiplicity="0..1" />
     <End Role="AbonimentsWithClient" Type="Self.AbonimentsWithClient" Multiplicity="*" />
     <ReferentialConstraint>
@@ -156,7 +160,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Aboniment__custo__50C5FA01">
+  <Association Name="FK__Aboniment__custo__257187A8">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="AbonimentsWithClient" Type="Self.AbonimentsWithClient" Multiplicity="*" />
     <ReferentialConstraint>
@@ -168,7 +172,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CustomerG__custo__6C6E1476">
+  <Association Name="FK__CustomerG__custo__420DC656">
     <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
     <End Role="CustomerGroup" Type="Self.CustomerGroup" Multiplicity="*" />
     <ReferentialConstraint>
@@ -180,7 +184,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CustomerG__group__6D6238AF">
+  <Association Name="FK__CustomerG__group__4301EA8F">
     <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="1" />
     <End Role="CustomerGroup" Type="Self.CustomerGroup" Multiplicity="*" />
     <ReferentialConstraint>
@@ -192,7 +196,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__CustomerI__custo__54968AE5">
+  <Association Name="FK__CustomerI__custo__2942188C">
     <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
     <End Role="CustomerInfo" Type="Self.CustomerInfo" Multiplicity="*" />
     <ReferentialConstraint>
@@ -204,7 +208,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Employee__postid__5E1FF51F">
+  <Association Name="FK__Employee__postid__33BFA6FF">
     <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
     <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
     <ReferentialConstraint>
@@ -216,7 +220,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GroupLess__lesso__66B53B20">
+  <Association Name="FK__GroupLess__lesso__3C54ED00">
     <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
     <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
     <ReferentialConstraint>
@@ -228,7 +232,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GroupLess__lesso__67A95F59">
+  <Association Name="FK__GroupLess__lesso__3D491139">
     <End Role="WorkTimes" Type="Self.WorkTimes" Multiplicity="1" />
     <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
     <ReferentialConstraint>
@@ -240,7 +244,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GroupLess__Sport__6991A7CB">
+  <Association Name="FK__GroupLess__Sport__3F3159AB">
     <End Role="SportHalls" Type="Self.SportHalls" Multiplicity="0..1" />
     <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
     <ReferentialConstraint>
@@ -252,7 +256,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__GroupLess__train__689D8392">
+  <Association Name="FK__GroupLess__train__3E3D3572">
     <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="0..1" />
     <End Role="GroupLessons" Type="Self.GroupLessons" Multiplicity="*" />
     <ReferentialConstraint>
@@ -264,7 +268,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Individua__clien__7226EDCC">
+  <Association Name="FK__Individua__clien__47C69FAC">
     <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
     <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
     <ReferentialConstraint>
@@ -276,7 +280,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Individua__lesso__703EA55A">
+  <Association Name="FK__Individua__lesso__45DE573A">
     <End Role="LessonsType" Type="Self.LessonsType" Multiplicity="1" />
     <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
     <ReferentialConstraint>
@@ -288,7 +292,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Individua__lesso__731B1205">
+  <Association Name="FK__Individua__lesso__48BAC3E5">
     <End Role="WorkTimes" Type="Self.WorkTimes" Multiplicity="1" />
     <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
     <ReferentialConstraint>
@@ -300,7 +304,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Individua__Sport__740F363E">
+  <Association Name="FK__Individua__Sport__49AEE81E">
     <End Role="SportHalls" Type="Self.SportHalls" Multiplicity="0..1" />
     <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
     <ReferentialConstraint>
@@ -312,7 +316,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Individua__train__7132C993">
+  <Association Name="FK__Individua__train__46D27B73">
     <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="1" />
     <End Role="IndividualLesson" Type="Self.IndividualLesson" Multiplicity="*" />
     <ReferentialConstraint>
@@ -324,8 +328,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__TrainerIn__empid__61F08603">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+  <Association Name="FK__TrainerIn__empid__379037E3">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="TrainerInfo" Type="Self.TrainerInfo" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Employee">
@@ -336,6 +342,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="AddAboniment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Duration" Type="int" Mode="In" />
+    <Parameter Name="poolacsess" Type="bit" Mode="In" />
+    <Parameter Name="Cost" Type="money" Mode="In" />
+    <Parameter Name="Sale" Type="float" Mode="In" />
+    <Parameter Name="groupCount" Type="int" Mode="In" />
+  </Function>
   <Function Name="AddClient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="LastName" Type="nvarchar" Mode="In" />
@@ -351,6 +366,14 @@
     <Parameter Name="Phone" Type="char" Mode="In" />
     <Parameter Name="userimage" Type="nvarchar" Mode="In" />
     <Parameter Name="detailinfo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastName" Type="nvarchar" Mode="In" />
+    <Parameter Name="empEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="empBdate" Type="date" Mode="In" />
+    <Parameter Name="empPhone" Type="char" Mode="In" />
+    <Parameter Name="postid" Type="int" Mode="In" />
   </Function>
   <Function Name="AddGrouplesson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="TrainerId" Type="int" Mode="In" />
@@ -374,15 +397,46 @@
     <Parameter Name="empBdate" Type="date" Mode="In" />
     <Parameter Name="empPhone" Type="char" Mode="In" />
     <Parameter Name="postid" Type="int" Mode="In" />
+    <Parameter Name="empdate" Type="date" Mode="In" />
   </Function>
-  <Function Name="AddNewPost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="AddPost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="postName" Type="nvarchar" Mode="In" />
     <Parameter Name="postDescription" Type="nvarchar" Mode="In" />
     <Parameter Name="postsalary" Type="money" Mode="In" />
   </Function>
+  <Function Name="AddTrainerAbout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="empId" Type="int" Mode="In" />
+    <Parameter Name="about" Type="nvarchar" Mode="In" />
+    <Parameter Name="photo" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ChangeAboniment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Duration" Type="int" Mode="In" />
+    <Parameter Name="poolacsess" Type="bit" Mode="In" />
+    <Parameter Name="Cost" Type="money" Mode="In" />
+    <Parameter Name="Sale" Type="float" Mode="In" />
+    <Parameter Name="groupCount" Type="int" Mode="In" />
+  </Function>
   <Function Name="ChangePassWord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
     <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ChangePost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="postName" Type="nvarchar" Mode="In" />
+    <Parameter Name="postDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="postsalary" Type="money" Mode="In" />
+  </Function>
+  <Function Name="DeleteAboniment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
   </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="GETClientsByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -441,67 +495,67 @@
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrainerInfo" EntityType="Self.TrainerInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkTimes" EntityType="Self.WorkTimes" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Aboniment__aboni__4EDDB18F" Association="Self.FK__Aboniment__aboni__4EDDB18F">
+    <AssociationSet Name="FK__Aboniment__aboni__23893F36" Association="Self.FK__Aboniment__aboni__23893F36">
       <End Role="Aboniments" EntitySet="Aboniments" />
       <End Role="AbonimentsWithClient" EntitySet="AbonimentsWithClient" />
     </AssociationSet>
-    <AssociationSet Name="FK__Aboniment__custo__50C5FA01" Association="Self.FK__Aboniment__custo__50C5FA01">
+    <AssociationSet Name="FK__Aboniment__custo__257187A8" Association="Self.FK__Aboniment__custo__257187A8">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="AbonimentsWithClient" EntitySet="AbonimentsWithClient" />
     </AssociationSet>
-    <AssociationSet Name="FK__CustomerG__custo__6C6E1476" Association="Self.FK__CustomerG__custo__6C6E1476">
+    <AssociationSet Name="FK__CustomerG__custo__420DC656" Association="Self.FK__CustomerG__custo__420DC656">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CustomerGroup" EntitySet="CustomerGroup" />
     </AssociationSet>
-    <AssociationSet Name="FK__CustomerG__group__6D6238AF" Association="Self.FK__CustomerG__group__6D6238AF">
+    <AssociationSet Name="FK__CustomerG__group__4301EA8F" Association="Self.FK__CustomerG__group__4301EA8F">
       <End Role="GroupLessons" EntitySet="GroupLessons" />
       <End Role="CustomerGroup" EntitySet="CustomerGroup" />
     </AssociationSet>
-    <AssociationSet Name="FK__CustomerI__custo__54968AE5" Association="Self.FK__CustomerI__custo__54968AE5">
+    <AssociationSet Name="FK__CustomerI__custo__2942188C" Association="Self.FK__CustomerI__custo__2942188C">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="CustomerInfo" EntitySet="CustomerInfo" />
     </AssociationSet>
-    <AssociationSet Name="FK__Employee__postid__5E1FF51F" Association="Self.FK__Employee__postid__5E1FF51F">
+    <AssociationSet Name="FK__Employee__postid__33BFA6FF" Association="Self.FK__Employee__postid__33BFA6FF">
       <End Role="Posts" EntitySet="Posts" />
       <End Role="Employee" EntitySet="Employee" />
     </AssociationSet>
-    <AssociationSet Name="FK__GroupLess__lesso__66B53B20" Association="Self.FK__GroupLess__lesso__66B53B20">
+    <AssociationSet Name="FK__GroupLess__lesso__3C54ED00" Association="Self.FK__GroupLess__lesso__3C54ED00">
       <End Role="LessonsType" EntitySet="LessonsType" />
       <End Role="GroupLessons" EntitySet="GroupLessons" />
     </AssociationSet>
-    <AssociationSet Name="FK__GroupLess__lesso__67A95F59" Association="Self.FK__GroupLess__lesso__67A95F59">
+    <AssociationSet Name="FK__GroupLess__lesso__3D491139" Association="Self.FK__GroupLess__lesso__3D491139">
       <End Role="WorkTimes" EntitySet="WorkTimes" />
       <End Role="GroupLessons" EntitySet="GroupLessons" />
     </AssociationSet>
-    <AssociationSet Name="FK__GroupLess__Sport__6991A7CB" Association="Self.FK__GroupLess__Sport__6991A7CB">
+    <AssociationSet Name="FK__GroupLess__Sport__3F3159AB" Association="Self.FK__GroupLess__Sport__3F3159AB">
       <End Role="SportHalls" EntitySet="SportHalls" />
       <End Role="GroupLessons" EntitySet="GroupLessons" />
     </AssociationSet>
-    <AssociationSet Name="FK__GroupLess__train__689D8392" Association="Self.FK__GroupLess__train__689D8392">
+    <AssociationSet Name="FK__GroupLess__train__3E3D3572" Association="Self.FK__GroupLess__train__3E3D3572">
       <End Role="TrainerInfo" EntitySet="TrainerInfo" />
       <End Role="GroupLessons" EntitySet="GroupLessons" />
     </AssociationSet>
-    <AssociationSet Name="FK__Individua__clien__7226EDCC" Association="Self.FK__Individua__clien__7226EDCC">
+    <AssociationSet Name="FK__Individua__clien__47C69FAC" Association="Self.FK__Individua__clien__47C69FAC">
       <End Role="Customers" EntitySet="Customers" />
       <End Role="IndividualLesson" EntitySet="IndividualLesson" />
     </AssociationSet>
-    <AssociationSet Name="FK__Individua__lesso__703EA55A" Association="Self.FK__Individua__lesso__703EA55A">
+    <AssociationSet Name="FK__Individua__lesso__45DE573A" Association="Self.FK__Individua__lesso__45DE573A">
       <End Role="LessonsType" EntitySet="LessonsType" />
       <End Role="IndividualLesson" EntitySet="IndividualLesson" />
     </AssociationSet>
-    <AssociationSet Name="FK__Individua__lesso__731B1205" Association="Self.FK__Individua__lesso__731B1205">
+    <AssociationSet Name="FK__Individua__lesso__48BAC3E5" Association="Self.FK__Individua__lesso__48BAC3E5">
       <End Role="WorkTimes" EntitySet="WorkTimes" />
       <End Role="IndividualLesson" EntitySet="IndividualLesson" />
     </AssociationSet>
-    <AssociationSet Name="FK__Individua__Sport__740F363E" Association="Self.FK__Individua__Sport__740F363E">
+    <AssociationSet Name="FK__Individua__Sport__49AEE81E" Association="Self.FK__Individua__Sport__49AEE81E">
       <End Role="SportHalls" EntitySet="SportHalls" />
       <End Role="IndividualLesson" EntitySet="IndividualLesson" />
     </AssociationSet>
-    <AssociationSet Name="FK__Individua__train__7132C993" Association="Self.FK__Individua__train__7132C993">
+    <AssociationSet Name="FK__Individua__train__46D27B73" Association="Self.FK__Individua__train__46D27B73">
       <End Role="TrainerInfo" EntitySet="TrainerInfo" />
       <End Role="IndividualLesson" EntitySet="IndividualLesson" />
     </AssociationSet>
-    <AssociationSet Name="FK__TrainerIn__empid__61F08603" Association="Self.FK__TrainerIn__empid__61F08603">
+    <AssociationSet Name="FK__TrainerIn__empid__379037E3" Association="Self.FK__TrainerIn__empid__379037E3">
       <End Role="Employee" EntitySet="Employee" />
       <End Role="TrainerInfo" EntitySet="TrainerInfo" />
     </AssociationSet>
